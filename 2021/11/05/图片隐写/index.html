@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-11-10
+                    2021-12-25
                 </div>
                 
 
@@ -493,22 +493,19 @@
 <p>zip文件头：50 4B 03 04</p>
 <p>PNG文件头：89 50 4E 47 0D 0A 1A 0A 00 00 00 0D</p>
 <p>对于文件头缺失的文件，一般都是粘贴，如果选择写入会覆盖原来的</p>
-<p><img src="https://i.loli.net/2021/11/02/TrzUbSj4g9J8mhH.png" alt="image-20211102155539996"></p>
-<p><img src="https://i.loli.net/2021/11/05/OLE7aQrgAbj4x1u.jpg" alt="img"></p>
 <p>图片高度有问题修改第二排前16位，前面是宽后面是高</p>
-<p><img src="https://i.loli.net/2021/11/02/hC5lVmM9EJKUxyt.png" alt="image-20211102213849913"></p>
 <h3 id="2、LBS隐写：最低有效位-StegSolve"><a href="#2、LBS隐写：最低有效位-StegSolve" class="headerlink" title="2、LBS隐写：最低有效位  StegSolve"></a>2、LBS隐写：最低有效位  StegSolve</h3><p>用嵌入的秘密信息取代载体图像的最低比特位，原来的7个高低平面与替代 秘密信息的最低位平面组合成含隐藏信息对等的新图形。</p>
 <p>png图片：一种无损压缩的位图片形格式，也只有在无损压缩或者无压缩的      图片（BMP）上实现lsb隐写。</p>
 <p>如果图像是jpg图片的话，就没法使用lsb隐写了，原因是jpg图片对像数进行了有损压缩，我们修改的信息就可能会在压缩的过程中被破坏。</p>
 <p>而png图片虽然也有压缩，但却是无损压缩，这样我们修改的信息也就能得到正确的表达，不至于丢失。BMP的图片也是一样的，是没有经过压缩的。BMP图片一般是特别的大的，因为BMP把所有的像数都按原样储存，没有进行压缩。</p>
 <p>LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB）每个像数可以携带3比特的信息。</p>
-<p><img src="https://image-static.segmentfault.com/108/897/1088978167-5b88d68b97c13_articlex" alt="图片描述"></p>
+<p><img src="https://image-static.segmentfault.com/108/897/1088978167-5b88d68b97c13_articlex"></p>
 <p>修改最低有效位的信息的算法就叫做lsb加密算法，提取最低有效位信息的算法叫做lsb解密算法。</p>
 <p>由于图像是由像素构成的，每个像素有8位(对于BMP图像来说),通常最后一位的变化，通过肉眼是无法察觉的</p>
 <p>MSB是最高有效位，Bit Plane Order代表颜色的排序方式</p>
 <p>字节上的读取顺序与<code>Bit Order</code>选项有关，如果设置了MSBFirst，是从高位开始读取，LSBFirst是从低位开始读取</p>
 <p>先左右滑动查看，发现red、blue、green均为0 </p>
-<p><img src="https://img-blog.csdnimg.cn/20201128155355874.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20201128155355874.png"></p>
 <p>然后选择Data Extract，抽取数据</p>
 <p><em>File Format：文件格式，这个主要是查看图片的具体信息</em></p>
 <p><em>Data Extract：数据抽取，图片中隐藏数据的抽取</em></p>
@@ -530,12 +527,8 @@ zsteg zlib.bmp -b 1 -o xy -v
 <pre><code>zsteg -e b8,a,lsb,xy 文件.png -&gt; out.png
 </code></pre>
 <p>先放winhex里，没有找到flag，kali打开，没有修改宽高，binwalk分析，没有隐藏文件，尝试用zsteg工具，发现一串base密码，解密即可</p>
-<p><img src="https://i.loli.net/2021/11/02/s4IxH2J1gWOSVh9.png" alt="image-20211102235821626"></p>
 <h3 id="4、动图"><a href="#4、动图" class="headerlink" title="4、动图"></a>4、动图</h3><p>看到动图先一帧一帧的看但是没有看到任何信息</p>
 <p>尝试用StegSolve查看，向左查看发现red plane 7的时候变化较大，用Frame Browser（帧浏览器）查看，发现只有上半的时候可能藏有flag，再保存下来，查看到red plane 2 的时候即可发现flag。（这道题没怎么明白原理）</p>
-<p><img src="https://i.loli.net/2021/11/02/j8WwPsZABriGyRV.png" alt="image-20211102234443530"></p>
-<p><img src="https://i.loli.net/2021/11/05/2iYvsXkKGuBnrQS.png" alt="image-20211105182236314"></p>
-<p><img src="https://i.loli.net/2021/11/05/u9CveaOGgzRjioN.png" alt="image-20211105182352375"></p>
 
                 
             </div>
@@ -952,7 +945,7 @@ zsteg zlib.bmp -b 1 -o xy -v
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.7k</span>
+                        class="white-color">3.2k</span>
             
             
             
