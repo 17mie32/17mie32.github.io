@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="E=MC^2">
-    <meta name="description" content="title: 渗透：基础概念top: falsecover: falsetoc: truemathjax: falsedate: 2022-1-9author: 17mie32summary: 基础概念keywords: 渗透学习tags:">
+    <meta name="keywords" content="渗透学习">
+    <meta name="description" content="数据包拓展">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>E=MC^2</title>
+    <title>渗透：数据包扩展 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">渗透：数据包扩展</h1>
                 </div>
             </div>
         </div>
@@ -417,12 +417,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">渗透学习</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                小迪渗透
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -445,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -472,57 +485,106 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>title: 渗透：基础概念<br>top: false<br>cover: false<br>toc: true<br>mathjax: false<br>date: 2022-1-9<br>author: 17mie32<br>summary: 基础概念<br>keywords: 渗透学习<br>tags: 渗透学习<br>categories: 小迪渗透</p>
-<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><h3 id="什么是域名？"><a href="#什么是域名？" class="headerlink" title="什么是域名？"></a>什么是域名？</h3><h3 id="域名的注册？"><a href="#域名的注册？" class="headerlink" title="域名的注册？"></a>域名的注册？</h3><h3 id="二级域名与多级域名？"><a href="#二级域名与多级域名？" class="headerlink" title="二级域名与多级域名？"></a>二级域名与多级域名？</h3><h3 id="域名对安全测试的意义？"><a href="#域名对安全测试的意义？" class="headerlink" title="域名对安全测试的意义？"></a>域名对安全测试的意义？</h3><p>一般对于主网站的检测较难，可通过子域名的漏洞，找到突破口。</p>
-<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h3 id="DNS-1"><a href="#DNS-1" class="headerlink" title="DNS?"></a>DNS?</h3><p><strong>域名系统服务协议</strong>，主要用于域名与IP地址的相互转换。域名与IP相互映射的分布式数据库</p>
-<h3 id="HOST-amp-DNS"><a href="#HOST-amp-DNS" class="headerlink" title="HOST&amp;DNS?"></a>HOST&amp;DNS?</h3><p>host：存在电脑本地是域名检析</p>
-<p>在本机ping时，如果host文件中有确切IP则可直接ping得IP，若没有则在互联网上通过DNS解析获得IP</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092224964.png"></p>
-<p>eg：假定通过host加入一个网站IP为[1.2.1.1]，这个网站的真实IP是[1.2.1.2]，这两个IP都可以访问此网站，网站的真实数据都在真实IP中。</p>
-<p>​        游戏加速器通过修改host文件，实现国内到国内的下载</p>
-<h3 id="CDN-amp-DNS？"><a href="#CDN-amp-DNS？" class="headerlink" title="CDN&amp;DNS？"></a>CDN&amp;DNS？</h3><p>CDN：内容分发网络，缓存节点技术。</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092224297.png"></p>
-<p>（地区）就近分配节点，加快网速。</p>
-<p>安全检测时，直接扫描一般会扫描到CDN的缓存，不能直接扫描到源站的真实文件</p>
-<h3 id="常见的DNS攻击？"><a href="#常见的DNS攻击？" class="headerlink" title="常见的DNS攻击？"></a>常见的DNS攻击？</h3><p><strong>DNS缓存中毒：</strong></p>
-<p>攻破DNS服务器，对服务器中的地址缓存进行修改，伪造。将域名导向不正确的地址，从而实行钓鱼攻击等</p>
-<p>具有传播性：若其他DNS服务器从该服务器中获取缓存信息，错误信息会传播到其他DNS服务器上</p>
-<p><strong>DNS劫持：</strong></p>
-<p>不修改DNS服务器的缓存记录，直接将请求导向伪造的恶意DNS服务器，实现将域名地址导向恶意IP地址</p>
-<p><strong>DDos攻击：</strong></p>
-<p>伪造DNS服务器地址，同时发送大量请求给其他服务器。其他服务器的回复会被发送到被伪造服务器的真实地址，造成该服务器无法处理请求崩溃。</p>
-<p>也可通过利用DNS协议漏洞，恶意创造一个载荷过大的请求，造成目标NDS服务器崩溃。</p>
-<p><strong>DNS嗅探：</strong></p>
-<p>对于配置不当的DNS可通过配置信息获取网路环境信息</p>
-<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><h3 id="常用的脚本语言？"><a href="#常用的脚本语言？" class="headerlink" title="常用的脚本语言？"></a>常用的脚本语言？</h3><p>asp   <strong>php</strong>    aspx  jsp  <strong>javaweb</strong>  pi  <strong>python</strong></p>
-<h3 id="脚本类型与安全漏洞的关系？"><a href="#脚本类型与安全漏洞的关系？" class="headerlink" title="脚本类型与安全漏洞的关系？"></a>脚本类型与安全漏洞的关系？</h3><p>网站源码的编写</p>
-<p>脚本语言会决定安全性的概率</p>
-<p>语言内置功能和架构</p>
-<h3 id="漏洞挖掘代码审计与脚本类型关系？"><a href="#漏洞挖掘代码审计与脚本类型关系？" class="headerlink" title="漏洞挖掘代码审计与脚本类型关系？"></a>漏洞挖掘代码审计与脚本类型关系？</h3><p>脚本语言开发类的知识点，基本了解</p>
-<h2 id="后门（一般用虚拟机测试）"><a href="#后门（一般用虚拟机测试）" class="headerlink" title="后门（一般用虚拟机测试）"></a>后门（一般用虚拟机测试）</h2><h3 id="后门？类型？"><a href="#后门？类型？" class="headerlink" title="后门？类型？"></a>后门？类型？</h3><p>安全测试或非法入侵，拿到权限后，留下文件，方便下次操作。</p>
-<p>网站后门，服务器后门（个人计算机）等</p>
-<h3 id="安全测试中的实际意义？"><a href="#安全测试中的实际意义？" class="headerlink" title="安全测试中的实际意义？"></a>安全测试中的实际意义？</h3><p>方便下次操作</p>
-<p>类似于通道，利于操作</p>
-<p>网站与主机的后门</p>
-<p>免杀？防止防护层或者杀毒软件的删除</p>
-<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="web的组成构架模型？"><a href="#web的组成构架模型？" class="headerlink" title="web的组成构架模型？"></a>web的组成构架模型？</h3><p><strong>网站源码：</strong>脚本类型，应用方向（博客网站？社交论坛？），不同的代码函数对应不同的漏洞</p>
-<p><strong>操作系统：</strong>Windows，Linux  （攻击方式？）   </p>
-<p><strong>中间件</strong>（搭建平台）：apache  iis  tomcat  nginx</p>
-<p><strong>数据库</strong>：access  mysql  mssql  oracle  sybase  db2  postsql等（数据的储存）</p>
-<h3 id="为什么以web层面为主？"><a href="#为什么以web层面为主？" class="headerlink" title="为什么以web层面为主？"></a>为什么以web层面为主？</h3><p>使用面广，web漏洞多，为突破口。通过web不断提升权限，打到内网等</p>
-<h2 id="web相关漏洞"><a href="#web相关漏洞" class="headerlink" title="web相关漏洞"></a>web相关漏洞</h2><h3 id="web源码"><a href="#web源码" class="headerlink" title="web源码"></a>web源码</h3><p>SQL注入  上传   xss   代码执行   变量覆盖   逻辑漏洞   反序列化等</p>
-<h3 id="web中间件"><a href="#web中间件" class="headerlink" title="web中间件"></a>web中间件</h3><h3 id="web数据库"><a href="#web数据库" class="headerlink" title="web数据库"></a>web数据库</h3><p>弱口令</p>
-<h3 id="web操作系统"><a href="#web操作系统" class="headerlink" title="web操作系统"></a>web操作系统</h3><p>提权   远程代码执行</p>
-<h3 id="第三方"><a href="#第三方" class="headerlink" title="第三方"></a>第三方</h3><p>软件安全问题</p>
-<h3 id="APP或PC应用"><a href="#APP或PC应用" class="headerlink" title="APP或PC应用"></a>APP或PC应用</h3><p>功能越多，出现漏洞的几率越大</p>
-<p>逆向破解，代码基础</p>
-<h2 id="多级域名的枚举查找"><a href="#多级域名的枚举查找" class="headerlink" title="多级域名的枚举查找"></a>多级域名的枚举查找</h2><p>1.直接通过搜索引擎</p>
-<p>2.批量爆破</p>
-<p>Layer子域名挖掘机       阿里云查询</p>
-<h2 id="burp-suit抓包"><a href="#burp-suit抓包" class="headerlink" title="burp suit抓包"></a>burp suit抓包</h2><p>针对web协议</p>
-<p>APP与web相结合</p>
-<p>一般用模拟器抓APP的包 </p>
-<p>WSE   APP进程抓包工具</p>
+                <h2 id="HTTP-S数据包"><a href="#HTTP-S数据包" class="headerlink" title="HTTP/S数据包"></a>HTTP/S数据包</h2><p>Request：请求数据包</p>
+<p>Response：返回数据包</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092229950.png"></p>
+<p>有代理：实现两次修改</p>
+<p>Proxy：代理服务器</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092229796.png"></p>
+<p>http：三层，明文   HTTP   TCP   IP</p>
+<p>https：四层，加密  HTTP  SSL/TLS  TCP  IP（安全性高）</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092229254.png"></p>
+<h4 id="HTTP-简要通信过程"><a href="#HTTP-简要通信过程" class="headerlink" title="HTTP 简要通信过程"></a>HTTP 简要通信过程</h4><p>建立连接——&gt;发送请求数据包——&gt;返回响应数据包——&gt;关闭连接 </p>
+<p>1.浏览器建立与 web 服务器之间的连接</p>
+<p>2.浏览器将请求数据打包（生成请求数据包）并发送到 web 服务器 </p>
+<p>3.web 服务器将处理结果打包（生成响应数据包）并发送给浏览器 </p>
+<p>4.web 服务器关闭连接</p>
+<h2 id="Request请求数据包数据格式"><a href="#Request请求数据包数据格式" class="headerlink" title="Request请求数据包数据格式"></a>Request请求数据包数据格式</h2><p>1.请求行：请求类型/请求资源路径、协议的版本和类型 </p>
+<p>2.请求头：一些键值对，浏览器与 web 服务器之间都可以发送，特定的某种含义</p>
+<p>3.空行：请求头与请求体之间用一个空行隔开</p>
+<p>4.请求体：要发送的数据(一般 post 提交会使用)</p>
+<p>例：user=123&amp;pass=123</p>
+<p>eg:</p>
+<pre><code># Request Headers
+POST /adduser HTTP/1.1
+Host: localhost:8030
+Connection: keep-alive
+Content-Length: 16
+Pragma: no-cache
+Cache-Control: no-cache
+Origin: chrome-extension://fdmmgilgnpjigdojojpjoooidkmcomcm
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) 
+Chrome/66.0.3359.181 Safari/537.36   //不同平台不一样
+Content-Type: application/x-www-form-urlencoded
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+# Form Data
+name=name&amp;age=11
+
+#请求行
+请求行由三个标记组成：请求方法、请求 URL 和 HTTP 版本，它们用空格分享。
+例如：GET /index.html HTTP/1.1
+HTTP 规划定义了 8 种可能的请求方法：
+GET：检索 URL 中标识资源的一个简单请求
+HEAD：与 GET 方法相同，服务器只返回状态行和头标，并不返回请求文档
+POST：服务器接受被写入客户端输出流中的数据的请求
+PUT：服务器保存请求数据作为指定 URL 新内容的请求
+DELETE：服务器删除 URL 中命令的资源的请求
+OPTIONS：关于服务器支持的请求方法信息的请求
+TRACE：web 服务器反馈 Http 请求和其头标的请求
+CONNECT ：已文档化，但当前未实现的一个方法，预留做隧道处理
+
+#请求头
+由关键字/值对组成，每行一对，关键字和值用冒号分享。请求头标通知服务器腾于客户端的功能和标识。
+HOST: 主机或域名地址
+Accept：指浏览器或其他客户可以接受的 MIME 文件格式。Servlet 可以根据它判断并返回适当的文件格式。
+User-Agent：是客户浏览器名
+Host：对应网址 URL 中的 Web 名称和端口号。
+Accept-Langeuage：指出浏览器可以接受的语言种类，如 en 或 en-us，指英语。
+connection：用来告诉服务器是否可以维持固定的 HTTP 连接。http 是无连接的，HTTP/1.1 使用 Keep-Alive为默认值，这样，当浏览器需要多个文件时(比如一个 HTML 文件和相关的图形文件)，不需要每次都建立连接
+Cookie：浏览器用这个属性向服务器发送 Cookie。Cookie 是在浏览器中寄存的小型数据体，它可以记载和服务器相关的用户信息，也可以用来实现会话功能。
+Referer(来源):表明产生请求的网页URL。如/icconcept/index.jsp中点击一个链接到网页/icwork/search ，在向服务器发送的GET/icwork/search中的请求中，Referer是
+http://hostname:8080/icconcept/index.jsp。这个属性可以用来跟踪Web请求是从什么网站来的。
+Content-Type：用来表名 request 的内容类型。可以用 HttpServletRequest 的 getContentType()方法取得。
+Accept-Charset：指出浏览器可以接受的字符编码。英文浏览器的默认值是 ISO-8859-1.
+Accept-Encoding：指出浏览器可以接受的编码方式。编码方式不同于文件格式，它是为了压缩文件并加速文件传递速度。浏览器在接收到 Web 响应之后先解码，然后再检查文件格式。
+
+#空行
+最后一个请求头标之后是空行，发送回车符和退行，通知服务器以下不再有头标。
+
+#请求数据
+使用 POST 传送，最常使用的是 Content-Type 和 Content-Length 头标。
+</code></pre>
+<h2 id="Request返回数据包数据格式"><a href="#Request返回数据包数据格式" class="headerlink" title="Request返回数据包数据格式"></a>Request返回数据包数据格式</h2><p>一个响应由四个部分组成；状态行、响应头标、空行、响应数据。 </p>
+<p>1.状态行：协议版本、数字形式的状态代码和状态描述，个元素之间以空格分隔 </p>
+<p>2.响应头标：包含服务器类型、日期、长度、内容类型等 </p>
+<p>3.空行：响应头与响应体之间用空行隔开 </p>
+<p>4.响应数据：浏览器会将实体内容中的数据取出来，生成相应的页面</p>
+<h4 id="HTTP-响应码（status）："><a href="#HTTP-响应码（status）：" class="headerlink" title="HTTP 响应码（status）："></a>HTTP 响应码（status）：</h4><pre><code>1xx：信息，请求收到，继续处理 
+2xx：成功，行为被成功地接受、理解和采纳 
+3xx：重定向，为了完成请求，必须进一步执行的动作 
+4xx：客户端错误 
+5xx：服务器错误
+
+200：存在文件
+403：存在文件夹
+3xx：均可能存在
+404：都不存在
+500：均可能存在
+</code></pre>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092230998.png" alt="image-20211002190124418"></p>
+<h2 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h2><p>​         1、可通过修改数据包来修改网页信息</p>
+<p>​         2、浏览器与模拟器访问的抓包区别，按照APP的格式在浏览器访问</p>
+<h4 id="来源页伪造："><a href="#来源页伪造：" class="headerlink" title="来源页伪造："></a>来源页伪造：</h4><p>​        1、referer：用来跟踪Web请求是从什么网站来的。</p>
+<p>​        （若没有则表示直接访问）</p>
+<p>​        2、User-Agent：访问途径信息，电脑浏览器/手机访问信息</p>
+<p>​         （NetType：微信网络类型字段）</p>
+<h4 id="PHP的ip获取方式：（可用于伪造ip等）"><a href="#PHP的ip获取方式：（可用于伪造ip等）" class="headerlink" title="PHP的ip获取方式：（可用于伪造ip等）"></a>PHP的ip获取方式：（可用于伪造ip等）</h4><p>1、X_FORWARDED_FOR：HTTP 扩展头部，主要是为了让 Web 服务器获取访问用户的真实 IP 地址（未必真实）</p>
+<p>2、REMOTE_ADDR：一般用于抓取访客ip，但不能抓取有proxy访客的真实ip。和 Web 服务器握手的 IP 是什么（这个不能伪造）。很多用户都通过代理来访问服务器的，那么假如使用该全局变量，PHP获取到的 IP 就是代理服务器的 IP（不是用户的）。</p>
+<p>3、CLIENT_IP：</p>
+<p>一个请求可能经过的路径：</p>
+<p>客户端=&gt;（正向代理=&gt;透明代理=&gt;服务器反向代理=&gt;）Web服务器</p>
 
                 
             </div>
@@ -549,7 +611,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</a>
+                    <a href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/">http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -586,7 +648,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">渗透学习</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -635,19 +701,19 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
+                <a href="/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="渗透：数据包扩展">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">渗透：数据包扩展</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            数据包拓展
                         
                     </div>
                     <div class="publish-info">
@@ -656,13 +722,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            17mie32
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">渗透学习</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -912,7 +990,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">3.3k</span>
+                        class="white-color">3.9k</span>
             
             
             

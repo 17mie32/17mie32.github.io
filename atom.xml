@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-09T14:24:56.564Z</updated>
+  <updated>2022-01-09T14:30:35.240Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,23 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
-    <id>http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</id>
-    <published>2022-01-09T14:21:26.875Z</published>
-    <updated>2022-01-09T14:24:56.564Z</updated>
+    <title>渗透：数据包扩展</title>
+    <link href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/"/>
+    <id>http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/</id>
+    <published>2022-01-09T14:27:22.000Z</published>
+    <updated>2022-01-09T14:30:35.240Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;title: 渗透：基础概念&lt;br&gt;top: false&lt;br&gt;cover: false&lt;br&gt;toc: true&lt;br&gt;mathjax: false&lt;br&gt;date: 2022-1-9&lt;br&gt;author: 17mie32&lt;br&gt;summary:</summary>
+    <summary type="html">&lt;h2 id=&quot;HTTP-S数据包&quot;&gt;&lt;a href=&quot;#HTTP-S数据包&quot; class=&quot;headerlink&quot;</summary>
         
       
     
     
     
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
