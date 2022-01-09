@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 图片格式, E=MC^2">
-    <meta name="description" content="标签: 图片格式 | E=MC^2">
+    <meta name="keywords" content="渗透学习">
+    <meta name="description" content="信息收集">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 图片格式 | E=MC^2</title>
+    <title>渗透学习（一） | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -294,146 +294,582 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                E=MC^2
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">渗透学习（一）</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
 
 
-    </div>
-</div>
-
-<main class="content">
+<main class="post-container content">
 
     
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
 
-<div id="tags" class="container chip-container">
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/">
+                                <span class="chip bg-color">小迪渗透</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                渗透学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
-            <div class="tag-chips">
+
+            <div class="post-info">
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-09
+                </div>
                 
-                <a href="/tags/Misc/" title="Misc: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Misc" style="background-color: #F9EBEA;">Misc
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-01-09
+                </div>
                 
-                <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/" title="图片隐写: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="图片隐写" style="background-color: #F5EEF8;">图片隐写
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    715
+                </div>
                 
-                <a href="/tags/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" title="图片格式: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="图片格式" style="background-color: #D5F5E3;">图片格式
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    2 分
+                </div>
                 
-                <a href="/tags/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" title="小迪渗透: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="小迪渗透" style="background-color: #E8F8F5;">小迪渗透
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
+
                 
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="域名信息收集"><a href="#域名信息收集" class="headerlink" title="域名信息收集"></a>域名信息收集</h2><p>1、域名：数据传输时标识计算机的电子方位</p>
+<p>浏览网站过程：从DNS服务器获得指定域名对应的IP地址</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092203317.png"></p>
+<p>2、whois：查询域名的IP以及所有者信息的传输协议。查询域名是否注册以及注册者信息。</p>
+<p>不同域名后缀的whois信息需要到不同的数据库查询。</p>
+<p>whois协议：先向whois服务器的TCP端口43建立一个连接，发送查询关键字并加上回车换行，然后接受服务器查询结果</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201893.png"></p>
+<p>3、whois查询：</p>
+<p>（1）web接口查询：<a target="_blank" rel="noopener" href="https://whois.aliyun.com/">https://whois.aliyun.com/</a>   </p>
+<p>​                                      <a target="_blank" rel="noopener" href="https://www.whois365.com/cn/">https://www.whois365.com/cn/</a></p>
+<p>​                                      <a target="_blank" rel="noopener" href="http://whois.chinaz.com/">http://whois.chinaz.com/</a> </p>
+<p>​                                      <a target="_blank" rel="noopener" href="https://whois.aizhan.com/">https://whois.aizhan.com/</a></p>
+<p>（2）whois命令行查询：kali下自带的whois查询工具</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201528.png"></p>
+<p>4、备案信息查询：</p>
+<p>ICP备案：网络内容提供商备案</p>
+<p>ICP备案查询：</p>
+<p>web接口查询：</p>
+<p><a target="_blank" rel="noopener" href="http://www.beianbeian.com/">http://www.beianbeian.com/</a></p>
+<p> <a target="_blank" rel="noopener" href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">http://www.miitbeian.gov.cn/publish/query/indexFirst.action</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.tianyancha.com/">https://www.tianyancha.com/</a></p>
+<h2 id="子域名信息收集"><a href="#子域名信息收集" class="headerlink" title="子域名信息收集"></a>子域名信息收集</h2><p>1、子域名：凡顶级域名前加前缀的都是该顶级域名的子域名，而子域名根据技术的多少分为二级子域名，三级子域名以及多级子域名。</p>
+<p>顶级域名：是”.com”、”.net”、”.org”、”.cn”等等。</p>
+<p>2、挖掘子域名？</p>
+<p>子域名是某个主域的二级域名或者多级域名，在防御措施严密情况下无法直接拿下主域，那么就可以采用迂回战术拿下子域名，然后无限靠近主域。</p>
+<p>例如：</p>
+<p><a target="_blank" rel="noopener" href="http://www.xxxxx.com/">www.xxxxx.com</a> 主域不存在漏洞，并且防护措施严密。</p>
+<p>而二级域名 edu.xxxxx.com存在漏洞，并且防护措施松散。</p>
+<p>3、子域名挖掘方法：</p>
+<p>（1）子域名挖掘工具 如：Maltego CE、wydomain、subDomainsBrute、dnsmaper、Layer子域名挖掘机</p>
+<p>wydomain使用方法：</p>
+<p>a、首先在kali安装pip</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CClarence/article/details/49914965%EF%BC%88%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90%EF%BC%89">https://blog.csdn.net/CClarence/article/details/49914965（安装推荐）</a></p>
+<p>b、找到wydomain的下载网址，用 <code>git clone</code>命令</p>
+<p>c、<code>chmod +x</code>设置权限</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201881.png"></p>
+<p>d、查询<code>dnsburte.py -h</code>命令</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201608.png"></p>
+<p>e、此指令是爆破此网站并把文件保存在51cto.txt文件下</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201343.png"></p>
+<p>可直接在github.com/ring04h/wydomain网页搜索wydomain指令</p>
+<p>（2）搜索引擎挖掘 如： 在Google中输入 site:sina.com(自己甄别，不推荐)</p>
+<p>（3）第三方网站查询：</p>
+<p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/subdomain">http://tool.chinaz.com/subdomain</a></p>
+<p><a target="_blank" rel="noopener" href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></p>
+<p>（4）证书透明度公开日志枚举：</p>
+<p><a target="_blank" rel="noopener" href="https://crt.sh/">https://crt.sh/</a> </p>
+<p><a target="_blank" rel="noopener" href="http://censys.io/">http://censys.io/</a></p>
+<p>（5）其他途径：</p>
+<p><a target="_blank" rel="noopener" href="https://phpinfo.me/domain">https://phpinfo.me/domain</a> </p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201435.png"></p>
+<p><a target="_blank" rel="noopener" href="http://dns.aizhan.com/">http://dns.aizhan.com</a></p>
+<p>4、挖洞思路</p>
+<p>针对某个具体SRC挖洞，若对主域进行渗透测试难达到挖掘效果。可收集对应子域名，然后批量探测某些漏洞。</p>
+<p>针对补天刷洞思路：对应没有指定厂商的刷洞，可以根据某些具体漏洞，通过URL采集获取目标，编写探测脚本批量探测。（只做漏洞探测内容，确定存在漏洞即可）</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">17mie32</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">17mie32</a>
+                    !
+                </span>
+            </div>
+        
     </div>
-</div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/">
+                                    <span class="chip bg-color">小迪渗透</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="图片格式" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图片格式区别">
-                            
-                            <span class="card-title">图片格式区别</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" class="post-category">
-                                图片格式
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+</div>
+
                 </div>
             </div>
             
         </div>
-    </article>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="渗透学习（一）">
+                        
+                        <span class="card-title">渗透学习（一）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            信息收集
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    渗透学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/">
+                        <span class="chip bg-color">小迪渗透</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图片格式区别">
+                        
+                        <span class="card-title">图片格式区别</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            搜索后总结的图片格式间的区别
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" class="post-category">
+                                    图片格式
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/">
+                        <span class="chip bg-color">图片格式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
 
 

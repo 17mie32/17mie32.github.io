@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>渗透学习（一）</title>
+      <link href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+      <url>/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="域名信息收集"><a href="#域名信息收集" class="headerlink" title="域名信息收集"></a>域名信息收集</h2><p>1、域名：数据传输时标识计算机的电子方位</p><p>浏览网站过程：从DNS服务器获得指定域名对应的IP地址</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092203317.png"></p><p>2、whois：查询域名的IP以及所有者信息的传输协议。查询域名是否注册以及注册者信息。</p><p>不同域名后缀的whois信息需要到不同的数据库查询。</p><p>whois协议：先向whois服务器的TCP端口43建立一个连接，发送查询关键字并加上回车换行，然后接受服务器查询结果</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201893.png"></p><p>3、whois查询：</p><p>（1）web接口查询：<a href="https://whois.aliyun.com/">https://whois.aliyun.com/</a>   </p><p>​                                      <a href="https://www.whois365.com/cn/">https://www.whois365.com/cn/</a></p><p>​                                      <a href="http://whois.chinaz.com/">http://whois.chinaz.com/</a> </p><p>​                                      <a href="https://whois.aizhan.com/">https://whois.aizhan.com/</a></p><p>（2）whois命令行查询：kali下自带的whois查询工具</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201528.png"></p><p>4、备案信息查询：</p><p>ICP备案：网络内容提供商备案</p><p>ICP备案查询：</p><p>web接口查询：</p><p><a href="http://www.beianbeian.com/">http://www.beianbeian.com/</a></p><p> <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">http://www.miitbeian.gov.cn/publish/query/indexFirst.action</a></p><p><a href="https://www.tianyancha.com/">https://www.tianyancha.com/</a></p><h2 id="子域名信息收集"><a href="#子域名信息收集" class="headerlink" title="子域名信息收集"></a>子域名信息收集</h2><p>1、子域名：凡顶级域名前加前缀的都是该顶级域名的子域名，而子域名根据技术的多少分为二级子域名，三级子域名以及多级子域名。</p><p>顶级域名：是”.com”、”.net”、”.org”、”.cn”等等。</p><p>2、挖掘子域名？</p><p>子域名是某个主域的二级域名或者多级域名，在防御措施严密情况下无法直接拿下主域，那么就可以采用迂回战术拿下子域名，然后无限靠近主域。</p><p>例如：</p><p><a href="http://www.xxxxx.com/">www.xxxxx.com</a> 主域不存在漏洞，并且防护措施严密。</p><p>而二级域名 edu.xxxxx.com存在漏洞，并且防护措施松散。</p><p>3、子域名挖掘方法：</p><p>（1）子域名挖掘工具 如：Maltego CE、wydomain、subDomainsBrute、dnsmaper、Layer子域名挖掘机</p><p>wydomain使用方法：</p><p>a、首先在kali安装pip</p><p><a href="https://blog.csdn.net/CClarence/article/details/49914965%EF%BC%88%E5%AE%89%E8%A3%85%E6%8E%A8%E8%8D%90%EF%BC%89">https://blog.csdn.net/CClarence/article/details/49914965（安装推荐）</a></p><p>b、找到wydomain的下载网址，用 <code>git clone</code>命令</p><p>c、<code>chmod +x</code>设置权限</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201881.png"></p><p>d、查询<code>dnsburte.py -h</code>命令</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201608.png"></p><p>e、此指令是爆破此网站并把文件保存在51cto.txt文件下</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201343.png"></p><p>可直接在github.com/ring04h/wydomain网页搜索wydomain指令</p><p>（2）搜索引擎挖掘 如： 在Google中输入 site:sina.com(自己甄别，不推荐)</p><p>（3）第三方网站查询：</p><p><a href="http://tool.chinaz.com/subdomain">http://tool.chinaz.com/subdomain</a></p><p><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></p><p>（4）证书透明度公开日志枚举：</p><p><a href="https://crt.sh/">https://crt.sh/</a> </p><p><a href="http://censys.io/">http://censys.io/</a></p><p>（5）其他途径：</p><p><a href="https://phpinfo.me/domain">https://phpinfo.me/domain</a> </p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092201435.png"></p><p><a href="http://dns.aizhan.com/">http://dns.aizhan.com</a></p><p>4、挖洞思路</p><p>针对某个具体SRC挖洞，若对主域进行渗透测试难达到挖掘效果。可收集对应子域名，然后批量探测某些漏洞。</p><p>针对补天刷洞思路：对应没有指定厂商的刷洞，可以根据某些具体漏洞，通过URL采集获取目标，编写探测脚本批量探测。（只做漏洞探测内容，确定存在漏洞即可）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小迪渗透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图片格式区别</title>
       <link href="/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/"/>
       <url>/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/</url>

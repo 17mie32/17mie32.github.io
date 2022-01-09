@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-12T00:36:06.301Z</updated>
+  <updated>2022-01-09T14:03:26.258Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透学习（一）</title>
+    <link href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</id>
+    <published>2022-01-09T13:58:37.000Z</published>
+    <updated>2022-01-09T14:03:26.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;域名信息收集&quot;&gt;&lt;a href=&quot;#域名信息收集&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="渗透学习" scheme="http://example.com/categories/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/tags/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>图片格式区别</title>
