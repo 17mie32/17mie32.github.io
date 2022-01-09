@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图片隐写">
-    <meta name="description" content="图片隐写学习">
+    <meta name="keywords" content="Misc">
+    <meta name="description" content="BUUCTF Misc（1-20）">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>图片隐写 | E=MC^2</title>
+    <title>BUUCTF Misc(1) | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">图片隐写</h1>
+                    <h1 class="description center-align post-title">BUUCTF Misc(1)</h1>
                 </div>
             </div>
         </div>
@@ -423,8 +423,8 @@
                                 <span class="chip bg-color">Misc</span>
                             </a>
                         
-                            <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                                <span class="chip bg-color">图片隐写</span>
+                            <a href="/tags/BUUCTF/">
+                                <span class="chip bg-color">BUUCTF</span>
                             </a>
                         
                     </div>
@@ -448,28 +448,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-05
+                    2022-01-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-25
+                    2022-01-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    823
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    6 分
                 </div>
                 
 
@@ -489,46 +489,75 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、头文件缺失"><a href="#1、头文件缺失" class="headerlink" title="1、头文件缺失"></a>1、头文件缺失</h3><p><img src="https://img-blog.csdnimg.cn/20200714132519595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FURldVUw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>zip文件头：50 4B 03 04</p>
-<p>PNG文件头：89 50 4E 47 0D 0A 1A 0A 00 00 00 0D</p>
-<p>对于文件头缺失的文件，一般都是粘贴，如果选择写入会覆盖原来的</p>
-<p>图片高度有问题修改第二排前16位，前面是宽后面是高</p>
-<h3 id="2、LBS隐写：最低有效位-StegSolve"><a href="#2、LBS隐写：最低有效位-StegSolve" class="headerlink" title="2、LBS隐写：最低有效位  StegSolve"></a>2、LBS隐写：最低有效位  StegSolve</h3><p>用嵌入的秘密信息取代载体图像的最低比特位，原来的7个高低平面与替代 秘密信息的最低位平面组合成含隐藏信息对等的新图形。</p>
-<p>png图片：一种无损压缩的位图片形格式，也只有在无损压缩或者无压缩的      图片（BMP）上实现lsb隐写。</p>
-<p>如果图像是jpg图片的话，就没法使用lsb隐写了，原因是jpg图片对像数进行了有损压缩，我们修改的信息就可能会在压缩的过程中被破坏。</p>
-<p>而png图片虽然也有压缩，但却是无损压缩，这样我们修改的信息也就能得到正确的表达，不至于丢失。BMP的图片也是一样的，是没有经过压缩的。BMP图片一般是特别的大的，因为BMP把所有的像数都按原样储存，没有进行压缩。</p>
-<p>LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB）每个像数可以携带3比特的信息。</p>
-<p><img src="https://image-static.segmentfault.com/108/897/1088978167-5b88d68b97c13_articlex"></p>
-<p>修改最低有效位的信息的算法就叫做lsb加密算法，提取最低有效位信息的算法叫做lsb解密算法。</p>
-<p>由于图像是由像素构成的，每个像素有8位(对于BMP图像来说),通常最后一位的变化，通过肉眼是无法察觉的</p>
-<p>MSB是最高有效位，Bit Plane Order代表颜色的排序方式</p>
-<p>字节上的读取顺序与<code>Bit Order</code>选项有关，如果设置了MSBFirst，是从高位开始读取，LSBFirst是从低位开始读取</p>
-<p>先左右滑动查看，发现red、blue、green均为0 </p>
-<p><img src="https://img-blog.csdnimg.cn/20201128155355874.png"></p>
-<p>然后选择Data Extract，抽取数据</p>
-<p><em>File Format：文件格式，这个主要是查看图片的具体信息</em></p>
-<p><em>Data Extract：数据抽取，图片中隐藏数据的抽取</em></p>
-<p><em>Frame Browser：帧浏览器，主要是对GIF之类的动图进行分解，动图变成一张张                                      图片，便于查看</em></p>
-<p><em>Image Combiner：拼图，图片拼接</em></p>
-<h3 id="3、zsteg："><a href="#3、zsteg：" class="headerlink" title="3、zsteg："></a>3、zsteg：</h3><p>（1）查看LSB：</p>
-<pre><code>zsteg xxx.bmp 
+                <p>原博主链接：<a target="_blank" rel="noopener" href="https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%201%EF%BC%881-20%EF%BC%89.html">https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%201%EF%BC%881-20%EF%BC%89.html</a></p>
+<p>[TOC]</p>
+<h3 id="1、签到题"><a href="#1、签到题" class="headerlink" title="1、签到题"></a>1、签到题</h3><p>由题目直接获得flag</p>
+<h3 id="2、金三胖"><a href="#2、金三胖" class="headerlink" title="2、金三胖"></a>2、金三胖</h3><p>下载文件，得到一份GIF文件，首先猜测flag是否藏在某些帧中</p>
+<p>用GIFFrame查看帧，发现第20、50、78帧藏有flag</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201092239389.png" style="zoom: 67%;" />
 
-zsteg xxx.png 
-
-zsteg -a (文件名)    #查看各个通道的lsb
-</code></pre>
-<p>（2）检测zlib：</p>
-<pre><code>#-b的位数是从1开始的 
-
-zsteg zlib.bmp -b 1 -o xy -v
-</code></pre>
-<p>（3）提取该通道图片：</p>
-<pre><code>zsteg -e b8,a,lsb,xy 文件.png -&gt; out.png
-</code></pre>
-<p>先放winhex里，没有找到flag，kali打开，没有修改宽高，binwalk分析，没有隐藏文件，尝试用zsteg工具，发现一串base密码，解密即可</p>
-<h3 id="4、动图"><a href="#4、动图" class="headerlink" title="4、动图"></a>4、动图</h3><p>看到动图先一帧一帧的看但是没有看到任何信息</p>
-<p>尝试用StegSolve查看，向左查看发现red plane 7的时候变化较大，用Frame Browser（帧浏览器）查看，发现只有上半的时候可能藏有flag，再保存下来，查看到red plane 2 的时候即可发现flag。（这道题没怎么明白原理）</p>
+<h3 id="3、二维码"><a href="#3、二维码" class="headerlink" title="3、二维码"></a>3、二维码</h3><p>打开文件得到一张二维码，尝试用在线二维码解码解密，得到secret is here，但这并不是flag。</p>
+<p>于是尝试用foremost分离文件得到一个压缩包，压缩包有一个加密文本文件，提示是4位纯数字密码，用ARCHOR破解密码，打开文件即可得到flag。</p>
+<h3 id="4、你竟然赶我走"><a href="#4、你竟然赶我走" class="headerlink" title="4、你竟然赶我走"></a>4、你竟然赶我走</h3><p>首先尝试文件分离发现没有其他文件，于是尝试用十六进制编辑器查看，在文件尾得到flag</p>
+<h3 id="5、N种方法解决"><a href="#5、N种方法解决" class="headerlink" title="5、N种方法解决"></a>5、N种方法解决</h3><p>发现是一个exe文件，尝试运行，无法打开，于是将后缀改为txt查看文本，发现似乎是一个图片网址，拖入浏览器查看，得到一个二维码图片，解密即可。</p>
+<h3 id="6、大白"><a href="#6、大白" class="headerlink" title="6、大白"></a>6、大白</h3><p>看到图片以及题目提示我们易知，是图片长度问题</p>
+<p>于是使用十六进制编辑器查看修改高度即可得到flag。</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092241842.jpeg"></p>
+<p>第二行：</p>
+<p>0-3列为宽：00 00 01 F4为十六进制，十进制为500</p>
+<p>4-7列为长：00 00 01 A4为十六进制，十进制为420。</p>
+<p>即图片规格为500×420。</p>
+<h3 id="7、基础破解"><a href="#7、基础破解" class="headerlink" title="7、基础破解"></a>7、基础破解</h3><p>题目提示压缩包为4位数字加密，用ARCHPR暴力破解得到密码，打开文本，得到base64，解密即可得到flag</p>
+<h3 id="8、乌镇峰会种图"><a href="#8、乌镇峰会种图" class="headerlink" title="8、乌镇峰会种图"></a>8、乌镇峰会种图</h3><p>首先查看文件大小，排除有隐藏文件。于是用十六进制查看器打开图片。</p>
+<p>查找flag字段即可得到flag</p>
+<h3 id="9、LSB"><a href="#9、LSB" class="headerlink" title="9、LSB"></a>9、LSB</h3><p>由题目得到提示，首先打开Stegsolve查看图片</p>
+<p>进行数据抽取得到一个二维码，解密即可得到flag</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092242055.png"></p>
+<p><strong>数据抽取</strong>：</p>
+<p>1）<em>RGB是红绿蓝</em>，他们的值实际代表亮度，数字越大亮度越高。</p>
+<p>亮度一共有256个级别，从0到255，因为2^8=256，因此一共有8个通道。</p>
+<p>2）<em>Alpha是透明度</em>，该通道用256级灰度来记录图像中的透明度信息，定义透明、不透明和半透明区域（alpha的值为0就是全透明，alpha 的值为 255 则表示不透明）</p>
+<p>3）Extra By(额外的)：分为row（行）和column（纵）</p>
+<p>  每个像素用R，G，B三个分量表示，那么一张图片就像一个矩阵，矩阵的每个单位就是（0<del>255，0</del>255，0~255）</p>
+<p>  也就会有是纵排列和行排列了，一般事先访问行再访问列</p>
+<p>4）Bit Order（位顺序）:</p>
+<p>MSB是一串数据的最高位，LSB是一串数据的最低位。</p>
+<p>5）Bit Plane Order（位平面的顺序)</p>
+<p>   整个图像分解为8个位平面，从LSB(最低有效位0)到MSB（最高有效位7）随着从位平面0 到位平面7，位平面图像的特征逐渐变得复杂，细节不断增加。</p>
+<p>一般图片是24位，也就是3个8 ，可以看成三明治，比如BGR就是B为三明治第一层 G为第二层 R为第三层。</p>
+<p> 转载于：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/cat47/p/11483478.html">http://www.cnblogs.com/cat47/p/11483478.html</a></p>
+<h3 id="10、文件中的秘密"><a href="#10、文件中的秘密" class="headerlink" title="10、文件中的秘密"></a>10、文件中的秘密</h3><p>提示文件中的秘密于是首先点开属性查看图片的详细信息，即可得到flag</p>
+<h3 id="11、wireshark"><a href="#11、wireshark" class="headerlink" title="11、wireshark"></a>11、wireshark</h3><p>用wireshark打开文件，根据题目提示查找pass字段，即可得到flag</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092243074.png"></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092243343.png"></p>
+<h3 id="12、rar"><a href="#12、rar" class="headerlink" title="12、rar"></a>12、rar</h3><p>由提示该压缩包为纯四位数密码，先解密得到密码，打开文件即可得到flag</p>
+<h3 id="13、zip伪加密"><a href="#13、zip伪加密" class="headerlink" title="13、zip伪加密"></a>13、zip伪加密</h3><p>原理：</p>
+<p>zip文件由三部分组成：压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092338887.png"></p>
+<p><strong>压缩文件数据区：</strong></p>
+<p>50 4B 03 04：头文件标记（0x04034b50）<br>14 00：解压文件所需 pkware 版本<br>01 00：<strong>全局方式位标记（有无加密） 头文件标记后2bytes</strong><br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>00 00：扩展记录长度 </p>
+<p><strong>压缩文件目录区：</strong></p>
+<p>50 4B 01 02：目录中文件文件头标记(0x02014b50)<br>3F 00：压缩使用的 pkware 版本<br>14 00：解压文件所需 pkware 版本<br>09 00：<strong>全局方式位标记（有无加密，伪加密的关键） 目录文件标记后4bytes</strong><br>08 00：压缩方式<br>5A 7E：最后修改文件时间<br>F7 46：最后修改文件日期<br>16 B5 80 14：CRC-32校验（1480B516）<br>19 00 00 00：压缩后尺寸（25）<br>17 00 00 00：未压缩尺寸（23）<br>07 00：文件名长度<br>24 00：扩展字段长度<br>00 00：文件注释长度<br>00 00：磁盘开始号<br>00 00：内部文件属性<br>20 00 00 00：外部文件属性<br>00 00 00 00：局部头部偏移量 </p>
+<p><strong>压缩文件目录结束标志：</strong></p>
+<p>50 4B 05 06：目录结束标记<br>00 00：当前磁盘编号<br>00 00：目录区开始磁盘编号<br>01 00：本磁盘上纪录总数<br>01 00：目录区中纪录总数<br>59 00 00 00：目录区尺寸大小<br>3E 00 00 00：目录区对第一张磁盘的偏移量<br>00 00：ZIP 文件注释长度</p>
+<p>修改压缩源文件目录区的全布局方式标记比特值之后即可对文件加密或解密</p>
+<p>全局方式位标记的四个数字中只有<strong>第二个数字</strong>对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
+<p><strong>辨别当前的zip是真的加密还是伪加密？</strong></p>
+<p>无加密</p>
+<p>压缩源文件数据区的全局方式位标记应当为00 00  （头文件标记后2bytes）</p>
+<p>压缩源文件目录区的全局方式位标记应当为00 00  （目录文件标记后4bytes）</p>
+<p>真加密</p>
+<p>压缩源文件数据区的全局方式位标记应当为09 00 </p>
+<p>压缩源文件目录区的全局方式位标记应当为09 00</p>
+<p>zip伪加密解决方法：</p>
+<p>（原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pdsu161530247/article/details/73612910%EF%BC%89">https://blog.csdn.net/pdsu161530247/article/details/73612910）</a></p>
+<p>1）使用<strong>ZipCenOp.jar(需要java环境)</strong></p>
+<p>命令如下：</p>
+<p><strong>java -jar ZipCenOp.jar r xxx.zip</strong></p>
+<p>将压缩包和ZipCenOp放在同一目录下，用cmd执行命令即可，若success后，可直接打开压缩包</p>
+<p>？：处理后压缩包要用winrar才能打开7-zip打开仍需要密码，不知道为什么会这样</p>
+<p>2）修改文件头加密标志位</p>
+<p>头文件标记后2bytes、目录文件标记后4bytes这两处（四位中的）第二位为偶数即可</p>
 
                 
             </div>
@@ -555,7 +584,7 @@ zsteg zlib.bmp -b 1 -o xy -v
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">http://example.com/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/</a>
+                    <a href="http://example.com/2022/01/09/BUUCTF-Misc-1/">http://example.com/2022/01/09/BUUCTF-Misc-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -597,8 +626,8 @@ zsteg zlib.bmp -b 1 -o xy -v
                                     <span class="chip bg-color">Misc</span>
                                 </a>
                             
-                                <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                                    <span class="chip bg-color">图片隐写</span>
+                                <a href="/tags/BUUCTF/">
+                                    <span class="chip bg-color">BUUCTF</span>
                                 </a>
                             
                         </div>
@@ -644,77 +673,29 @@ zsteg zlib.bmp -b 1 -o xy -v
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/">
+                <a href="/2022/01/09/BUUCTF-Misc-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图片格式区别">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="BUUCTF Misc(1)">
                         
-                        <span class="card-title">图片格式区别</span>
+                        <span class="card-title">BUUCTF Misc(1)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            搜索后总结的图片格式间的区别
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" class="post-category">
-                                    图片格式
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/">
-                        <span class="chip bg-color">图片格式</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="图片隐写">
-                        
-                        <span class="card-title">图片隐写</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            图片隐写学习
+                            BUUCTF Misc（1-20）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
                             </span>
                         <span class="publish-author">
                             
@@ -736,8 +717,57 @@ zsteg zlib.bmp -b 1 -o xy -v
                         <span class="chip bg-color">Misc</span>
                     </a>
                     
-                    <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                        <span class="chip bg-color">图片隐写</span>
+                    <a href="/tags/BUUCTF/">
+                        <span class="chip bg-color">BUUCTF</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/09/%E4%BB%A3%E7%90%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="代理">
+                        
+                        <span class="card-title">代理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            三种代理的理解
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E4%BB%A3%E7%90%86/" class="post-category">
+                                    代理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BB%A3%E7%90%86/">
+                        <span class="chip bg-color">代理</span>
                     </a>
                     
                 </div>

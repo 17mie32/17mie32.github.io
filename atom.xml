@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-09T14:35:41.147Z</updated>
+  <updated>2022-01-09T16:11:42.799Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BUUCTF Misc(1)</title>
+    <link href="http://example.com/2022/01/09/BUUCTF-Misc-1/"/>
+    <id>http://example.com/2022/01/09/BUUCTF-Misc-1/</id>
+    <published>2022-01-09T14:38:25.000Z</published>
+    <updated>2022-01-09T16:11:42.799Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;原博主链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Misc" scheme="http://example.com/categories/Misc/"/>
+    
+    
+    <category term="Misc" scheme="http://example.com/tags/Misc/"/>
+    
+    <category term="BUUCTF" scheme="http://example.com/tags/BUUCTF/"/>
+    
+  </entry>
   
   <entry>
     <title>代理</title>
