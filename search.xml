@@ -4,7 +4,33 @@
   
     
     <entry>
-      <title>渗透学习（二）</title>
+      <title>渗透：数据包扩展</title>
+      <link href="/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/"/>
+      <url>/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>渗透：基础概念</title>
+      <link href="/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"/>
+      <url>/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>信息收集（二）</title>
       <link href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
       <url>/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
       
@@ -13,14 +39,14 @@
       
       <categories>
           
-          <category> 渗透学习 </category>
+          <category> 信息收集 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 小迪渗透 </tag>
+            <tag> 信息收集 </tag>
             
         </tags>
       
@@ -29,7 +55,7 @@
     
     
     <entry>
-      <title>渗透学习（一）</title>
+      <title>信息收集（一）</title>
       <link href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
       
@@ -45,7 +71,7 @@
       
         <tags>
             
-            <tag> 小迪渗透 </tag>
+            <tag> 信息收集 </tag>
             
         </tags>
       
