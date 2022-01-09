@@ -445,14 +445,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    35
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -473,6 +473,56 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>title: 渗透：基础概念<br>top: false<br>cover: false<br>toc: true<br>mathjax: false<br>date: 2022-1-9<br>author: 17mie32<br>summary: 基础概念<br>keywords: 渗透学习<br>tags: 渗透学习<br>categories: 小迪渗透</p>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><h3 id="什么是域名？"><a href="#什么是域名？" class="headerlink" title="什么是域名？"></a>什么是域名？</h3><h3 id="域名的注册？"><a href="#域名的注册？" class="headerlink" title="域名的注册？"></a>域名的注册？</h3><h3 id="二级域名与多级域名？"><a href="#二级域名与多级域名？" class="headerlink" title="二级域名与多级域名？"></a>二级域名与多级域名？</h3><h3 id="域名对安全测试的意义？"><a href="#域名对安全测试的意义？" class="headerlink" title="域名对安全测试的意义？"></a>域名对安全测试的意义？</h3><p>一般对于主网站的检测较难，可通过子域名的漏洞，找到突破口。</p>
+<h2 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a>DNS</h2><h3 id="DNS-1"><a href="#DNS-1" class="headerlink" title="DNS?"></a>DNS?</h3><p><strong>域名系统服务协议</strong>，主要用于域名与IP地址的相互转换。域名与IP相互映射的分布式数据库</p>
+<h3 id="HOST-amp-DNS"><a href="#HOST-amp-DNS" class="headerlink" title="HOST&amp;DNS?"></a>HOST&amp;DNS?</h3><p>host：存在电脑本地是域名检析</p>
+<p>在本机ping时，如果host文件中有确切IP则可直接ping得IP，若没有则在互联网上通过DNS解析获得IP</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092224964.png"></p>
+<p>eg：假定通过host加入一个网站IP为[1.2.1.1]，这个网站的真实IP是[1.2.1.2]，这两个IP都可以访问此网站，网站的真实数据都在真实IP中。</p>
+<p>​        游戏加速器通过修改host文件，实现国内到国内的下载</p>
+<h3 id="CDN-amp-DNS？"><a href="#CDN-amp-DNS？" class="headerlink" title="CDN&amp;DNS？"></a>CDN&amp;DNS？</h3><p>CDN：内容分发网络，缓存节点技术。</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092224297.png"></p>
+<p>（地区）就近分配节点，加快网速。</p>
+<p>安全检测时，直接扫描一般会扫描到CDN的缓存，不能直接扫描到源站的真实文件</p>
+<h3 id="常见的DNS攻击？"><a href="#常见的DNS攻击？" class="headerlink" title="常见的DNS攻击？"></a>常见的DNS攻击？</h3><p><strong>DNS缓存中毒：</strong></p>
+<p>攻破DNS服务器，对服务器中的地址缓存进行修改，伪造。将域名导向不正确的地址，从而实行钓鱼攻击等</p>
+<p>具有传播性：若其他DNS服务器从该服务器中获取缓存信息，错误信息会传播到其他DNS服务器上</p>
+<p><strong>DNS劫持：</strong></p>
+<p>不修改DNS服务器的缓存记录，直接将请求导向伪造的恶意DNS服务器，实现将域名地址导向恶意IP地址</p>
+<p><strong>DDos攻击：</strong></p>
+<p>伪造DNS服务器地址，同时发送大量请求给其他服务器。其他服务器的回复会被发送到被伪造服务器的真实地址，造成该服务器无法处理请求崩溃。</p>
+<p>也可通过利用DNS协议漏洞，恶意创造一个载荷过大的请求，造成目标NDS服务器崩溃。</p>
+<p><strong>DNS嗅探：</strong></p>
+<p>对于配置不当的DNS可通过配置信息获取网路环境信息</p>
+<h2 id="脚本语言"><a href="#脚本语言" class="headerlink" title="脚本语言"></a>脚本语言</h2><h3 id="常用的脚本语言？"><a href="#常用的脚本语言？" class="headerlink" title="常用的脚本语言？"></a>常用的脚本语言？</h3><p>asp   <strong>php</strong>    aspx  jsp  <strong>javaweb</strong>  pi  <strong>python</strong></p>
+<h3 id="脚本类型与安全漏洞的关系？"><a href="#脚本类型与安全漏洞的关系？" class="headerlink" title="脚本类型与安全漏洞的关系？"></a>脚本类型与安全漏洞的关系？</h3><p>网站源码的编写</p>
+<p>脚本语言会决定安全性的概率</p>
+<p>语言内置功能和架构</p>
+<h3 id="漏洞挖掘代码审计与脚本类型关系？"><a href="#漏洞挖掘代码审计与脚本类型关系？" class="headerlink" title="漏洞挖掘代码审计与脚本类型关系？"></a>漏洞挖掘代码审计与脚本类型关系？</h3><p>脚本语言开发类的知识点，基本了解</p>
+<h2 id="后门（一般用虚拟机测试）"><a href="#后门（一般用虚拟机测试）" class="headerlink" title="后门（一般用虚拟机测试）"></a>后门（一般用虚拟机测试）</h2><h3 id="后门？类型？"><a href="#后门？类型？" class="headerlink" title="后门？类型？"></a>后门？类型？</h3><p>安全测试或非法入侵，拿到权限后，留下文件，方便下次操作。</p>
+<p>网站后门，服务器后门（个人计算机）等</p>
+<h3 id="安全测试中的实际意义？"><a href="#安全测试中的实际意义？" class="headerlink" title="安全测试中的实际意义？"></a>安全测试中的实际意义？</h3><p>方便下次操作</p>
+<p>类似于通道，利于操作</p>
+<p>网站与主机的后门</p>
+<p>免杀？防止防护层或者杀毒软件的删除</p>
+<h2 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h2><h3 id="web的组成构架模型？"><a href="#web的组成构架模型？" class="headerlink" title="web的组成构架模型？"></a>web的组成构架模型？</h3><p><strong>网站源码：</strong>脚本类型，应用方向（博客网站？社交论坛？），不同的代码函数对应不同的漏洞</p>
+<p><strong>操作系统：</strong>Windows，Linux  （攻击方式？）   </p>
+<p><strong>中间件</strong>（搭建平台）：apache  iis  tomcat  nginx</p>
+<p><strong>数据库</strong>：access  mysql  mssql  oracle  sybase  db2  postsql等（数据的储存）</p>
+<h3 id="为什么以web层面为主？"><a href="#为什么以web层面为主？" class="headerlink" title="为什么以web层面为主？"></a>为什么以web层面为主？</h3><p>使用面广，web漏洞多，为突破口。通过web不断提升权限，打到内网等</p>
+<h2 id="web相关漏洞"><a href="#web相关漏洞" class="headerlink" title="web相关漏洞"></a>web相关漏洞</h2><h3 id="web源码"><a href="#web源码" class="headerlink" title="web源码"></a>web源码</h3><p>SQL注入  上传   xss   代码执行   变量覆盖   逻辑漏洞   反序列化等</p>
+<h3 id="web中间件"><a href="#web中间件" class="headerlink" title="web中间件"></a>web中间件</h3><h3 id="web数据库"><a href="#web数据库" class="headerlink" title="web数据库"></a>web数据库</h3><p>弱口令</p>
+<h3 id="web操作系统"><a href="#web操作系统" class="headerlink" title="web操作系统"></a>web操作系统</h3><p>提权   远程代码执行</p>
+<h3 id="第三方"><a href="#第三方" class="headerlink" title="第三方"></a>第三方</h3><p>软件安全问题</p>
+<h3 id="APP或PC应用"><a href="#APP或PC应用" class="headerlink" title="APP或PC应用"></a>APP或PC应用</h3><p>功能越多，出现漏洞的几率越大</p>
+<p>逆向破解，代码基础</p>
+<h2 id="多级域名的枚举查找"><a href="#多级域名的枚举查找" class="headerlink" title="多级域名的枚举查找"></a>多级域名的枚举查找</h2><p>1.直接通过搜索引擎</p>
+<p>2.批量爆破</p>
+<p>Layer子域名挖掘机       阿里云查询</p>
+<h2 id="burp-suit抓包"><a href="#burp-suit抓包" class="headerlink" title="burp suit抓包"></a>burp suit抓包</h2><p>针对web协议</p>
+<p>APP与web相结合</p>
+<p>一般用模拟器抓APP的包 </p>
+<p>WSE   APP进程抓包工具</p>
 
                 
             </div>
@@ -862,7 +912,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.3k</span>
+                        class="white-color">3.3k</span>
             
             
             
