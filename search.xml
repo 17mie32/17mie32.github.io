@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>渗透学习（二）</title>
+      <link href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Web站点信息收集"><a href="#Web站点信息收集" class="headerlink" title="Web站点信息收集"></a>Web站点信息收集</h2><h3 id="1-CMS指纹识别"><a href="#1-CMS指纹识别" class="headerlink" title="1.CMS指纹识别"></a>1.CMS指纹识别</h3><p>CMS（内容管理系统）：整站系统或文章系统。用于网站内容管理。用户只需要下载对应的CMS软件包，部署搭建，就可以直接利用CMS，简单方便。但是各种CMS都具有其独特的结构命名规则和特定的文件内容，因此可以利用这些内容来获取CMS站点的具体软件CMS与版本。</p><p>常见CMS： dedecms（织梦）、Discuz、Phpcms等。</p><p>CMS识别工具：</p><p>a、在线工具 </p><p> <a href="http://whatweb.bugscaner.com/look/">http://whatweb.bugscaner.com/look/</a> </p><p> <a href="http://www.yunsee.cn/finger.html">http://www.yunsee.cn/finger.html</a></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092206153.png"></p><p>b、本地工具 </p><p>whatweb</p><p>御剑web指纹识别程序</p><p>（<a href="https://pan.baidu.com/share/link?shareid=437376&amp;uk=3526832374%EF%BC%89">https://pan.baidu.com/share/link?shareid=437376&amp;uk=3526832374）</a></p><p>大禹CMS识别程序</p><p> <a href="https://github.com/Ms0x0/Dayu">https://github.com/Ms0x0/Dayu</a></p><h3 id="2-针对CMS漏洞查询"><a href="#2-针对CMS漏洞查询" class="headerlink" title="2.针对CMS漏洞查询"></a>2.针对CMS漏洞查询</h3><p>对于查询到的CMS可以利用 <a href="https://bugs.shuimugan.com/">https://bugs.shuimugan.com</a> 网站查询指定CMS的漏洞。</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092207550.png"></p><h3 id="3-敏感目录信息"><a href="#3-敏感目录信息" class="headerlink" title="3.敏感目录信息"></a>3.敏感目录信息</h3><p>针对目标Web目录结构和敏感隐藏文件探测是非常重要的。在探测过程中很有可能会探测出后台页面、上传页面、数据库文件、甚至是网站源代码文件压缩包等。</p><p>探测工具：</p><p>a、御剑后台扫描工具</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092206931.png"></p><p>b、wwwscan命令行工具</p><p>c、dirb命令行工具</p><p>kali中使用，输入dirbuster指令</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092208089.png"></p><p>会出现一个弹窗，第一排输入探测网址，一般选择HEAD and GET，下一个输入口传入对应字典即可</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092208905.png"></p><p>d、dirbuster扫描工具</p><h3 id="4、wordpress测试"><a href="#4、wordpress测试" class="headerlink" title="4、wordpress测试"></a>4、wordpress测试</h3><p>WordPress是使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。也可以把 WordPress当作一个内容管理系统（CMS）来使用。</p><p>针对WordPress测试，可以使用wpscan工具进行对应安全测试。（得到主题，服务器，插件等信息）</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092206969.png" alt="3"></p><p>注：科学上网，绕过某些障碍，更新WordPress数据库，以便于探测</p><h2 id="端口信息收集"><a href="#端口信息收集" class="headerlink" title="端口信息收集"></a>端口信息收集</h2><h3 id="1-端口介绍"><a href="#1-端口介绍" class="headerlink" title="1.端口介绍"></a>1.端口介绍</h3><p>端口：把IP看做房子，端口就是出入房子的门。端口由端口号标记，只有整数，范围是0到65535（2^16-1）</p><p>在计算机中每一个端口代表一个服务。在Windows命令行中使用 netstat -anbo 显示开放端口。</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092206542.png"></p><h3 id="2-端口信息收集"><a href="#2-端口信息收集" class="headerlink" title="2.端口信息收集"></a>2.端口信息收集</h3><p>对于收集目标机器端口状态可以使用工具来进行测试。</p><p>工具原理：使用TCP或者UDP等协议向目标端口发送指定标志位等的数据包，等待目标返回数据包，以此来判断端口状态。</p><p>工具：</p><p>1、使用nmap 探测。 nmap -A -v -T4 目标（kali）</p><p>2、使用masscan探测</p><p>3、使用在线网站探测 <a href="http://tool.chinaz.com/port/%EF%BC%88%E4%B8%8D%E8%83%BD%E6%8E%A2%E6%B5%8B%E6%9C%AC%E5%9C%B0%EF%BC%89">http://tool.chinaz.com/port/（不能探测本地）</a></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092209829.png"></p><h3 id="3-端口攻击"><a href="#3-端口攻击" class="headerlink" title="3.端口攻击"></a>3.端口攻击</h3><p>针对不同的端口有不同的攻击方法</p><p>针对远程连接服务器端口</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092206554.png"></p><p>（23号端口：明文传递）</p><p>对于扫描到的端口可以在搜索引擎中查找对应的攻击方法进行测试。</p><h3 id="4-防御措施"><a href="#4-防御措施" class="headerlink" title="4.防御措施"></a>4.防御措施</h3><p>只要端口开放并且可以连通，那么就可以利用对应的方式进行攻击测试。</p><p>防御措施：</p><p>1、关闭不必要的端口；</p><p>2、对重要业务的服务端口设置防火墙；</p><p>3、加强信息安全意识，经常性更换用户密码；</p><p>4、经常更新软件，打补丁（patch）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 渗透学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 小迪渗透 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>渗透学习（一）</title>
       <link href="/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
       <url>/2022/01/09/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/</url>
