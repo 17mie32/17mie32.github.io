@@ -455,21 +455,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-10
+                    2022-01-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    10 分
                 </div>
                 
 
@@ -530,7 +530,8 @@
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092243074.png"></p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092243343.png"></p>
 <h3 id="12、rar"><a href="#12、rar" class="headerlink" title="12、rar"></a>12、rar</h3><p>由提示该压缩包为纯四位数密码，先解密得到密码，打开文件即可得到flag</p>
-<h3 id="13、zip伪加密"><a href="#13、zip伪加密" class="headerlink" title="13、zip伪加密"></a>13、zip伪加密</h3><p>原理：</p>
+<h3 id="13、zip伪加密"><a href="#13、zip伪加密" class="headerlink" title="13、zip伪加密"></a>13、zip伪加密</h3><p>   一般伪加密在文件头的加密标志位做修改，进而再打开文件时识被别为加密压缩包。 一般来说，文件各个区域开头就是50 4B，然后后面两个字节是版本，再后面两个就是判断是否有加密的关键了。</p>
+<p><font color='red'>原理：</font></p>
 <p>zip文件由三部分组成：压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志</p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201092338887.png"></p>
 <p><strong>压缩文件数据区：</strong></p>
@@ -542,21 +543,61 @@
 <p>修改压缩源文件目录区的全布局方式标记比特值之后即可对文件加密或解密</p>
 <p>全局方式位标记的四个数字中只有<strong>第二个数字</strong>对其有影响，其它的不管为何值，都不影响它的加密属性！<br>第二个数字为奇数时 –&gt;加密<br>第二个数字为偶数时 –&gt;未加密</p>
 <p><strong>辨别当前的zip是真的加密还是伪加密？</strong></p>
-<p>无加密</p>
-<p>压缩源文件数据区的全局方式位标记应当为00 00  （头文件标记后2bytes）</p>
-<p>压缩源文件目录区的全局方式位标记应当为00 00  （目录文件标记后4bytes）</p>
-<p>真加密</p>
-<p>压缩源文件数据区的全局方式位标记应当为09 00 </p>
-<p>压缩源文件目录区的全局方式位标记应当为09 00</p>
+<p><strong>无加密：</strong><br>压缩源文件数据区的全局加密应当为 00 00（头文件标记后2bytes）<br>且压缩源文件目录区的全局方式标记应当为00 00 （目录文件标记后4bytes）</p>
+<p><strong>假加密：</strong><br>压缩源文件数据区的全局加密应当为 00 00<br>且压缩文件目录区的全局方式标记应当为 09 00</p>
+<p><strong>真加密：</strong><br>压缩源文件数据区的全局加密应当为 09 00<br>且压缩源文件目录区的全局方式应当为 09 00</p>
 <p>zip伪加密解决方法：</p>
-<p>（原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pdsu161530247/article/details/73612910%EF%BC%89">https://blog.csdn.net/pdsu161530247/article/details/73612910）</a></p>
-<p>1）使用<strong>ZipCenOp.jar(需要java环境)</strong></p>
+<p>（原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pdsu161530247/article/details/73612910">https://blog.csdn.net/pdsu161530247/article/details/73612910</a> ）</p>
+<p><strong>1）使用 ZipCenOp.jar (需要java环境)</strong></p>
 <p>命令如下：</p>
-<p><strong>java -jar ZipCenOp.jar r xxx.zip</strong></p>
+<p><font color='red'><strong>java -jar ZipCenOp.jar r xxx.zip</strong></font></p>
 <p>将压缩包和ZipCenOp放在同一目录下，用cmd执行命令即可，若success后，可直接打开压缩包</p>
 <p>？：处理后压缩包要用winrar才能打开7-zip打开仍需要密码，不知道为什么会这样</p>
-<p>2）修改文件头加密标志位</p>
+<p><strong>2）修改文件头加密标志位</strong></p>
 <p>头文件标记后2bytes、目录文件标记后4bytes这两处（四位中的）第二位为偶数即可</p>
+<p>针对此题：</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201101636357.png"  />
+
+<p>我们使用winhex打开压缩包后，首先查找50 4B字段，可以得到该压缩包的三个部分：压缩源文件数据区+压缩源文件目录区+压缩源文件目录结束标志。</p>
+<p>在数据区头文件后的2个字节后可以看到全局加密为09 00，说明是加密的；</p>
+<p>在目录区头文件标记后的4个字节后可以看到全局方式标记为09  00说明是加密的；</p>
+<p>将全局方位标记处的9修改偶数即可</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201101646071.png" style="zoom:80%;" />
+
+<h3 id="14、QR"><a href="#14、QR" class="headerlink" title="14、QR"></a>14、QR</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202201101658366.png" alt="image-20220110165847281" style="zoom: 50%;" />
+
+<h3 id="15、被嗅探的流量"><a href="#15、被嗅探的流量" class="headerlink" title="15、被嗅探的流量"></a>15、被嗅探的流量</h3><p>下载题目得到一个pcapng文件，用wireshark打开</p>
+<p>先在分组字节流中查找flag字符串，发现flag</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201131550577.png" style="zoom: 33%;" />
+
+<h3 id="16、镜子里面的世界"><a href="#16、镜子里面的世界" class="headerlink" title="16、镜子里面的世界"></a>16、镜子里面的世界</h3><p>下载得到一张图片提示到：Look very closely，于是猜想是不是LSB隐写，并且图片名为steg，于是先用zsteg检测图片里的隐写数据（png、bmp），得到flag。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201131601717.png" alt="kali里使用" style="zoom: 67%;" />
+
+<h3 id="17、ningen"><a href="#17、ningen" class="headerlink" title="17、ningen"></a>17、ningen</h3><h4 id="法一：foremost提取"><a href="#法一：foremost提取" class="headerlink" title="法一：foremost提取"></a>法一：foremost提取</h4><p>观察图片没有发现什么，题目提示有密码，于是尝试用foremost提取（猜测可能有压缩文件）。</p>
+<p>提取后得到一个加密的压缩包，题目提示为4位的纯数字密码，爆破即可。</p>
+<h5 id="各文件的头尾总结"><a href="#各文件的头尾总结" class="headerlink" title="各文件的头尾总结"></a>各文件的头尾总结</h5><p>（原博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29277155/article/details/98060616%EF%BC%89">https://blog.csdn.net/qq_29277155/article/details/98060616）</a></p>
+<h6 id="1-图片文件"><a href="#1-图片文件" class="headerlink" title="1.图片文件"></a>1.图片文件</h6><p>JPEG (jpg/jpe/jpeg)                文件头：FFD8FF　　　　　文件尾：FF D9　　　　　　　　　　　　　　　<br>PNG (png)                        文件头：89504E47　　　　文件尾：AE 42 60 82<br>GIF (gif)                        文件头：47494638　　　　文件尾：00 3B<br>TIFF (tif)                       文件头：49492A00        文件尾：<br>Windows Bitmap (bmp)             文件头：424D            文件尾：<br>ico（ico)                        文件头：00 00 01 00<br>Adobe Photoshop (psd)         文件头：38425053        文件尾：</p>
+<h6 id="2-office文件"><a href="#2-office文件" class="headerlink" title="2.office文件"></a>2.office文件</h6><p>MS Word/Excel (xls.or.doc)    文件头：D0CF11E0<br>MS Access (mdb)               文件头：5374616E64617264204A<br>WordPerfect (wpd)             文件头：FF575043<br>Adobe Acrobat (pdf)           文件头：255044462D312E<br>application/vnd.visio(vsd)        文件头：d0cf11e0a1b11ae1<br>Email [thorough only] (eml)   文件头：44656C69766572792D646174653A<br>Outlook Express (dbx)         文件头：CFAD12FEC5FD746F<br>Outlook (pst)                         文件头：2142444E<br>Rich Text Format (rtf)        文件头：7B5C727466        </p>
+<p>txt 文件(txt)          文件头：Unicode：feff     / Unicode big endian：fffe    / UTF-8：efbbbf    /ANSI编码是没有文件头的</p>
+<h6 id="3-压缩包文件"><a href="#3-压缩包文件" class="headerlink" title="3.压缩包文件"></a>3.压缩包文件</h6><p>ZIP Archive (zip)               文件头：504B0304        文件尾：50 4B<br>RAR Archive (rar)             文件头：52617221</p>
+<h6 id="4-音频文件"><a href="#4-音频文件" class="headerlink" title="4.音频文件"></a>4.音频文件</h6><p>Wave (wav)                    文件头：57415645<br>audio(Audio)                   文件头： 4D546864,<br>audio/x-aac（aac）              文件头：fff1 / fff9</p>
+<h6 id="5-视频文件"><a href="#5-视频文件" class="headerlink" title="5.视频文件"></a>5.视频文件</h6><p>AVI (avi)，                     文件头：41564920<br>Real Audio (ram)              文件头：2E7261FD<br>Real Media (rm)               文件头：2E524D46<br>MPEG (mpg)                    文件头：000001BA<br>MPEG (mpg)                   文件头：000001B3<br>Quicktime (mov)               文件头：6D6F6F76<br>Windows Media (asf)           文件头：3026B2758E66CF11<br>MIDI (mid)                           文件头：4D546864</p>
+<h6 id="6-代码文件"><a href="#6-代码文件" class="headerlink" title="6.代码文件"></a>6.代码文件</h6><p>XML (xml)                       文件头：3C3F786D6C            文件尾：<br>HTML (html)                   文件头：68746D6C3E</p>
+<p>Quicken (qdf)                 文件头：AC9EBD8F<br>Windows Password (pwl)        文件头：E3828596</p>
+<h6 id="7-其他类型"><a href="#7-其他类型" class="headerlink" title="7.其他类型"></a>7.其他类型</h6><p>windows证书文件(der)       文件头：30 82 03 C9<br>CAD (dwg)                      文件头：41433130　　　　　文件尾：<br>Windows Shortcut (lnk)        文件头：4C000000<br>Windows reg (reg)                    文件头：5245474544495434</p>
+<h4 id="法二：winhex"><a href="#法二：winhex" class="headerlink" title="法二：winhex"></a><strong>法二：winhex</strong></h4><p>一个完整的 jpg 文件由 FF D8 开头，FF D9结尾，图片查看器会忽略 FF D9 以后的内容，因此可以在 jpg 文件中加入其他文件。</p>
+<p>经过上面的分析，知道图片中隐藏了zip文件，zip文件的开头16进制为50 4B 03 04   ，先搜索16进制文本 FF D9，然后后面跟着50 4B 03 04，于是就可以从 50 开始，复制到最后（因为这里只有一个zip，所以复制到最后），另存为新文件，就得到了隐藏的压缩包。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201131718550.png" style="zoom: 67%;" />
+
+<p>分别为选块起始位置和选块尾部，点击编辑，导出文件（zip）即可。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201131723120.png" style="zoom:67%;" />
+
+<h3 id="18、小明的保险箱"><a href="#18、小明的保险箱" class="headerlink" title="18、小明的保险箱"></a>18、小明的保险箱</h3><p>下载得到jpg图片后先用foremost提取，得到加密压缩包。提示为四位纯数字密码，暴力破解，打开压缩包即可得到flag。</p>
+<h3 id="19、爱因斯坦"><a href="#19、爱因斯坦" class="headerlink" title="19、爱因斯坦"></a>19、爱因斯坦</h3><p>拿到图片看到是黑白，首先想到的是LSB隐写，但是用Stegsolve查看后没有发现。</p>
+<p>于是查看图片信息，在备注栏发现“this_is_not_password”字符串</p>
+<p>用foremost提取，发现一个加密压缩包，尝试用刚才的字符串解密，得到flag</p>
+<h3 id="20、easycap"><a href="#20、easycap" class="headerlink" title="20、easycap"></a>20、easycap</h3><p>打开流量包发现全为TCP协议，追踪TCP流即可发现flag。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201132101297.png" alt="追踪TCP流" style="zoom: 50%;" />
 
                 
             </div>
@@ -970,7 +1011,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">7.4k</span>
+                        class="white-color">8.5k</span>
             
             
             
