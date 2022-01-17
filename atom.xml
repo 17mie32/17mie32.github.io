@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-13T13:02:48.728Z</updated>
+  <updated>2022-01-17T08:39:56.393Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透：搭建安全拓展</title>
+    <link href="http://example.com/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/"/>
+    <id>http://example.com/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/</id>
+    <published>2022-01-13T13:10:54.000Z</published>
+    <updated>2022-01-17T08:39:56.393Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;涉及知识：&quot;&gt;&lt;a href=&quot;#涉及知识：&quot; class=&quot;headerlink&quot; title=&quot;涉及知识：&quot;&gt;&lt;/a&gt;&lt;strong&gt;涉及知识：&lt;/strong&gt;&lt;/h4&gt;&lt;h4 id=&quot;1、常见搭建平台脚本启用&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>BUUCTF Misc(1)</title>
@@ -73,7 +98,7 @@
     <link href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/"/>
     <id>http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/</id>
     <published>2022-01-09T14:27:22.000Z</published>
-    <updated>2022-01-09T16:22:24.657Z</updated>
+    <updated>2022-01-13T13:12:20.022Z</updated>
     
     
       

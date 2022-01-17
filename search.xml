@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>渗透：搭建安全拓展</title>
+      <link href="/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/"/>
+      <url>/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/</url>
+      
+        <content type="html"><![CDATA[<h4 id="涉及知识："><a href="#涉及知识：" class="headerlink" title="涉及知识："></a><strong>涉及知识：</strong></h4><h4 id="1、常见搭建平台脚本启用"><a href="#1、常见搭建平台脚本启用" class="headerlink" title="1、常见搭建平台脚本启用"></a>1、常见搭建平台脚本启用</h4><p>ASP、PHP、ASPX、JSP、Python、JAVAWEB等</p><h4 id="2、域名-IP-目录解析安全问题"><a href="#2、域名-IP-目录解析安全问题" class="headerlink" title="2、域名 IP 目录解析安全问题"></a>2、域名 IP 目录解析安全问题</h4><p>（1）一个服务器ip下可以有多个网站（用域名区分）</p><p>（2）对于一般网站，ip地址访问的是服务器下的目录文件（根目录），域名访问的是根目录中的某个目录。</p><p>（eg：网站备份，将网站的blog文件打包保存在根目录下，域名访问的是根目录里的blog文件）</p><h4 id="3、常见文件后缀解析对应安全"><a href="#3、常见文件后缀解析对应安全" class="headerlink" title="3、常见文件后缀解析对应安全"></a>3、常见文件后缀解析对应安全</h4><p>中间件根据文件后缀进行解析。</p><p>当要上传一句话木马时中间件会对文件后缀名进行过滤，如果使用中间件能正常解析的的后缀名上传文件即可达到入侵的目的。（用菜刀或蚁剑连接）</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201141653172.PNG" alt="ISS" style="zoom: 50%;" /><p>在此中间件中.cdx / .cd / .asp 都可解析为asp.dll文件</p><h4 id="4、常见安全测试中的安全防护"><a href="#4、常见安全测试中的安全防护" class="headerlink" title="4、常见安全测试中的安全防护"></a>4、常见安全测试中的安全防护</h4><img src="https://gitee.com/mie1732/emc/raw/master/img/202201162107765.PNG" style="zoom: 50%;" /><h4 id="5、WEB-后门与用户及文件权限"><a href="#5、WEB-后门与用户及文件权限" class="headerlink" title="5、WEB 后门与用户及文件权限"></a>5、WEB 后门与用户及文件权限</h4><img src="https://gitee.com/mie1732/emc/raw/master/img/202201162133533.PNG" alt="来宾账户：匿名" style="zoom:50%;" /><img src="https://gitee.com/mie1732/emc/raw/master/img/202201162134551.png" alt="脚本执行限制" style="zoom:50%;" /><p>权限问题：对于一般网站和目录都会设置操作权限，当某些文件无法绕过，就换目录绕过。（选择合适（有权限）的目录上传后门）</p><p>绕过思路：对于权限的设置，一般会在图片文件等非脚本执行文件进行限制，因此我们可以尝试在获得权限的有脚本目录上传后门（为保证自身的正常运行，一定不会在自己有脚本运行的网站进行权限限制）</p><h4 id="6、中间件"><a href="#6、中间件" class="headerlink" title="6、中间件"></a>6、中间件</h4><p>1）查看网站的数据包</p><p>响应头中的信息：</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201162142542.png" alt="Server" style="zoom: 80%;" /><p>知道中间件（搭建平台），根据此中间件的一般漏洞进行尝试。</p><p>2）Vulhub靶场练习</p><p>Ubuntu环境下使用</p><p>在对应漏洞目录下执行：</p><p>docker-compose build</p><p>docker-compose up-d</p><p>docker-compose config</p><p>docker-compose down（关闭）</p><p>（在 su root 下执行！）</p><p>3）docker：</p><p>查看容器：docker ps</p><p>映射端口：-p</p><p>docker run -P 8080:8080 -it 镜像名 </p><p>虚拟机的ip查看：ifconfig（192开头的）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BUUCTF Misc(1)</title>
       <link href="/2022/01/09/BUUCTF-Misc-1/"/>
       <url>/2022/01/09/BUUCTF-Misc-1/</url>
