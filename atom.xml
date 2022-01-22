@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-17T08:42:36.192Z</updated>
+  <updated>2022-01-22T07:57:18.829Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,15 +17,54 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>BUUCTF Misc(2)</title>
+    <link href="http://example.com/2022/01/22/BUUCTF-Misc-2/"/>
+    <id>http://example.com/2022/01/22/BUUCTF-Misc-2/</id>
+    <published>2022-01-22T01:20:45.000Z</published>
+    <updated>2022-01-22T07:57:18.829Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;原博主链接：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Misc" scheme="http://example.com/categories/Misc/"/>
+    
+    
+    <category term="Misc" scheme="http://example.com/tags/Misc/"/>
+    
+    <category term="BUUCTF" scheme="http://example.com/tags/BUUCTF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>渗透：web源码拓展</title>
     <link href="http://example.com/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/"/>
     <id>http://example.com/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/</id>
     <published>2022-01-17T08:42:36.000Z</published>
-    <updated>2022-01-17T08:42:36.192Z</updated>
+    <updated>2022-01-19T12:43:35.203Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1、web源码&quot;&gt;&lt;a href=&quot;#1、web源码&quot; class=&quot;headerlink&quot; title=&quot;1、web源码&quot;&gt;&lt;/a&gt;1、web源码&lt;/h3&gt;&lt;p&gt;​        WEB</summary>
+        
+      
     
     
     
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
     
+    
+    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -59,7 +98,7 @@
     <link href="http://example.com/2022/01/09/BUUCTF-Misc-1/"/>
     <id>http://example.com/2022/01/09/BUUCTF-Misc-1/</id>
     <published>2022-01-09T14:38:25.000Z</published>
-    <updated>2022-01-13T13:02:48.728Z</updated>
+    <updated>2022-01-22T06:07:03.598Z</updated>
     
     
       

@@ -4,13 +4,52 @@
   
     
     <entry>
+      <title>BUUCTF Misc(2)</title>
+      <link href="/2022/01/22/BUUCTF-Misc-2/"/>
+      <url>/2022/01/22/BUUCTF-Misc-2/</url>
+      
+        <content type="html"><![CDATA[<p>原博主链接：<a href="https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%202%EF%BC%8821-40%EF%BC%89.html">https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%202%EF%BC%8821-40%EF%BC%89.html</a></p><h3 id="21、隐藏的钥匙"><a href="#21、隐藏的钥匙" class="headerlink" title="21、隐藏的钥匙"></a>21、隐藏的钥匙</h3><p>用十六进制编辑器打开图片，因为图片格式为jpg，因此搜索FF D9（文件尾标识）</p><p>在之后发现一串加过密的flag，base64解密即可</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221417875.png" alt="FF D9为文件尾标志" style="zoom: 80%;" /><h3 id="22、另一个世界"><a href="#22、另一个世界" class="headerlink" title="22、另一个世界"></a>22、另一个世界</h3><p>用十六进制编辑器打开图片，在文件尾发现一串二进制，用二进制转字符即可得到</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221432464.png" alt="一串二进制数" style="zoom:80%;" /><h3 id="23、FLAG"><a href="#23、FLAG" class="headerlink" title="23、FLAG"></a>23、FLAG</h3><p>首先用十六进制器查看，没有什么发现foremost也未提取出东西，于是用zsteng查看，如图所示，确定为LSB隐写，用stegsolve查看图片</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221443069.png" alt="kali" style="zoom:80%;" /><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221503346.png" alt="Data Extract" style="zoom: 50%;" /><p>不知道为什么看不见十六进制，只能在保存的先不写文件格式。保存后用十六进制编辑器查看此文件（50 4B 03 04）是zip文件，增加文件后缀，解压得到一个未知格式的文件</p><p>用十六进制器查看此文件。.ELF文件：文件格式，用于存储Linux程序。</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221501073.png" alt=".ELF文件"  /><p>由提示搜索hctf文本即可得到flag</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221507125.png" alt="hctf" style="zoom:80%;" /><h3 id="24、假如给我三天光明"><a href="#24、假如给我三天光明" class="headerlink" title="24、假如给我三天光明"></a>24、假如给我三天光明</h3><p>下载后得到一个加密音频和一张照片。</p><p>图片下方有这样的图案，搜索后发现是Braille盲文</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221511301.png" alt="image-20220122151130244"></p><h4 id="Braille盲文"><a href="#Braille盲文" class="headerlink" title="Braille盲文"></a>Braille盲文</h4><p>布莱尔创造的由6个点为基础结构的盲字，在纸面上有的凸起，有的不凸起，形成64种变化，即64种符形，在每个符号（单位称“方”）左右两列，每列各三个点，从左边自上而下叫做1、2、3点，从右边自上而下叫做4、5、6点。</p><p>　<strong>1. 数字盲文</strong></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221517670.png" alt="数字"></p><p>解读：每个数字的盲文前面都有个“3456”点符形，是数号，表示后面的读作阿拉伯数字。</p><p><strong>2. 英语字母盲文（英语一级盲文）</strong></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221522395.png" alt="英语字母"></p><p>解读：英语盲文a－j都只是用了1245点位即上半截，和数字的一样；k－t是a－j下面加上了3号点位。</p><p><strong>3.</strong> <strong>汉语拼音盲文</strong></p><p>　汉语拼音盲文声母表（18个）</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526938.png" alt="img" style="zoom:80%;" /><p>注意：声母g/k/h在韵母i/u/ü时变读为j/q/x。z/c/s/zh/ch/sh/r后面的i省略</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526735.png" alt="img" style="zoom: 80%;" /><p>汉语拼音盲文韵母表（34个）</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526941.png" style="zoom: 80%;" /><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526729.png"></p><p>明显是英语字母盲文，从左到右分别代表：kmdonowg</p><p>解压出音频，是摩斯电码，用Audacity提取</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221550847.png"></p><p>较长的蓝色即为“-”，较短的即为“.”，每一段由-和.组成的即为一个字符。用“/”间隔。</p><p>-.-./-/..-./.–/.–././../—–/—../–…/…–/..—/..–../..—/…–/-../–../</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221554823.png" alt="摩尔斯电码转换" style="zoom: 67%;" /><h4 id="摩斯电码"><a href="#摩斯电码" class="headerlink" title="摩斯电码"></a>摩斯电码</h4><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221555927.png" alt="摩斯电码表" style="zoom:67%;" />]]></content>
+      
+      
+      <categories>
+          
+          <category> Misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Misc </tag>
+            
+            <tag> BUUCTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>渗透：web源码拓展</title>
       <link href="/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/"/>
       <url>/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="1、web源码"><a href="#1、web源码" class="headerlink" title="1、web源码"></a>1、web源码</h3><p>​        WEB 源码在安全测试中是非常重要的信息来源，可以用来代码审计漏洞也可以用来做信息突破口，其中 WEB 源码有很多技术需要简明分析。 </p><p>​         eg：获取某 ASP 源码后可以采用默认数据库下载为突破，获取某其他脚本源码漏洞可以进行代码审计挖掘或分析其业务逻辑等，总之源码的获取将为后期的安全测试提供了更多的思路。</p><h3 id="2、web源码目录结构"><a href="#2、web源码目录结构" class="headerlink" title="2、web源码目录结构"></a>2、web源码目录结构</h3><p>源码有很多目录，最重要的四个目录：后台目录、模板目录、数据库目录、数据库配置文件</p><h3 id="3、web源码脚本类型"><a href="#3、web源码脚本类型" class="headerlink" title="3、web源码脚本类型"></a>3、web源码脚本类型</h3><p>先分析web源码的脚本类型</p><p>主要的几个：ASP、PHP、ASPX、JSP、JAVAWEB、 Python</p><p>不同的脚本会涉及这几个问题：数据库存储、解释或编译原理、语言安全</p><h3 id="4、web源码应用分类"><a href="#4、web源码应用分类" class="headerlink" title="4、web源码应用分类"></a>4、web源码应用分类</h3><p>源码功能决定漏洞类型</p><p>门户：综合类漏洞</p><p>电商：业务逻辑突出</p><p>论坛：xss逻辑突出</p><p>第三方：据功能决定</p><h3 id="5、其他补充"><a href="#5、其他补充" class="headerlink" title="5、其他补充"></a>5、其他补充</h3><p>框架或非框架</p><p>CMS识别：人工，工具，平台识别</p><p>开源或内部：开源–直接找漏洞或审计      内部–常规渗透测试</p><p>源码获取：备份获取，CMS识别后获取，特定源码特定渠道</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201171911649.png" alt="web源码" style="zoom: 67%;" /> ]]></content>
       
       
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透学习 </tag>
+            
+        </tags>
       
     </entry>
     
