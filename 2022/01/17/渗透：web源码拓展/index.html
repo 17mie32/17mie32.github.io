@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-01-19
+                    2022-01-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    352
+                    820
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -488,22 +488,47 @@
                 <h3 id="1、web源码"><a href="#1、web源码" class="headerlink" title="1、web源码"></a>1、web源码</h3><p>​        WEB 源码在安全测试中是非常重要的信息来源，可以用来代码审计漏洞也可以用来做信息突破口，其中 WEB 源码有很多技术需要简明分析。 </p>
 <p>​         eg：获取某 ASP 源码后可以采用默认数据库下载为突破，获取某其他脚本源码漏洞可以进行代码审计挖掘或分析其业务逻辑等，总之源码的获取将为后期的安全测试提供了更多的思路。</p>
 <h3 id="2、web源码目录结构"><a href="#2、web源码目录结构" class="headerlink" title="2、web源码目录结构"></a>2、web源码目录结构</h3><p>源码有很多目录，最重要的四个目录：后台目录、模板目录、数据库目录、数据库配置文件</p>
+<p>template：一般是网站模板文件</p>
 <h3 id="3、web源码脚本类型"><a href="#3、web源码脚本类型" class="headerlink" title="3、web源码脚本类型"></a>3、web源码脚本类型</h3><p>先分析web源码的脚本类型</p>
 <p>主要的几个：ASP、PHP、ASPX、JSP、JAVAWEB、 Python</p>
 <p>不同的脚本会涉及这几个问题：数据库存储、解释或编译原理、语言安全</p>
+<p><a target="_blank" rel="noopener" href="https://websec.readthedocs.io/zh/latest/index.html">Web安全学习笔记 — Web安全学习笔记 1.0 文档 (websec.readthedocs.io)</a></p>
 <h3 id="4、web源码应用分类"><a href="#4、web源码应用分类" class="headerlink" title="4、web源码应用分类"></a>4、web源码应用分类</h3><p>源码功能决定漏洞类型</p>
 <p>门户：综合类漏洞</p>
 <p>电商：业务逻辑突出</p>
 <p>论坛：xss逻辑突出</p>
 <p>第三方：据功能决定</p>
-<h3 id="5、其他补充"><a href="#5、其他补充" class="headerlink" title="5、其他补充"></a>5、其他补充</h3><p>框架或非框架</p>
-<p>CMS识别：人工，工具，平台识别</p>
+<p>源码获取途径：搜索引擎、闲鱼淘宝、第三方源码站（菜鸟源码）</p>
+<h3 id="5、其他补充"><a href="#5、其他补充" class="headerlink" title="5、其他补充"></a>5、其他补充</h3><p>框架或非框架（若有漏洞找框架的漏洞） </p>
+<p>CMS（内容管理系统）识别：人工，工具，平台识别</p>
 <p>开源或内部：开源–直接找漏洞或审计      内部–常规渗透测试</p>
-<p>源码获取：备份获取，CMS识别后获取，特定源码特定渠道</p>
+<p>源码获取：扫描备份文件获取，CMS识别后获取，特定源码特定渠道 </p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202201171911649.png" alt="web源码" style="zoom: 67%;" />
 
- 
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>关注应用分类及脚本类型估摸出可能存在的漏洞（其中框架类除外），在获取源码后可进行本地安全测试或代码审计，也可以分析其目录工作原理（数据库备份，bak文件等），未获取到的源码采用各种方法获取。</p>
+<p>eg：</p>
+<p>1、有些网站的脚本语言会在url处显示</p>
+<p>2、如果知道某网站的框架后可以去找框架漏洞，如果是新的框架，就自己下载框架源码进行漏洞分析再利用</p>
+<p>3、得到网站源码后找到数据库文件再找其中的账号密码表</p>
+<p>4、涉及资源：</p>
+<p> <a target="_blank" rel="noopener" href="https://cnmmm.com/">https://cnmmm.com</a> </p>
+<p><a target="_blank" rel="noopener" href="https://w.ddosi.workers.dev/">https://w.ddosi.workers.dev</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Lucifer1993/cmsprint">https://github.com/Lucifer1993/cmsprint</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/M4tir/Github-Monitor">https://github.com/M4tir/Github-Monitor</a> </p>
+<p><a target="_blank" rel="noopener" href="https://websec.readthedocs.io/zh/latest/language/index.html">https://websec.readthedocs.io/zh/latest/language/index.html</a> </p>
+<p>5、如何运用cms指纹字典：（用cms工具识别）</p>
+<p>每个框架都有对应的访问我呢间，访问给出的文件并下载，再在cmd中查看文件md5如果与字典中的md5匹配即为此框架</p>
+<p>文件md5查看命令：<code>certutil -hashfile 文件名 MD5</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202201270912861.PNG" alt="cms指纹字典" style="zoom:80%;" />
 
+<p>cms识别平台：</p>
+<p><a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/">http://whatweb.bugscaner.com</a> </p>
+<p><a target="_blank" rel="noopener" href="https://www.yunsee.cn/">https://www.yunsee.cn</a> </p>
+<p>6、电商类网站的漏洞一般关注商品数量问题，一般来说功能越多漏洞越多</p>
+<p>7、简要目标从识别到源码获取</p>
+<p>（1）对于博客：可以通过数据包里的文件，搜索（jquery.min.js）寻找漏洞</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201281507915.png" alt="jquery.min.js"></p>
+<p>（2）一般如果各种方法都不能判断出cms，可以认为是内部源码网站（淘宝等）</p>
 
                 
             </div>
@@ -911,7 +936,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">10k</span>
+                        class="white-color">10.5k</span>
             
             
             
