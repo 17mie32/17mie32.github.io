@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>渗透：系统及数据库等</title>
+      <link href="/2022/01/28/%E6%B8%97%E9%80%8F%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AD%89/"/>
+      <url>/2022/01/28/%E6%B8%97%E9%80%8F%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AD%89/</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>除去之前的搭建平台中间件，网站源码外，容易受到攻击的还有操作系统，数据库，第三方软件平台等，其中此类攻击也能直接影响到WEB或服务器的安全，导致网站或服务器权限的获取。</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201281538270.PNG"></p><h3 id="1、操作系统"><a href="#1、操作系统" class="headerlink" title="1、操作系统"></a>1、操作系统</h3><p>系统层面漏洞、识别、漏洞类型</p><p>1）Windows</p><p>2）Linux</p><p>注：</p><p>（1）Windows系统不严格区分大小写，Linux严格区分大小写。</p><p>因此，一般而言，对于网站：我们在url上修改大小写再访问即可判断是什么操作系统的服务器。</p><p>eg： xxx/?id=4            xxx/?iD=4</p><p>对于IP地址：一般用nmap扫描         </p><p><code>nmap   -O    IP地址</code> （最后只能扫描出可能性，一般看可能性最大的）</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201301153272.png" alt="nmap"></p><p>ping命令查看TTL（不太准确）</p><p>（2）文件对于操作系统的兼容问题、不同操作系统文件的存储方式（Windows分盘存储文件）</p><h3 id="2、WEB"><a href="#2、WEB" class="headerlink" title="2、WEB"></a>2、WEB</h3><p>1）网站源码：CMS，框架或内部源码不同思路</p><p>​     内部或未知</p><p>​     开源CMS</p><p>​     框架或非框架类</p><p>​     白盒代码审计，漏洞挖掘</p><p>​     部分漏洞采用人工辅助探针</p><p>2）搭建平台：中间件安全</p><p>​      配置导致安全问题</p><p>​      安全配置防护：</p><p>​                                    IP或用户验证</p><p>​                                   文件格式解析</p><p>​                                   目录或文件执行权限</p><p>​      数据库：数据库安全</p><p>​                                   弱口令</p><p>​                                    漏洞</p><p>注：</p><p>（1）数据库：</p><p>大部分网站为动态网站，小部分为静态网站（无数据传输，没有漏洞）</p><p>数据库类型：小型（access）、中型（mysql）、大型（Oracle）</p><p>（2）识别网站数据库：</p><p>不同脚本对应的数据库（兼容性好）：</p><p>ASP + Access</p><p>PHP+ MySQL</p><p>ASPX + MSSQL</p><p>JSP + MySQL , oracle</p><p>python + MongoDB</p><p>端口扫描：数据库在运行时一般会开放默认端口</p><p>MySQL：3306</p><p>SqlServer：1433</p><p>Oracle：1521</p><p>MongoDB：27017</p><p>Redis：6379</p><p>memcached：11211</p><p>psotgreSQL：5432</p><p>vertica：5551</p><p>greenplum：5432</p><p>Derby：1527</p><p>db2：5000</p><p>pointbase：9092</p><p>informix：无默认</p><p>端口状态：</p><p>filtered：由于报文无法到达指定的端口，nmap不能够决定端口的开发状态</p><h3 id="3、APP："><a href="#3、APP：" class="headerlink" title="3、APP："></a>3、APP：</h3><p>系统漏洞、反编译提取url、抓包结合web</p><p>1）Android</p><p>2）IOS</p><h3 id="4、第三方："><a href="#4、第三方：" class="headerlink" title="4、第三方："></a>4、第三方：</h3><p>常见的第三方软件或服务器安全问题（站长或者服务器选装的一些软件）</p><p>1）openssh</p><p>2）weblogic</p><p>3）jboss</p><p>4）redis</p><p>5）serv-u</p><p>一般通过端口扫描判断（<code>nmap -sV</code>   目标主机的端口上运行的软件版本）</p><p>弱口令、版本漏洞攻击等</p><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>除去常规web安全及APP安全测试外，类似服务器单一或复杂的其他服务（邮件，游戏，负载均衡等），也可以作为安全测试目标，此类目标测试原则只是少了web应用或其他安全问题。</p><p>热备份：在数据不停止的时候进行备份</p><p>负载均衡：为了防止设备过载，采用多个设备均分工作量。解决高并发问题。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 渗透学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BUUCTF Misc(2)</title>
       <link href="/2022/01/22/BUUCTF-Misc-2/"/>
       <url>/2022/01/22/BUUCTF-Misc-2/</url>
