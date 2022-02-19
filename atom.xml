@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-08T12:49:15.218Z</updated>
+  <updated>2022-02-19T05:09:20.078Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透：架构、搭建、WAF</title>
+    <link href="http://example.com/2022/02/19/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%9E%B6%E6%9E%84%E3%80%81%E6%90%AD%E5%BB%BA%E3%80%81WAF/"/>
+    <id>http://example.com/2022/02/19/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%9E%B6%E6%9E%84%E3%80%81%E6%90%AD%E5%BB%BA%E3%80%81WAF/</id>
+    <published>2022-02-19T05:00:14.000Z</published>
+    <updated>2022-02-19T05:09:20.078Z</updated>
+    
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>渗透：CDN绕过</title>
+    <link href="http://example.com/2022/02/08/%E6%B8%97%E9%80%8F%EF%BC%9ACDN%E7%BB%95%E8%BF%87/"/>
+    <id>http://example.com/2022/02/08/%E6%B8%97%E9%80%8F%EF%BC%9ACDN%E7%BB%95%E8%BF%87/</id>
+    <published>2022-02-08T12:57:30.000Z</published>
+    <updated>2022-02-19T05:11:18.275Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;CDN概述&quot;&gt;&lt;a href=&quot;#CDN概述&quot; class=&quot;headerlink&quot; title=&quot;CDN概述&quot;&gt;&lt;/a&gt;CDN概述&lt;/h3&gt;&lt;p&gt;CDN 的全称是 Content Delivery Network，即内容分发网络。CDN</summary>
+        
+      
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透：加密算法</title>

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="图片隐写">
-    <meta name="description" content="图片隐写学习">
+    <meta name="keywords" content="信息收集">
+    <meta name="description" content="CDN绕过">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>图片隐写 | E=MC^2</title>
+    <title>渗透：CDN绕过 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">图片隐写</h1>
+                    <h1 class="description center-align post-title">渗透：CDN绕过</h1>
                 </div>
             </div>
         </div>
@@ -419,12 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Misc/">
-                                <span class="chip bg-color">Misc</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                                <span class="chip bg-color">图片隐写</span>
+                            <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">渗透学习</span>
                             </a>
                         
                     </div>
@@ -435,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Misc/" class="post-category">
-                                Misc
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                小迪渗透
                             </a>
                         
                     </div>
@@ -448,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-11-05
+                    2022-02-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-12-25
+                    2022-02-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    823
+                    675
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -489,46 +485,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、头文件缺失"><a href="#1、头文件缺失" class="headerlink" title="1、头文件缺失"></a>1、头文件缺失</h3><p><img src="https://img-blog.csdnimg.cn/20200714132519595.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0FURldVUw==,size_16,color_FFFFFF,t_70" alt="img"></p>
-<p>zip文件头：50 4B 03 04</p>
-<p>PNG文件头：89 50 4E 47 0D 0A 1A 0A 00 00 00 0D</p>
-<p>对于文件头缺失的文件，一般都是粘贴，如果选择写入会覆盖原来的</p>
-<p>图片高度有问题修改第二排前16位，前面是宽后面是高</p>
-<h3 id="2、LBS隐写：最低有效位-StegSolve"><a href="#2、LBS隐写：最低有效位-StegSolve" class="headerlink" title="2、LBS隐写：最低有效位  StegSolve"></a>2、LBS隐写：最低有效位  StegSolve</h3><p>用嵌入的秘密信息取代载体图像的最低比特位，原来的7个高低平面与替代 秘密信息的最低位平面组合成含隐藏信息对等的新图形。</p>
-<p>png图片：一种无损压缩的位图片形格式，也只有在无损压缩或者无压缩的      图片（BMP）上实现lsb隐写。</p>
-<p>如果图像是jpg图片的话，就没法使用lsb隐写了，原因是jpg图片对像数进行了有损压缩，我们修改的信息就可能会在压缩的过程中被破坏。</p>
-<p>而png图片虽然也有压缩，但却是无损压缩，这样我们修改的信息也就能得到正确的表达，不至于丢失。BMP的图片也是一样的，是没有经过压缩的。BMP图片一般是特别的大的，因为BMP把所有的像数都按原样储存，没有进行压缩。</p>
-<p>LSB隐写就是修改RGB颜色分量的最低二进制位也就是最低有效位（LSB）每个像数可以携带3比特的信息。</p>
-<p><img src="https://image-static.segmentfault.com/108/897/1088978167-5b88d68b97c13_articlex"></p>
-<p>修改最低有效位的信息的算法就叫做lsb加密算法，提取最低有效位信息的算法叫做lsb解密算法。</p>
-<p>由于图像是由像素构成的，每个像素有8位(对于BMP图像来说),通常最后一位的变化，通过肉眼是无法察觉的</p>
-<p>MSB是最高有效位，Bit Plane Order代表颜色的排序方式</p>
-<p>字节上的读取顺序与<code>Bit Order</code>选项有关，如果设置了MSBFirst，是从高位开始读取，LSBFirst是从低位开始读取</p>
-<p>先左右滑动查看，发现red、blue、green均为0 </p>
-<p><img src="https://img-blog.csdnimg.cn/20201128155355874.png"></p>
-<p>然后选择Data Extract，抽取数据</p>
-<p><em>File Format：文件格式，这个主要是查看图片的具体信息</em></p>
-<p><em>Data Extract：数据抽取，图片中隐藏数据的抽取</em></p>
-<p><em>Frame Browser：帧浏览器，主要是对GIF之类的动图进行分解，动图变成一张张                                      图片，便于查看</em></p>
-<p><em>Image Combiner：拼图，图片拼接</em></p>
-<h3 id="3、zsteg："><a href="#3、zsteg：" class="headerlink" title="3、zsteg："></a>3、zsteg：</h3><p>（1）查看LSB：</p>
-<pre><code>zsteg xxx.bmp 
+                <h3 id="CDN概述"><a href="#CDN概述" class="headerlink" title="CDN概述"></a>CDN概述</h3><p>CDN 的全称是 Content Delivery Network，即内容分发网络。CDN 是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器， 通过中心平台的负载均衡、内容分发、调度等功能模块，<strong>使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。</strong>但在安全测试过程中，若目标存在 CDN 服务，将会影响到后续的安全测试过程。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202082059593.png" alt="CDN" style="zoom: 50%;" />
 
-zsteg xxx.png 
+<h3 id="CND的判断"><a href="#CND的判断" class="headerlink" title="CND的判断"></a>CND的判断</h3><p>超级ping：借助多个服务器对目标网站进行ping检测（利用多节点技术进行请求返回判断）</p>
+<p>若多个服务器对目标网站进行ping后返回的是同一个IP地址则无CDN</p>
+<img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220209141459942.png" alt="www.youku.com的超级ping" style="zoom: 50%;" />
 
-zsteg -a (文件名)    #查看各个通道的lsb
-</code></pre>
-<p>（2）检测zlib：</p>
-<pre><code>#-b的位数是从1开始的 
+<h3 id="CDN绕过技术"><a href="#CDN绕过技术" class="headerlink" title="CDN绕过技术"></a>CDN绕过技术</h3><p><strong>1、子域名查询</strong></p>
+<p>子域名：同IP地址或同网段或不同网段</p>
+<p>为了经济考虑，有些不会把分站做CDN服务，那对于子域名的查询即可推断出主站的IP地址</p>
+<p>eg：</p>
+<p>（1）因为设置域名解析所以访问网站是否有www都可以访问，但设置CDN的时候，有可能只将<a target="_blank" rel="noopener" href="http://www.xxxxxx设置解析至cdn服务器,因此若超级ping/">www.xxxxxx设置解析至CDN服务器，因此若超级ping</a> xxxxxx时就不会有CDN可直接查找到真实IP地址</p>
+<p>Get Site Ip(<a target="_blank" rel="noopener" href="https://get-site-ip.com/)%EF%BC%9A%E7%AC%AC%E4%B8%89%E6%96%B9%E7%9C%9F%E5%AE%9EIP%E5%9C%B0%E5%9D%80%E9%AA%8C%E8%AF%81%EF%BC%88%E4%BB%85%E4%BE%9B%E5%8F%82%E8%80%83%EF%BC%89">https://get-site-ip.com/)：第三方真实IP地址验证（仅供参考）</a></p>
+<p>微部社区：（<a target="_blank" rel="noopener" href="https://x.threatbook.cn/%EF%BC%89%EF%BC%9A%E5%8E%86%E5%8F%B2%E8%A7%A3%E6%9E%90%E8%AE%B0%E5%BD%95%E6%9F%A5%E8%AF%A2">https://x.threatbook.cn/）：历史解析记录查询</a></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202191140147.png" alt="历史解析记录" style="zoom:67%;" />
 
-zsteg zlib.bmp -b 1 -o xy -v
+<p>（2）m.sp910   &amp;   sp910</p>
+<p>对于一些网站，前面的**m.**代表手机类站点，因此在超级ping的时候可以通过ping：m.sp910查询IP地址</p>
+<p>（3）oneforall子域名收集工具：kali</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/shmilylty/OneForAll">https://github.com/shmilylty/OneForAll</a></p>
+<pre><code>python3 oneforall.py --target example.com run
+python3 oneforall.py --targets ./example.txt run
 </code></pre>
-<p>（3）提取该通道图片：</p>
-<pre><code>zsteg -e b8,a,lsb,xy 文件.png -&gt; out.png
+<p><strong>2、邮件服务查询</strong></p>
+<p>公司的邮箱服务器大部分不会注册CDN，则可以追踪发件地址</p>
+<p>查看邮件源码，查看received可以得到IP地址，再自己验证即可（可以用host文件验证）。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202191210225.png" alt="原始信息" style="zoom:67%;" />
+
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202191214756.png" alt="received"></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202191213978.png" alt="received"></p>
+<p><strong>3、国外地址请求</strong></p>
+<p>若没有部署到国外的CDN节点，从国外访问目标找到真实地址</p>
+<p><strong>4、引擎搜索特殊文件</strong></p>
+<p>fofa：<a target="_blank" rel="noopener" href="https://fofa.info/">https://fofa.info</a></p>
+<p>shodan：<a target="_blank" rel="noopener" href="https://www.shodan.io/">https://www.shodan.io</a></p>
+<p>zoomeye：<a target="_blank" rel="noopener" href="https://www.zoomeye.org/">https://www.zoomeye.org</a></p>
+<p>favicon . hash值搜索：icohash脚本</p>
+<pre><code>import mmh3 
+
+import requests 
+
+response = requests.get(&#39;http://www.xx.com/favicon.ico&#39;) 
+
+favicon = response.content.encode(&#39;base64&#39;) 
+
+hash = mmh3.hash(favicon) 
+
+print &#39;http.favicon.hash:&#39;+str(hash)
 </code></pre>
-<p>先放winhex里，没有找到flag，kali打开，没有修改宽高，binwalk分析，没有隐藏文件，尝试用zsteg工具，发现一串base密码，解密即可</p>
-<h3 id="4、动图"><a href="#4、动图" class="headerlink" title="4、动图"></a>4、动图</h3><p>看到动图先一帧一帧的看但是没有看到任何信息</p>
-<p>尝试用StegSolve查看，向左查看发现red plane 7的时候变化较大，用Frame Browser（帧浏览器）查看，发现只有上半的时候可能藏有flag，再保存下来，查看到red plane 2 的时候即可发现flag。（这道题没怎么明白原理）</p>
+<p><strong>5、DNS历史记录</strong></p>
+<p>查看是否有未使用CDN之前的记录，如果有可以查看真实的IP地址</p>
+<p>以量打量：CDN有流量的限制，如果只有100M，将其流量用完（多人访问）后再继续访问就是真实IP</p>
+<p>工具（扫全网）：<strong>fuckcdn</strong>    w8fuckcdn    zmap</p>
 
                 
             </div>
@@ -555,7 +564,7 @@ zsteg zlib.bmp -b 1 -o xy -v
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">http://example.com/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/</a>
+                    <a href="http://example.com/2022/02/08/%E6%B8%97%E9%80%8F%EF%BC%9ACDN%E7%BB%95%E8%BF%87/">http://example.com/2022/02/08/%E6%B8%97%E9%80%8F%EF%BC%9ACDN%E7%BB%95%E8%BF%87/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -593,12 +602,8 @@ zsteg zlib.bmp -b 1 -o xy -v
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Misc/">
-                                    <span class="chip bg-color">Misc</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                                    <span class="chip bg-color">图片隐写</span>
+                                <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">渗透学习</span>
                                 </a>
                             
                         </div>
@@ -648,31 +653,31 @@ zsteg zlib.bmp -b 1 -o xy -v
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/11/11/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8C%BA%E5%88%AB/">
+                <a href="/2022/02/19/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%9E%B6%E6%9E%84%E3%80%81%E6%90%AD%E5%BB%BA%E3%80%81WAF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="图片格式区别">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="渗透：架构、搭建、WAF">
                         
-                        <span class="card-title">图片格式区别</span>
+                        <span class="card-title">渗透：架构、搭建、WAF</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            搜索后总结的图片格式间的区别
+                            渗透：架构、搭建、WAF等
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" class="post-category">
-                                    图片格式
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
@@ -682,8 +687,8 @@ zsteg zlib.bmp -b 1 -o xy -v
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/">
-                        <span class="chip bg-color">图片格式</span>
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">渗透学习</span>
                     </a>
                     
                 </div>
@@ -694,50 +699,45 @@ zsteg zlib.bmp -b 1 -o xy -v
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/11/05/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
+                <a href="/2022/02/03/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="图片隐写">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="渗透：加密算法">
                         
-                        <span class="card-title">图片隐写</span>
+                        <span class="card-title">渗透：加密算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            图片隐写学习
+                            搭建安全拓展
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Misc/" class="post-category">
-                                    Misc
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Misc/">
-                        <span class="chip bg-color">Misc</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                        <span class="chip bg-color">图片隐写</span>
+                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">渗透学习</span>
                     </a>
                     
                 </div>
