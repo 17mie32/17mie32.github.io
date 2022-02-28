@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    512
+                    810
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -528,6 +528,30 @@
 <p>table_name：表名</p>
 <p>column_name：列名</p>
 <p>table_schema：数据库名</p>
+<h3 id="4、数据注入（同数据库）"><a href="#4、数据注入（同数据库）" class="headerlink" title="4、数据注入（同数据库）"></a>4、数据注入（同数据库）</h3><p>常规查询</p>
+<p>（1）低版本：暴力查询或结合读取查询</p>
+<p>（2）高版本：information_schema有据查询</p>
+<p>（3）MYSQL数据库</p>
+<p>数据库A=网站A</p>
+<p><strong>表名-&gt;列名-&gt;数据</strong></p>
+<p>show databases：显示所有数据库（每个数据库可以对应一个网站）</p>
+<p>use   mysql：选择mysql数据库</p>
+<p>show tables：显示mysql数据库的所有表</p>
+<p>select  *   from   server_cost：查看server_cost表里的所有内容，*****：查询所有得到的表里有列名和数据</p>
+<p>select  password  from  fn_member：从这个表里查询password的值</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010043407.png"></p>
+<h3 id="5、墨者SQL注入靶机"><a href="#5、墨者SQL注入靶机" class="headerlink" title="5、墨者SQL注入靶机"></a>5、墨者SQL注入靶机</h3><p>（1）mysql数据库的手工注入</p>
+<p>打开题目，点击它的文件，可以看到URL上存在<code>?id=1</code>，初步怀疑可以SQL注入</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010044683.png"></p>
+<p>（2）如何判断注入点？</p>
+<p>逻辑运算符：或（or，有真则真）、且（and，全真为真）、非（xor）</p>
+<p>a、</p>
+<p>and  1=1  页面正常</p>
+<p>and  1=2  页面错误</p>
+<p>b、</p>
+<p>判断本质：对变量进行操作，SQL语句是否被执行，对网页是否有影响。</p>
+<p>对这个列题的id值进行随机输入，发现页面返回空白，即存在SQL注入（改变变量会对网页造成影响）</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010044213.png"></p>
 
                 
             </div>
@@ -933,7 +957,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.6k</span>
+                        class="white-color">12.9k</span>
             
             
             
