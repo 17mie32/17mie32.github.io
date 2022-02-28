@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    814
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -552,6 +552,25 @@
 <p>判断本质：对变量进行操作，SQL语句是否被执行，对网页是否有影响。</p>
 <p>对这个列题的id值进行随机输入，发现页面返回空白，即存在SQL注入（改变变量会对网页造成影响）</p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010056793.png"></p>
+<p>？：一些网站在对变量修改后会直接404错误，跳转</p>
+<p>对注入有检测，一般不存在注入漏洞</p>
+<p>（3）联合注入：<strong>union</strong>（将多个查询语句一起返回）</p>
+<ul>
+<li>猜解列名数量（字段数）：<strong>order   by   x</strong>  ：错误与正常的连接点</li>
+</ul>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282215475.png" alt="order by 1" style="zoom:67%;" />
+
+<p>此题测试到order by 5时页面回显不正常，说明5为临界值</p>
+<ul>
+<li>报错猜解准备：</li>
+</ul>
+<p>order by先查询有几列数据，再union看几列数据可以显示出来，将能显示的替换替换成注入语句。</p>
+<p>此题2,3可以显示出来，即可以进行替换注入。</p>
+<p>219.153.49.228:47262/new_list.php?id=1 <strong>union select 1,2,3,4</strong></p>
+<p>219.153.49.228:47262/new_list.php?<strong>id=-1 union select 1,2,3,4</strong></p>
+<p>或</p>
+<p>219.153.49.228:47262/new_list.php?id=1 <strong>and 1=2 union select 1,2,3,4</strong></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282246733.png" alt="报错" style="zoom:67%;" />
 
                 
             </div>
@@ -957,7 +976,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12.9k</span>
+                        class="white-color">13.1k</span>
             
             
             
