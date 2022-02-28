@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    512
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -485,7 +485,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h3 id="WEB漏洞框架"><a href="#WEB漏洞框架" class="headerlink" title="WEB漏洞框架"></a>WEB漏洞框架</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202202232031664.png" alt="web漏洞" style="zoom:80%;" />
+
+<h3 id="SQL注入框架"><a href="#SQL注入框架" class="headerlink" title="SQL注入框架"></a>SQL注入框架</h3><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010041113.png" alt="SQL注入"></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010041222.png" alt="MYSQL注入"></p>
+<h3 id="1、SQL注入危害"><a href="#1、SQL注入危害" class="headerlink" title="1、SQL注入危害"></a>1、SQL注入危害</h3><p>（1）数据库安全</p>
+<p>（2）网站权限</p>
+<h3 id="2、注入产生原理"><a href="#2、注入产生原理" class="headerlink" title="2、注入产生原理"></a>2、注入产生原理</h3><p>（1）可控变量：$id</p>
+<p>（2）带入数据库查询</p>
+<p>（3）变量未存在过滤或者过滤不严谨</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202202262048088.png" alt="网页源码" style="zoom:67%;" />
+
+<p>**mysqli_fetch_array()**：</p>
+<p>函数从结果集中取得一行作为关联数组，或数字数组，或二者兼有。该函数返回的字段名是区分大小写的。</p>
+<p>eg：</p>
+<p>都可能存在SQL注入</p>
+<p>xxxxx/index.php?id=8</p>
+<p>xxxxx/(index.php)?id=10   省略</p>
+<p>xxxxx/?id=10&amp;x=1   有两个变量，哪个可控注入哪个</p>
+<p>xxxxx/index.php    POST传参？</p>
+<p>x有注入，哪个注入测试正确？第二个、第三个</p>
+<p>注意注入哪个参数的问题，工具测试时也应该注意注入点</p>
+<p>sqlmap：xxxxx/main.php?id=2*****&amp;page=3    </p>
+<p>*****：代表注入参数       或交换参数位置</p>
+<p>&amp;：连接参数名     x为参数注入的话and应该写到x处</p>
+<p>xxxxx/index.php?y=1  and  1=1&amp;x=2    and写到y处，但y不会影响注入</p>
+<p>xxxxx/index.php?y=1&amp;x=2  amd  1=1</p>
+<p>xxxxx/index.php?y=1  and  1=1&amp;x=2  and  1=1</p>
+<p>xxxxx/index.php?xx=1  and  1=1&amp;xxx=2  and  1=1   参数名不正确</p>
+<h3 id="3、信息收集"><a href="#3、信息收集" class="headerlink" title="3、信息收集"></a>3、信息收集</h3><p>（1）操作系统版本：Linux、Windows的root的不同，大小写问题等</p>
+<p>（2）数据库名</p>
+<p>（3）数据库用户</p>
+<p>（4）数据库版本</p>
+<p>（5）其他（网页路径等）：网站源码在计算机的存储地址</p>
+<p>注：</p>
+<p>1、<strong>高版本：</strong></p>
+<p>在mysql5.0版本以上，mysql存在一个自带数据库名为<strong>information_schema</strong>，它是一个存储记录所有数据库名，表名，列名的数据库，也相当于可以通过查询它获取指定数据库下的表名或列名信息。</p>
+<p>2、数据库中符号“**.**”，表示下一级，如xiao.user，user表示xiao数据库下的user表名。</p>
+<p>information_schema.tables：记录所有表名信息的表</p>
+<p>information_schema.columns：记录所有列名信息的表</p>
+<p>information_schema.schematas：记录所有数据库信息的表</p>
+<p>table_name：表名</p>
+<p>column_name：列名</p>
+<p>table_schema：数据库名</p>
+
                 
             </div>
             <hr/>
@@ -890,7 +933,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">12k</span>
+                        class="white-color">12.6k</span>
             
             
             
