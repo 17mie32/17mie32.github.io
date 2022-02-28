@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-28T16:07:45.867Z</updated>
+  <updated>2022-02-28T16:12:10.039Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2022/02/26/web%EF%BC%9ASQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89/"/>
     <id>http://example.com/2022/02/26/web%EF%BC%9ASQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89/</id>
     <published>2022-02-26T12:24:43.000Z</published>
-    <updated>2022-02-28T16:07:45.867Z</updated>
+    <updated>2022-02-28T16:12:10.039Z</updated>
     
     
       
@@ -46,7 +46,7 @@
     <link href="http://example.com/2022/02/22/CTF-show-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
     <id>http://example.com/2022/02/22/CTF-show-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</id>
     <published>2022-02-22T11:42:24.000Z</published>
-    <updated>2022-02-28T16:08:55.911Z</updated>
+    <updated>2022-02-28T16:11:49.677Z</updated>
     
     
       
@@ -174,7 +174,7 @@
     <link href="http://example.com/2022/01/22/BUUCTF-Misc-2/"/>
     <id>http://example.com/2022/01/22/BUUCTF-Misc-2/</id>
     <published>2022-01-22T01:20:45.000Z</published>
-    <updated>2022-02-22T02:34:18.940Z</updated>
+    <updated>2022-02-28T16:10:06.878Z</updated>
     
     
       
@@ -251,7 +251,7 @@
     <link href="http://example.com/2022/01/09/BUUCTF-Misc-1/"/>
     <id>http://example.com/2022/01/09/BUUCTF-Misc-1/</id>
     <published>2022-01-09T14:38:25.000Z</published>
-    <updated>2022-01-22T06:07:03.598Z</updated>
+    <updated>2022-02-28T16:10:29.126Z</updated>
     
     
       
