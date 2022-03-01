@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-28T17:25:39.205Z</updated>
+  <updated>2022-03-01T00:13:54.964Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CTF-show-SQL注入-1</title>
+    <link href="http://example.com/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/"/>
+    <id>http://example.com/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/</id>
+    <published>2022-03-01T00:12:56.000Z</published>
+    <updated>2022-03-01T00:13:54.964Z</updated>
+    
+    
+    
+    
+    <category term="CTF-show" scheme="http://example.com/categories/CTF-show/"/>
+    
+    
+    <category term="SQL注入" scheme="http://example.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>CTF-show-信息收集</title>
@@ -47,7 +64,7 @@
     <link href="http://example.com/2022/03/01/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89/"/>
     <id>http://example.com/2022/03/01/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%881%EF%BC%89/</id>
     <published>2022-02-28T16:36:38.000Z</published>
-    <updated>2022-02-28T17:21:14.097Z</updated>
+    <updated>2022-03-01T00:07:50.376Z</updated>
     
     
       
