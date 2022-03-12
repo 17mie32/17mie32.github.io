@@ -647,10 +647,9 @@ print "<h2>php 很有趣！</h2>";
 </code></pre>
 <p>4、PHP EOF(heredoc)：定界符 </p>
 <p>（1）按照原样，包括换行格式什么的，输出在其内部的东西。定界符内的所有特殊字符都不需要转义</p>
-<p>（2）注：</p>
-<p>（a）以 &lt;&lt;&lt;EOF开始标记开始，以 EOF 结束标记结束，结束标记必须顶头写，不能有缩进和空格，且在结束标记末尾要有分号</p>
-<p>（b）开始标记和结束标记相同，比如常用大写的 <strong>EOT、EOD、EOF</strong> 来表示，但是不只限于那几个(也可以用：JSON、HTML等)，只要保证开始标记和结束标记不在正文中出现即可。</p>
-<p>（c）位于开始标记和结束标记之间的变量可以被正常解析，但是函数则不可以。在 heredoc 中，变量不需要用连接符 **.**或 <strong>,</strong> 来拼接</p>
+<p>（2）以 &lt;&lt;&lt;EOF开始标记开始，以 EOF 结束标记结束，结束标记必须顶头写，不能有缩进和空格，且在结束标记末尾要有分号</p>
+<p>（3）开始标记和结束标记相同，比如常用大写的 <strong>EOT、EOD、EOF</strong> 来表示，但是不只限于那几个(也可以用：JSON、HTML等)，只要保证开始标记和结束标记不在正文中出现即可。</p>
+<p>（4）位于开始标记和结束标记之间的变量可以被正常解析，但是函数则不可以。在 heredoc 中，变量不需要用连接符 **.**或 <strong>,</strong> 来拼接</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
 <span class="token variable">$name</span><span class="token operator">=</span><span class="token string">"runoob"</span><span class="token punctuation">;</span>
 <span class="token variable">$a</span><span class="token operator">=</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token constant">EOF</span>
@@ -659,9 +658,9 @@ print "<h2>php 很有趣！</h2>";
 <span class="token constant">EOF</span><span class="token punctuation">;</span>
 <span class="token comment" spellcheck="true">// 结束需要独立一行且前后不能空格</span>
 <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//结果："abc"runoob "123"</span>
 <span class="token delimiter">?></span>
 </code></pre>
-<p>​    结果：”abc”runoob “123”</p>
 <h3 id="PHP数据类型"><a href="#PHP数据类型" class="headerlink" title="PHP数据类型"></a>PHP数据类型</h3><p>1、字符串</p>
 <p>单引号或双引号</p>
 <p>2、整型</p>
