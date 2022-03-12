@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="web漏洞">
-    <meta name="description" content="SQL注入-2">
+    <meta name="keywords" content="PHP">
+    <meta name="description" content="PHP基础">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>web-SQL注入（2） | E=MC^2</title>
+    <title>php基础 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">web-SQL注入（2）</h1>
+                    <h1 class="description center-align post-title">php基础</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                <span class="chip bg-color">SQL注入</span>
+                            <a href="/tags/PHP/">
+                                <span class="chip bg-color">PHP</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                小迪渗透
+                            <a href="/categories/PHP/" class="post-category">
+                                PHP
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-02
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-02
+                    2022-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    125
+                    628
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -485,10 +485,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203021841289.png" alt="高权限注入"></p>
-<h3 id="1、权限问题"><a href="#1、权限问题" class="headerlink" title="1、权限问题"></a>1、权限问题</h3><p>在对数据库进行爆库前，先进行信息收集。</p>
-<p><code>user()</code>是判断你注入数据库时的权限，如果返回的是<code>root@localhost</code>最高权限</p>
-<p>对于一些网站会将数据库设置权限。对于数据库A它只管理网站A，就算爆破了，此账号只对网页A起作用，不会影响到B网站，因为账号权限不同。但如果是root账号进行爆库，就可以跨库爆破。</p>
+                <h3 id="PHP语法"><a href="#PHP语法" class="headerlink" title="PHP语法"></a>PHP语法</h3><p>1、以<code>&lt;?php 开始，以?&gt;</code>结束</p>
+<p>2、通常包含HTML标签和PHP脚本代码</p>
+<p>3、每行代码以分号结束</p>
+<p>4、输出文本指令：<code>echo    print</code></p>
+<p>5、注释：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+ <span class="token comment" spellcheck="true">//单行注释</span>
+ <span class="token comment" spellcheck="true">/*
+ 此为
+ 多行注释
+ */</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<h3 id="PHP变量"><a href="#PHP变量" class="headerlink" title="PHP变量"></a>PHP变量</h3><p>1、变量：存储数据的容器</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$x</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token variable">$y</span><span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">;</span>
+<span class="token variable">$z</span><span class="token operator">=</span><span class="token variable">$x</span><span class="token operator">+</span><span class="token variable">$y</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$z</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>2、变量规则：</p>
+<p>（1）变量以$开始，随后为变量名</p>
+<p>（2）变量名必须以字母或下划线开始</p>
+<p>（3）变量名只能包含字母、数字以及下划线</p>
+<p><strong>（4）变量名以及PHP语句均区分大小写</strong></p>
+<p>（5）弱类型语言：创建变量时无需声明变量数据类型</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$txt</span><span class="token operator">=</span><span class="token string">"Hello world!"</span><span class="token punctuation">;</span>
+<span class="token variable">$x</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token variable">$y</span><span class="token operator">=</span><span class="token number">10.5</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>3、变量作用域</p>
+<p>（1）local：局部变量</p>
+<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
+$x=5; //全局变量
+function myTest() &#123;
+    $y=10;  //局部变量
+    echo "<p>测试函数内变量<p>";
+    echo "变量x为： $x";
+    echo "<br>";
+    echo "变量y为： $y";
+&#125;
+myTest();
+echo "<p>测试函数外部变量<p>";
+echo "变量x为： $x";
+echo "<br>";
+echo "变量y为： $y";
+?>
+</code></pre>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203121404421.png" alt="全局与局部" style="zoom: 67%;" />
+
+<p>注：</p>
+<p>（a） 可在不同函数中使用相同的变量名称，因为这些函数内定义的变量名是局部变量，只作用于该函数内。</p>
+<p>（b）在以上实例中 myTest() 函数定义了 $x 和 $y 变量。 $x 变量在函数外声明，所以它是全局变量 ， $y 变量在函数内声明所以它是局部变量。</p>
+<p>（c）调用myTest()函数并输出两个变量的值, 函数将会输出局部变量 $y 的值，但是不能输出 $x 的值，因为 $x 变量在函数外定义，无法在函数内使用，如果要在一个函数中访问一个全局变量，需要使用 global 关键字。</p>
+<p>（2）global：函数内访问全局变量</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$x</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//全局变量</span>
+<span class="token variable">$y</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token keyword">global</span> <span class="token variable">$x</span><span class="token punctuation">,</span><span class="token variable">$y</span><span class="token punctuation">;</span>
+    <span class="token variable">$y</span><span class="token operator">=</span><span class="token variable">$x</span><span class="token operator">+</span><span class="token variable">$y</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$y</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+    <span class="token comment" spellcheck="true">//结果y=15</span>
+</code></pre>
+<p>PHP 将所有全局变量存储在一个名为 <code>$GLOBALS[index]</code> 的数组中。 <em>index</em> 保存变量的名称。</p>
+<p>这个数组可以在函数内部访问，也可以直接用来更新全局变量。</p>
+<pre><code>&lt;?php
+$x=5; //全局变量
+$y=10;
+function myTest()
+&#123;
+    $GLOBALS[&#39;y&#39;]=$GLOBALS[&#39;x&#39;]+$GLOBALS[&#39;y&#39;];
+&#125;
+myTest();
+echo $y;
+?&gt;
+</code></pre>
+<p>（3）static：静态</p>
+<p>当一个函数完成时，它的所有变量通常都会被删除。</p>
+<p>若希望某个局部变量不要被删除。可在第一次声明变量时使用 <strong>static</strong> 关键字</p>
+<p>参数x依旧为函数的局部变量，每次调用函数时， 该变量将会保留前一次被调用的值。</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">function</span> <span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token keyword">static</span> <span class="token variable">$x</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$x</span><span class="token punctuation">;</span>
+    <span class="token variable">$x</span><span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token constant">PHP_EOL</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//换行符</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+    <span class="token comment" spellcheck="true">//结果：0 1 2</span>
+</code></pre>
+<p>（4）parameter：参数作用域</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">function</span> <span class="token function">myTest</span><span class="token punctuation">(</span><span class="token variable">$x</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$x</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
 
                 
             </div>
@@ -515,7 +622,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/">http://example.com/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/</a>
+                    <a href="http://example.com/2022/03/12/php%E5%9F%BA%E7%A1%80/">http://example.com/2022/03/12/php%E5%9F%BA%E7%A1%80/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,8 +660,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                    <span class="chip bg-color">SQL注入</span>
+                                <a href="/tags/PHP/">
+                                    <span class="chip bg-color">PHP</span>
                                 </a>
                             
                         </div>
@@ -600,9 +707,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/12/php%E5%9F%BA%E7%A1%80/">
                     <div class="card-image">
@@ -620,9 +728,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -635,6 +743,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -653,31 +762,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/">
+                <a href="/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="CTF-show-SQL注入-1">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="web-SQL注入（2）">
                         
-                        <span class="card-title">CTF-show-SQL注入-1</span>
+                        <span class="card-title">web-SQL注入（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CTF-show：SQL注入
+                            SQL注入-2
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF-show/" class="post-category">
-                                    CTF-show
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
