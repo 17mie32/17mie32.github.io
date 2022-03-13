@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-12
+                    2022-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -520,21 +520,21 @@
 </code></pre>
 <p>3、变量作用域</p>
 <p>（1）local：局部变量</p>
-<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
-$x=5; //全局变量
-function myTest() &#123;
-    $y=10;  //局部变量
-    echo "<p>测试函数内变量</p>";
-    echo "变量x为： $x";
-    echo "<br>";
-    echo "变量y为： $y";
-&#125;
-myTest();
-echo "<p>测试函数外部变量</p>";
-echo "变量x为： $x";
-echo "<br>";
-echo "变量y为： $y";
-?>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$x</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//全局变量</span>
+<span class="token keyword">function</span> <span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token variable">$y</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//局部变量</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;p>测试函数内变量&lt;/p>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"变量x为： $x"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token string">"变量y为： $y"</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;p>测试函数外部变量&lt;/p>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"变量x为： $x"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"变量y为： $y"</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202203121404421.png" alt="全局与局部" style="zoom: 67%;" />
 
@@ -558,16 +558,16 @@ echo "变量y为： $y";
 </code></pre>
 <p>PHP 将所有全局变量存储在一个名为 <code>$GLOBALS[index]</code> 的数组中。 <em>index</em> 保存变量的名称。</p>
 <p>这个数组可以在函数内部访问，也可以直接用来更新全局变量。</p>
-<pre><code>&lt;?php
-$x=5; //全局变量
-$y=10;
-function myTest()
-&#123;
-    $GLOBALS[&#39;y&#39;]=$GLOBALS[&#39;x&#39;]+$GLOBALS[&#39;y&#39;];
-&#125;
-myTest();
-echo $y;
-?&gt;
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$x</span><span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//全局变量</span>
+<span class="token variable">$y</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">'x'</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token string">'y'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token function">myTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token variable">$y</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
 <p>（3）static：静态</p>
 <p>当一个函数完成时，它的所有变量通常都会被删除。</p>
@@ -602,35 +602,35 @@ echo $y;
 <p>2、echo</p>
 <p>（1）语言结构，使用的时候可以不加括号</p>
 <p>（2）字符串：可包含HTML标签</p>
-<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
-echo "<h2>php有趣！</h2>";
-echo "Hello world!<br>";
-echo "mysql<br>","sql server";
-?>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;h2>php有趣！&lt;/h2>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"Hello world!&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"mysql&lt;br>"</span><span class="token punctuation">,</span><span class="token string">"sql server"</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202203121435564.png" alt="字符串" style="zoom:67%;" />
 
 <p>（2）变量</p>
-<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
-$txt1="learn php";
-$txt2="RUNOOB.COM";
-$car=array("Volvo","BMW","Toyota");
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$txt1</span><span class="token operator">=</span><span class="token string">"learn php"</span><span class="token punctuation">;</span>
+<span class="token variable">$txt2</span><span class="token operator">=</span><span class="token string">"RUNOOB.COM"</span><span class="token punctuation">;</span>
+<span class="token variable">$car</span><span class="token operator">=</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">"Volvo"</span><span class="token punctuation">,</span><span class="token string">"BMW"</span><span class="token punctuation">,</span><span class="token string">"Toyota"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-echo $txt1;
-echo "<br>";
-echo "在 $txt2 学习 PHP";
-echo "<br>";
-echo "车品牌为&#123;$car[0]&#125;";
-?>
+<span class="token keyword">echo</span> <span class="token variable">$txt1</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"在 $txt2 学习 PHP"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"&lt;br>"</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"车品牌为&amp;#123;$car[0]&amp;#125;"</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202203121440055.png" alt="变量" style="zoom:80%;" />
 
 <p>3、print：可包含HTML标签</p>
 <p>（1）语言结构，使用时可以不加括号</p>
 <p>（2）字符串</p>
-<pre class=" language-php+HTML"><code class="language-php+HTML"><?php
-print "<h2>php 很有趣！</h2>";
-?>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">print</span> <span class="token string">"&lt;h2>php 很有趣！&lt;/h2>"</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
 </code></pre>
 <p>（3）变量</p>
 <pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
@@ -1107,7 +1107,7 @@ print "<h2>php 很有趣！</h2>";
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15k</span>
+                        class="white-color">15.1k</span>
             
             
             
