@@ -33,7 +33,7 @@
       <link href="/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/"/>
       <url>/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203021841289.png" alt="高权限注入"></p><h3 id="1、权限问题"><a href="#1、权限问题" class="headerlink" title="1、权限问题"></a>1、权限问题</h3><p>在对数据库进行爆库前，先进行信息收集。</p><p><code>user()</code>是判断你注入数据库时的权限，如果返回的是<code>root@localhost</code>最高权限</p><p>对于一些网站会将数据库设置权限。对于数据库A它只管理网站A，就算爆破了，此账号只对网页A起作用，不会影响到B网站，因为账号权限不同。但如果是root账号进行爆库，就可以跨库爆破。</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203021841289.png" alt="高权限注入"></p><h3 id="1、权限问题"><a href="#1、权限问题" class="headerlink" title="1、权限问题"></a>1、权限问题</h3><p>（1）在对数据库进行爆库前，先进行信息收集。</p><p><code>user()</code>是判断你注入数据库时的权限，如果返回的是<code>root@localhost</code>最高权限</p><p>对于一些网站会将数据库设置权限。对于数据库A它只管理网站A，就算爆破了，此账号只对网页A起作用，不会影响到B网站，因为账号权限不同。但如果是root账号进行爆库，就可以跨库爆破。</p><p>（2）mysql数据库的访问：<code>mysql -uroot -p</code></p><p>（3）<code>information_schema.schemata</code>：存储各个数据库的名字（<code>schema_name</code>）</p><h3 id="2、sqli-lab实例"><a href="#2、sqli-lab实例" class="headerlink" title="2、sqli-lab实例"></a>2、sqli-lab实例</h3><p>（1）获取此网页所有数据库的名字</p><p><code>?id=-1 union  select 1,group_concat(schema_name),3  from information_schema.schemata</code></p>]]></content>
       
       
       <categories>
