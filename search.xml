@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>web-SQL注入（3）</title>
+      <link href="/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/"/>
+      <url>/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、参数类型"><a href="#1、参数类型" class="headerlink" title="1、参数类型"></a>1、参数类型</h3><p>（1）数字型</p><p>数字型一般是没有符号，也就是一般是不需要闭合的。数字型也是可以加符号的。</p><p><code>select * from user where id=1</code></p><p>（2）字符型</p><p>字符型是会有引号，所以在注入的时候需要闭合引号，以及注释多于的符号</p><p>干扰符号：单引号，双引号，百分号，括号（小括号，花括号）</p><p>百分号：SQL语句中的搜索符号（类似于Windows的星号）</p><p><code>?x=xxxx</code></p><p><code>select * from user where name like &#39;%xxxx%&#39;</code>在搜索的时候前后有此关键字的都可以被搜索到</p><p><code>select * from user where name = &#39;xxxx&#39;</code></p><p><code>$name = $_GET[&#39;X&#39;]</code></p><p><code>$sql=&quot;select * from user where name=&#39;$name&#39;&quot;;</code></p><p><code>?x=xxx and 1=1</code></p><p><code>select * from user where name=&#39;xxxx and 1=1&#39;</code>此情况下and 1=1的判断效果就没了</p><p><code>?x=xxx&#39; and 1=1--+</code>注释掉了后面的单引号</p><p><code>select * from user where name=&#39;xxxx&#39; and 1=1</code></p><p>（3）JSON类型</p><p><code>json=&#123;&quot;username&quot;:&quot;Dumb&#39; and 1=2 union select 1,database(),3#&quot;&#125;</code></p><p>键值对：<code>&#123;&#39;user&#39;:&#39;xxxx&#39;&#125;</code></p><h3 id="2、请求方法"><a href="#2、请求方法" class="headerlink" title="2、请求方法"></a>2、请求方法</h3><p>From：<a href="https://www.jianshu.com/p/a5cdfd2bda66">https://www.jianshu.com/p/a5cdfd2bda66</a></p><p>可以在<code>Request Headers</code>处查看</p><p>（1）GET请求</p><p>GET请求也可传参到后台，但是其参数在浏览器的地址栏的url中可见，且参数长度也是有限制的。</p><p>GET 请求可被缓存</p><p>GET请求只能进行url编码</p><p>GET请求比较常见的方式是通过url地址栏请求</p><p>GET前面无论是什么请求，只要它存在于URL中即可显示</p><p>（2）POST请求</p><p>POST请求传递参数放在Request body中，不会在url中显示，比GET要安全，且参数长度无限制</p><p>POST支持多种编码方式（二进制数据使用多重编码。）</p><p>POST 请求不会被缓存</p><p>POST最常见是通过form表单发送数据请求</p><p>（3）COOKIE</p><p>Cookies是数据包里的参数，存放一些用户信息以便于让Web服务器辨别用户的身份。</p><p>可接收GET、POST等请求</p><p><code>$c = COOKIE[&#39;x&#39;]</code></p><p><code>echo $c</code></p><p>（4）REQUEST请求</p><p>GET、POST、COOKIE等都可接收</p><p>（5）HTTP头</p><p><code>$_SERVER</code>:获取系统的值，当前用户IP地址，浏览器语言等</p><p><code>$s=$_SERVER[&#39;HTTP_USER_AGENT&#39;];</code></p><p><code>echo $s;</code></p><h3 id="3、注释符号"><a href="#3、注释符号" class="headerlink" title="3、注释符号"></a>3、注释符号</h3><p>From:<a href="https://www.cnblogs.com/impulse-/p/13184023.html#gangkong">https://www.cnblogs.com/impulse-/p/13184023.html#gangkong</a></p><p>将后面不需要的语句注释掉，以保证SQL命令的完整性</p><p>（1）<code>--</code>后面有空格（<code>--+</code>）</p><p>（2）<code>#</code></p><p>URL中#号作为锚点，不当做数据来传输</p><p>命令传到后端，少了一个单引号用来闭合命令（可以利用这种特性，在URL中命令结尾添加一个单引号来代替注释符）</p><p>解决：直接在URL中使用#号有问题，可以把#号转换成URL编码（%23）</p><p>传输过程对单引号还有空格进行了URL编码，在前端注释符使用URL编码，传输过程中把URL编码带上，到后端就会进行一次URL解码操作，#号注释符起作用。</p><p>前端：<code>?id=-1&#39; union select 1,2,database()%23</code></p><p>后端：</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142142416.png" alt="MySQL命令行"></p><p>（3）<code>/**/</code></p><p>注释符<code># --</code> 都是把后面的语句全部注释掉了，而内联注释<code>/**/</code>则是注释指定部分，需要一前一后闭合，所以在传参那里几乎不做注释语句用，而是用于过滤空格等bypass</p><p>例如：<code>?id=-1&#39;/**/union/**/select/**/1,2,database()--+   //过滤空格,用/**/代替空格</code></p><p>（4）payload结尾单引号闭合</p><p><code>?id=-1&#39; union select 1,2,database()&#39;</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142146913.png" alt="GET传参"></p><p>总结：</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142146203.png" alt="总结"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>php基础</title>
       <link href="/2022/03/12/php%E5%9F%BA%E7%A1%80/"/>
       <url>/2022/03/12/php%E5%9F%BA%E7%A1%80/</url>
