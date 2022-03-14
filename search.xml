@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>sqli-labs(1)</title>
+      <link href="/2022/03/14/sqli-labs-1/"/>
+      <url>/2022/03/14/sqli-labs-1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、Less-1"><a href="#1、Less-1" class="headerlink" title="1、Less-1"></a>1、Less-1</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> sqli-labs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>web-SQL注入（3）</title>
       <link href="/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/"/>
       <url>/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/</url>
