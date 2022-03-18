@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>web-SQL注入（5）</title>
+      <link href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/"/>
+      <url>/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>web-SQL注入（4）</title>
       <link href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89/"/>
       <url>/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89/</url>

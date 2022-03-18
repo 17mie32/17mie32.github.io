@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-17T13:38:41.147Z</updated>
+  <updated>2022-03-18T11:33:52.927Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>web-SQL注入（5）</title>
+    <link href="http://example.com/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/"/>
+    <id>http://example.com/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/</id>
+    <published>2022-03-17T14:06:44.000Z</published>
+    <updated>2022-03-18T11:33:52.927Z</updated>
+    
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="SQL注入" scheme="http://example.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>web-SQL注入（4）</title>
