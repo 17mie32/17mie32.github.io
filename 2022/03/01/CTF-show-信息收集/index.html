@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-01
+                    2022-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    87
+                    529
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -485,12 +485,85 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、web1"><a href="#1、web1" class="headerlink" title="1、web1"></a>1、web1</h3><p>打开网页源码即可得到flag</p>
-<h3 id="2、web2"><a href="#2、web2" class="headerlink" title="2、web2"></a>2、web2</h3><p>打开链接，右键无法点击，但使用<code>Ctrl+U</code>也可以查看源码或者使用火狐的开发者工具即可得到flag</p>
+                <p>From：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/i_kei/article/details/109605874">https://blog.csdn.net/i_kei/article/details/109605874</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_52805837/article/details/111827205">https://blog.csdn.net/weixin_52805837/article/details/111827205</a></p>
+<h3 id="1、web1"><a href="#1、web1" class="headerlink" title="1、web1"></a>1、web1</h3><p>打开网页源码即可得到flag</p>
+<h3 id="2、web2"><a href="#2、web2" class="headerlink" title="2、web2"></a>2、web2</h3><p>打开链接，右键无法点击，使用<code>Ctrl+U</code>可以查看源码或者使用火狐的开发者工具或在url前面加上view-source，即可得到flag</p>
 <h3 id="3、web3"><a href="#3、web3" class="headerlink" title="3、web3"></a>3、web3</h3><p>抓包即可获得flag</p>
 <h3 id="4、web4"><a href="#4、web4" class="headerlink" title="4、web4"></a>4、web4</h3><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010122797.png" alt="robots.txt"></p>
 <h3 id="5、web5"><a href="#5、web5" class="headerlink" title="5、web5"></a>5、web5</h3><p>题目提示phps源码泄露，于是访问<code>index.phps</code>，下载弹出的文件即可</p>
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202203010122727.png" alt="index.php" style="zoom:67%;" />
+
+<h3 id="6、web6"><a href="#6、web6" class="headerlink" title="6、web6"></a>6、web6</h3><p>提示解压源码到当前目录，于是访问<code>www.zip</code>，得到压缩包打开得：</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182203546.png" style="zoom: 50%;" />
+
+<p>访问fl000g.txt即可</p>
+<h3 id="7、web7"><a href="#7、web7" class="headerlink" title="7、web7"></a>7、web7</h3><p>git源码泄露</p>
+<p>访问<code>.git/index.php</code></p>
+<h3 id="8、web8"><a href="#8、web8" class="headerlink" title="8、web8"></a>8、web8</h3><p>svn泄露</p>
+<p>访问<code>.svn</code></p>
+<h3 id="9、web9"><a href="#9、web9" class="headerlink" title="9、web9"></a>9、web9</h3><p>vim缓存信息泄露</p>
+<p>访问<code>index.php.swp</code></p>
+<h3 id="10、web10"><a href="#10、web10" class="headerlink" title="10、web10"></a>10、web10</h3><p>提示cookie，用HackBar直接查看即可</p>
+<h3 id="11、web11"><a href="#11、web11" class="headerlink" title="11、web11"></a>11、web11</h3><p>提示ctfshow.com域名隐藏信息</p>
+<p>域名解析查询：<a target="_blank" rel="noopener" href="http://dbcha.com/%E6%9F%A5%E7%9C%8Btxt%E5%8D%B3%E5%8F%AF">http://dbcha.com/查看txt即可</a></p>
+<h3 id="12、web12"><a href="#12、web12" class="headerlink" title="12、web12"></a>12、web12</h3><p>先在网页底端获得一串数字</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203182240631.png"></p>
+<p>访问robots.txt得到后台目录</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203182240069.png"></p>
+<p>访问此路径登录，密码即为上面的一串数字</p>
+<h3 id="13、web13"><a href="#13、web13" class="headerlink" title="13、web13"></a>13、web13</h3><p>文档敏感信息</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182246724.png" alt="网页底端" style="zoom: 50%;" />
+
+<p>打开文档可得</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182247234.png" style="zoom:67%;" />
+
+<h3 id="14、web14"><a href="#14、web14" class="headerlink" title="14、web14"></a>14、web14</h3><p>由题目提示访问<code>/editor</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182253474.png" alt="/editor" style="zoom:50%;" />
+
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182256501.png" alt="查看网络图片" style="zoom: 67%;" />
+
+<p>访问<code>nothinghere/fl000g.txt</code>即可</p>
+<h3 id="15、web15"><a href="#15、web15" class="headerlink" title="15、web15"></a>15、web15</h3><p>提示邮箱，在网页底端发现邮箱</p>
+<p>访问<code>/admin</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182302409.png" alt="后台登录系统" style="zoom: 33%;" />
+
+<p>忘记密码</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182303524.png" alt="忘记密码" style="zoom: 33%;" />
+
+<p>搜索QQ得到地址</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182305670.png" alt="西安" style="zoom: 50%;" />
+
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182305212.png" alt="密码" style="zoom: 80%;" />
+
+<h3 id="16、web16"><a href="#16、web16" class="headerlink" title="16、web16"></a>16、web16</h3><p>PHP探针是用来探测空间、服务器运行状况和PHP信息用的。</p>
+<p>探针可以实时查看服务器硬盘资源、内存占用、网卡 流量、系统负载、服务器时间等信息。</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182313121.png" style="zoom:50%;" />
+
+<p>URL后缀名添加<code>/tz.php</code> 版本是雅黑PHP探针</p>
+<p>查看phpinfo即可</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182313476.png" style="zoom:67%;" />
+
+<h3 id="17、web17"><a href="#17、web17" class="headerlink" title="17、web17"></a>17、web17</h3><p>提示：备份的SQL文件</p>
+<p><code>*.sql</code>文件是mysql数据库导出的备份文件</p>
+<p><code>BACKUP DATABASE</code>语句创建完整数据库备份</p>
+<p>于是访问<code>backup.sql</code>即可获得flag</p>
+<h3 id="18、web18"><a href="#18、web18" class="headerlink" title="18、web18"></a>18、web18</h3><p>打开网页源码，查看js文件</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182316857.png" alt="网页源码" style="zoom: 50%;" />
+
+<p>分析js文件和提示，当分数大于100可获得flag，解码此串unicode编码即可</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203182318489.png" alt="js文件"></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182322904.png" alt="Unicode解码" style="zoom: 33%;" />
+
+<h3 id="19、web19"><a href="#19、web19" class="headerlink" title="19、web19"></a>19、web19</h3><p>查看网页源码</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182330616.png" alt="注释" style="zoom:67%;" />
+
+<p>在注释中可以看到用户和密码，于是用hackbar进行post传参即可</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203182331116.png" alt="post传参" style="zoom:67%;" />
+
+<h3 id="20、web20"><a href="#20、web20" class="headerlink" title="20、web20"></a>20、web20</h3><p>访问<code>/db/db.mdb</code></p>
+<p>在下载的文件中搜索flag即可</p>
 
                 
             </div>
@@ -894,7 +967,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">17.2k</span>
+                        class="white-color">17.6k</span>
             
             
             
