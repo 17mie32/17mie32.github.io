@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Misc">
-    <meta name="description" content="BUUCTF Misc（21-40）">
+    <meta name="keywords" content="分类: 小迪渗透, E=MC^2">
+    <meta name="description" content="分类: 小迪渗透 | E=MC^2">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BUUCTF Misc(2) | E=MC^2</title>
+    <title>分类: 小迪渗透 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -294,589 +294,206 @@
 
 </header>
 
-    
+    <div class="bg-cover pd-header about-cover">
+    <div class="container">
+    <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                E=MC^2
+                
+            </div>
 
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">BUUCTF Misc(2)</h1>
-                </div>
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
             </div>
         </div>
     </div>
 </div>
 
 
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Misc/">
-                                <span class="chip bg-color">Misc</span>
-                            </a>
-                        
-                            <a href="/tags/BUUCTF/">
-                                <span class="chip bg-color">BUUCTF</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Misc/" class="post-category">
-                                Misc
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-22
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-01
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    698
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
-                </div>
-                
-
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>原博主链接：<a target="_blank" rel="noopener" href="https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%202%EF%BC%8821-40%EF%BC%89.html">https://davidcheyenneone.github.io/Misc/BUUCTF/BUUCTF%20Misc%202%EF%BC%8821-40%EF%BC%89.html</a></p>
-<h3 id="21、隐藏的钥匙"><a href="#21、隐藏的钥匙" class="headerlink" title="21、隐藏的钥匙"></a>21、隐藏的钥匙</h3><p>用十六进制编辑器打开图片，因为图片格式为jpg，因此搜索FF D9（文件尾标识）在之后发现一串加过密的flag，base64解密即可</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221417875.png" alt="FF D9为文件尾标志" style="zoom: 80%;" />
-
-<h3 id="22、另一个世界"><a href="#22、另一个世界" class="headerlink" title="22、另一个世界"></a>22、另一个世界</h3><p>用十六进制编辑器打开图片，在文件尾发现一串二进制，用二进制转字符即可得到</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221432464.png" alt="一串二进制数" style="zoom:80%;" />
-
-<h3 id="23、FLAG"><a href="#23、FLAG" class="headerlink" title="23、FLAG"></a>23、FLAG</h3><p>首先用十六进制器查看，没有什么发现foremost也未提取出东西，于是用zsteg查看，如图所示，确定为LSB隐写，用stegsolve查看图片</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221443069.png" alt="kali" style="zoom:80%;" />
-
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221503346.png" alt="Data Extract" style="zoom: 50%;" />
-
-<p>不知道为什么看不见十六进制，只能在保存的先不写文件格式。保存后用十六进制编辑器查看此文件（50 4B 03 04）是zip文件，增加文件后缀，解压得到一个未知格式的文件。</p>
-<p>用十六进制器查看此文件。.ELF文件：文件格式，用于存储Linux程序。</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221501073.png" alt=".ELF文件"  />
-
-<p>由提示搜索hctf文本即可得到flag</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221507125.png" alt="hctf" style="zoom:80%;" />
-
-<h3 id="24、假如给我三天光明"><a href="#24、假如给我三天光明" class="headerlink" title="24、假如给我三天光明"></a>24、假如给我三天光明</h3><p>下载后得到一个加密音频和一张照片。图片下方有这样的图案，搜索后发现是Braille盲文</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221511301.png" alt="image-20220122151130244"></p>
-<h4 id="Braille盲文"><a href="#Braille盲文" class="headerlink" title="Braille盲文"></a>Braille盲文</h4><p>布莱尔创造的由6个点为基础结构的盲字，在纸面上有的凸起，有的不凸起，形成64种变化，即64种符形，在每个符号（单位称“方”）左右两列，每列各三个点，从左边自上而下叫做1、2、3点，从右边自上而下叫做4、5、6点。</p>
-<p>　<strong>1. 数字盲文</strong></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221517670.png" alt="数字"></p>
-<p>解读：每个数字的盲文前面都有个“3456”点符形，是数号，表示后面的读作阿拉伯数字。</p>
-<p><strong>2. 英语字母盲文（英语一级盲文）</strong></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221522395.png" alt="英语字母"></p>
-<p>解读：英语盲文a－j都只是用了1245点位即上半截，和数字的一样；k－t是a－j下面加上了3号点位。</p>
-<p><strong>3.</strong> <strong>汉语拼音盲文</strong></p>
-<p>　汉语拼音盲文声母表（18个）</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526938.png" alt="img" style="zoom:80%;" />
-
-<p>注意：声母g/k/h在韵母i/u/ü时变读为j/q/x。z/c/s/zh/ch/sh/r后面的i省略</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526735.png" alt="img" style="zoom: 80%;" />
-
-<p>汉语拼音盲文韵母表（34个）</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526941.png" style="zoom: 80%;" />
-
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221526729.png"></p>
-<p>明显是英语字母盲文，从左到右分别代表：kmdonowg</p>
-<p>解压出音频，是摩斯电码，用Audacity提取</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221550847.png"></p>
-<p>较长的蓝色即为“-”，较短的即为“.”，每一段由-和.组成的即为一个字符。用“/”间隔。</p>
-<p>-.-./-/..-./.–/.–././../—–/—../–…/…–/..—/..–../..—/…–/-../–../</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202201221554823.png" alt="摩尔斯电码转换" style="zoom: 67%;" />
-
-<h4 id="摩斯电码"><a href="#摩斯电码" class="headerlink" title="摩斯电码"></a>摩斯电码</h4><img src="https://gitee.com/mie1732/emc/raw/master/img/202201221555927.png" alt="摩斯电码表" style="zoom:67%;" />
-
-<h3 id="25、神秘龙卷风"><a href="#25、神秘龙卷风" class="headerlink" title="25、神秘龙卷风"></a>25、神秘龙卷风</h3><p>打开题目提示压缩包密码为4位纯数字密码，破解后得到一个记事本。</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202221028254.png" alt="Brainfuck" style="zoom: 50%;" />
-
-<p>发现是Brainfuck加密，<a target="_blank" rel="noopener" href="https://www.splitbrain.org/services/ook%E5%8F%AF%E7%94%A8%E6%AD%A4%E7%BD%91%E7%AB%99%E8%A7%A3%E5%AF%86%E5%8D%B3%E5%8F%AF%E3%80%82">https://www.splitbrain.org/services/ook可用此网站解密即可。</a></p>
-<p>brainfuck语言常用**&gt;  &lt;  +  -  .  ,  [  ] **八种符号来替换C语言的各种语法和命令：<br>eg： +++++++++++++++++.&gt;++++++++++++++++++</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202221033471.png" alt="Brainfuck解密" style="zoom:50%;" />
-
-
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">17mie32</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://example.com/2022/01/22/BUUCTF-Misc-2/">http://example.com/2022/01/22/BUUCTF-Misc-2/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">17mie32</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/Misc/">
-                                    <span class="chip bg-color">Misc</span>
-                                </a>
-                            
-                                <a href="/tags/BUUCTF/">
-                                    <span class="chip bg-color">BUUCTF</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2022/01/28/%E6%B8%97%E9%80%8F%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AD%89/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="渗透：系统及数据库等">
-                        
-                        <span class="card-title">渗透：系统及数据库等</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            系统及数据库等
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                    小迪渗透
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透学习</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="渗透：web源码拓展">
-                        
-                        <span class="card-title">渗透：web源码拓展</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            web源码拓展
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-17
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                    小迪渗透
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透学习</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
 </script>
 
+
+    </div>
+</div>
+
+<main class="content">
+
     
 
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/Misc/" title="Misc: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Misc
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F/" title="图片格式: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">图片格式
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" title="小迪渗透: 13">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #D5F5E3;">小迪渗透
+                        <span class="tag-length">13</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/CTF-show/" title="CTF-show: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">CTF-show
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/PHP/" title="PHP: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">PHP
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/sqli-labs/" title="sqli-labs: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">sqli-labs
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="渗透：数据包扩展">
+                            
+                            <span class="card-title">渗透：数据包扩展</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                数据包拓展
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
+                            <span class="chip bg-color">渗透学习</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
+<div class="container paging">
+    <div class="row">
+        <div class="col s6 m4 l4">
+            
+            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"
+               class="left btn-floating btn-large waves-effect waves-light bg-color">
+                <i class="fas fa-angle-left"></i>
+            </a>
+            
+        </div>
+        <div class="page-info col m4 l4 hide-on-small-only">
+            <div class="center-align b-text-gray">2 / 2</div>
+        </div>
+        <div class="col s6 m4 l4">
+            
+            <a class="right btn-floating btn-large disabled">
+                <i class="fas fa-angle-right"></i>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 
 

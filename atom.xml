@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-22T15:29:24.940Z</updated>
+  <updated>2022-03-23T07:59:56.125Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>web-SQL注入（6）</title>
+    <link href="http://example.com/2022/03/23/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89/"/>
+    <id>http://example.com/2022/03/23/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89/</id>
+    <published>2022-03-23T06:07:04.000Z</published>
+    <updated>2022-03-23T07:59:56.125Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1、快捷方式的建立&quot;&gt;&lt;a href=&quot;#1、快捷方式的建立&quot; class=&quot;headerlink&quot; title=&quot;1、快捷方式的建立&quot;&gt;&lt;/a&gt;1、快捷方式的建立&lt;/h3&gt;&lt;p&gt;From：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="SQL注入" scheme="http://example.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>CTF-show-MISC入门-1</title>
@@ -499,31 +524,6 @@
     <category term="Misc" scheme="http://example.com/tags/Misc/"/>
     
     <category term="BUUCTF" scheme="http://example.com/tags/BUUCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>渗透：数据包扩展</title>
-    <link href="http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/"/>
-    <id>http://example.com/2022/01/09/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%8C%85%E6%89%A9%E5%B1%95/</id>
-    <published>2022-01-09T14:27:22.000Z</published>
-    <updated>2022-01-13T13:12:20.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;HTTP-S数据包&quot;&gt;&lt;a href=&quot;#HTTP-S数据包&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
