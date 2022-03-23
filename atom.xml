@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-23T08:03:22.830Z</updated>
+  <updated>2022-03-23T10:36:19.368Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>文件上传（1）</title>
+    <link href="http://example.com/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/"/>
+    <id>http://example.com/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/</id>
+    <published>2022-03-23T08:04:20.000Z</published>
+    <updated>2022-03-23T10:36:19.368Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;1、概述&quot;&gt;&lt;a href=&quot;#1、概述&quot; class=&quot;headerlink&quot; title=&quot;1、概述&quot;&gt;&lt;/a&gt;1、概述&lt;/h3&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
+    
+    
+    <category term="文件上传" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>web-SQL注入（6）</title>
@@ -497,33 +522,6 @@
     
     
     <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF Misc(1)</title>
-    <link href="http://example.com/2022/01/09/BUUCTF-Misc-1/"/>
-    <id>http://example.com/2022/01/09/BUUCTF-Misc-1/</id>
-    <published>2022-01-09T14:38:25.000Z</published>
-    <updated>2022-02-28T16:10:29.126Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;原博主链接：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="Misc" scheme="http://example.com/categories/Misc/"/>
-    
-    
-    <category term="Misc" scheme="http://example.com/tags/Misc/"/>
-    
-    <category term="BUUCTF" scheme="http://example.com/tags/BUUCTF/"/>
     
   </entry>
   

