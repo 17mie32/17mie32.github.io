@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-24T08:42:40.551Z</updated>
+  <updated>2022-03-24T10:58:24.055Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL报错注入</title>
+    <link href="http://example.com/2022/03/24/SQL%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/"/>
+    <id>http://example.com/2022/03/24/SQL%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5/</id>
+    <published>2022-03-24T09:25:31.000Z</published>
+    <updated>2022-03-24T10:58:24.055Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;From：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="SQL注入" scheme="http://example.com/categories/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="SQL报错盲注" scheme="http://example.com/tags/SQL%E6%8A%A5%E9%94%99%E7%9B%B2%E6%B3%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>web敏感文件泄露</title>
@@ -302,14 +328,15 @@
     <link href="http://example.com/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/"/>
     <id>http://example.com/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/</id>
     <published>2022-03-01T00:12:56.000Z</published>
-    <updated>2022-03-22T14:01:46.249Z</updated>
+    <updated>2022-03-24T09:04:13.867Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h3 id=&quot;1、web171&quot;&gt;&lt;a href=&quot;#1、web171&quot; class=&quot;headerlink&quot; title=&quot;1、web171&quot;&gt;&lt;/a&gt;1、web171&lt;/h3&gt;&lt;img</summary>
+    <summary type="html">&lt;p&gt;From：&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -499,31 +526,6 @@
     <category term="Misc" scheme="http://example.com/tags/Misc/"/>
     
     <category term="BUUCTF" scheme="http://example.com/tags/BUUCTF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>渗透：web源码拓展</title>
-    <link href="http://example.com/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/"/>
-    <id>http://example.com/2022/01/17/%E6%B8%97%E9%80%8F%EF%BC%9Aweb%E6%BA%90%E7%A0%81%E6%8B%93%E5%B1%95/</id>
-    <published>2022-01-17T08:42:36.000Z</published>
-    <updated>2022-01-28T07:27:48.263Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;1、web源码&quot;&gt;&lt;a href=&quot;#1、web源码&quot; class=&quot;headerlink&quot; title=&quot;1、web源码&quot;&gt;&lt;/a&gt;1、web源码&lt;/h3&gt;&lt;p&gt;​        WEB</summary>
-        
-      
-    
-    
-    
-    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

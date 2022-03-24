@@ -451,14 +451,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-22
+                    2022-03-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    149
+                    215
                 </div>
                 
 
@@ -485,7 +485,10 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、web171"><a href="#1、web171" class="headerlink" title="1、web171"></a>1、web171</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010825363.png"  />
+                <p>From：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_61237064/article/details/121421239">https://blog.csdn.net/qq_61237064/article/details/121421239</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_48083470/article/details/119034415">https://blog.csdn.net/weixin_48083470/article/details/119034415</a></p>
+<h3 id="1、web171"><a href="#1、web171" class="headerlink" title="1、web171"></a>1、web171</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010825363.png"  />
 
 <p>在网页中给出的用户表中可以看到ID=3后，数据无法显示，这说明有三个字段数</p>
 <p>判断字段后，首先查询数据库名字： <code>ctfshow_web</code></p>
@@ -502,7 +505,13 @@
 <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010851191.png" alt="password"></p>
 <h3 id="2、web172"><a href="#2、web172" class="headerlink" title="2、web172"></a>2、web172</h3><p>同web171</p>
 <h3 id="3、web173"><a href="#3、web173" class="headerlink" title="3、web173"></a>3、web173</h3><p>同web171</p>
-<h3 id="4、web174"><a href="#4、web174" class="headerlink" title="4、web174"></a>4、web174</h3>
+<h3 id="4、web174"><a href="#4、web174" class="headerlink" title="4、web174"></a>4、web174</h3><p>查看返回逻辑，发现过滤了flag字符和数字，尝试布尔盲注</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203241656770.png" alt="提示"></p>
+<p><code>preg_match</code>：执行匹配正则表达式</p>
+<p><code>json_encode</code>：对变量进行 JSON 编码</p>
+<p>先抓包查看信息</p>
+<p><img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220324170326485.png" alt="GET方式"></p>
+
                 
             </div>
             <hr/>
@@ -905,7 +914,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">22.7k</span>
+                        class="white-color">23.7k</span>
             
             
             
