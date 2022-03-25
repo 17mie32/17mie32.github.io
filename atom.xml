@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-24T08:42:40.551Z</updated>
+  <updated>2022-03-25T15:43:15.207Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL注入总结</title>
+    <link href="http://example.com/2022/03/25/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/"/>
+    <id>http://example.com/2022/03/25/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/</id>
+    <published>2022-03-25T14:00:32.000Z</published>
+    <updated>2022-03-25T15:43:15.207Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;1、工具&quot;&gt;&lt;a href=&quot;#1、工具&quot; class=&quot;headerlink&quot; title=&quot;1、工具&quot;&gt;&lt;/a&gt;1、工具&lt;/h4&gt;&lt;p&gt;手工注入、sqlmap、脚本、burpsuit爆破&lt;/p&gt;
+&lt;h4 id=&quot;2、注入思路&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="SQL注入" scheme="http://example.com/categories/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="SQL注入" scheme="http://example.com/tags/SQL%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>web敏感文件泄露</title>
@@ -490,31 +516,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;1、web源码&quot;&gt;&lt;a href=&quot;#1、web源码&quot; class=&quot;headerlink&quot; title=&quot;1、web源码&quot;&gt;&lt;/a&gt;1、web源码&lt;/h3&gt;&lt;p&gt;​        WEB</summary>
-        
-      
-    
-    
-    
-    <category term="小迪渗透" scheme="http://example.com/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/"/>
-    
-    
-    <category term="渗透学习" scheme="http://example.com/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>渗透：搭建安全拓展</title>
-    <link href="http://example.com/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/"/>
-    <id>http://example.com/2022/01/13/%E6%B8%97%E9%80%8F%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%AE%89%E5%85%A8%E6%8B%93%E5%B1%95/</id>
-    <published>2022-01-13T13:10:54.000Z</published>
-    <updated>2022-01-17T08:46:34.772Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h4 id=&quot;1、常见搭建平台脚本启用&quot;&gt;&lt;a href=&quot;#1、常见搭建平台脚本启用&quot; class=&quot;headerlink&quot;</summary>
         
       
     
