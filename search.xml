@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>CTF-show-爆破</title>
+      <link href="/2022/03/29/CTF-show-%E7%88%86%E7%A0%B4/"/>
+      <url>/2022/03/29/CTF-show-%E7%88%86%E7%A0%B4/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF-show </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 爆破 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>SQL注入总结</title>
       <link href="/2022/03/25/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/"/>
       <url>/2022/03/25/SQL%E6%B3%A8%E5%85%A5%E6%80%BB%E7%BB%93/</url>
@@ -58,7 +83,7 @@
       <link href="/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/"/>
       <url>/2022/03/23/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%881%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203241432302.png" alt="基本框架"></p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231609231.png" alt="分类" style="zoom:67%;" /><p>（1）什么是文件上传漏洞？</p><p>程序对文件的上传未作全面的限制，导致用户可以上传一些超越用户权限的文件，可以是木马，shell脚本，病毒等。</p><p>（2）危害</p><p>可以成为网站后门webshell获取权限</p><p>（3）漏洞的查找和判断</p><p>黑盒查找：扫描敏感文件获取上传地址；功能点测试；后台处的文件上传（后台权限不等于网站权限）</p><p> 白盒查找：拿到网页源码后，通过代码分析是否有文件上传漏洞</p><p>判断：抓包或测试</p><p>注：文件上传类型的分析</p><h3 id="2、常规文件上传地址获取"><a href="#2、常规文件上传地址获取" class="headerlink" title="2、常规文件上传地址获取"></a>2、常规文件上传地址获取</h3><p>扫描网站敏感文件</p><p>工具：wwwscan、御剑、AWVS</p><p>搜索网站关键词<code>site: URL upload</code></p><h3 id="3、文件上传基础"><a href="#3、文件上传基础" class="headerlink" title="3、文件上传基础"></a>3、文件上传基础</h3><p>（1）上传文件的格式不能混用，如果要求上传php文件，则一般不上传图片，因为要执行的话，要按照对应代码执行，除非有解析漏洞（搭建平台）</p><p>（2）文件上传的绕过：</p><p>抓包修改文件后缀（如果采用的全为js代码，在本地执行，没有用php接收可能抓不到包）；</p><p>修改前端代码（对文件格式的过滤代码，因为将前端代码本地保存，所以最后需要添加action访问到图片对应上传的地址）</p><p>知道网站的CMS可以直接搜索XXXCMS上传漏洞，这种第三方插件的漏洞测试与常规不一样</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h3><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203241432302.png" alt="基本框架"></p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203231609231.png" alt="分类" style="zoom:67%;" /><p>（1）什么是文件上传漏洞？</p><p>程序对文件的上传未作全面的限制，导致用户可以上传一些超越用户权限的文件，可以是木马，shell脚本，病毒等。</p><p>（2）危害</p><p>可以成为网站后门webshell获取权限</p><p>（3）漏洞的查找和判断</p><p>黑盒查找：扫描敏感文件获取上传地址；功能点测试；后台处的文件上传（后台权限不等于网站权限）</p><p> 白盒查找：拿到网页源码后，通过代码分析是否有文件上传漏洞</p><p>判断：抓包或测试</p><p>注：文件上传类型的分析</p><h3 id="2、常规文件上传地址获取"><a href="#2、常规文件上传地址获取" class="headerlink" title="2、常规文件上传地址获取"></a>2、常规文件上传地址获取</h3><p>扫描网站敏感文件</p><p>工具：wwwscan、御剑、AWVS</p><p>搜索网站关键词<code>site: URL upload</code></p><h3 id="3、文件上传基础"><a href="#3、文件上传基础" class="headerlink" title="3、文件上传基础"></a>3、文件上传基础</h3><p>（1）上传文件的格式不能混用，如果要求上传php文件，则一般不上传图片，因为要执行的话，要按照对应代码执行，除非有解析漏洞（搭建平台）</p><p>（2）文件上传的绕过：</p><p>抓包修改文件后缀（如果采用的全为js代码，在本地执行，没有用php接收可能抓不到包）；</p><p>修改前端代码（对文件格式的过滤代码，因为将前端代码本地保存，所以最后需要添加action访问到图片对应上传的地址）</p><p>知道网站的CMS可以直接搜索XXXCMS上传漏洞，这种第三方插件的漏洞测试与常规不一样</p><p>（3）文件上传验证：</p><p>后缀名：类型，文件头等</p><p>后缀名：黑名单，白名单</p><p>黑名单：明确不让上传的格式后缀（<code>asp php jsp aspx cgi war</code>）</p><p>白名单：明确可以上传的格式后缀（<code>jpg png zip rar gif</code>）</p><p>文件类型：MIME信息</p><p>媒体类型，用来表示文档、文件或字节流的性质和格式。</p><p>由类型/子类型组成（无空格，一般是小写，不敏感）</p><p><code>text image audio:音频 video:视频 application:二进制</code></p><p>burpsuit：<code>Content-Type:image/jpeg</code></p><p>文件头：内容头信息</p>]]></content>
       
       
       <categories>
