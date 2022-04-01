@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-31
+                    2022-04-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -606,7 +606,63 @@ image.asp;.jpg或xxx.asp;xxx.jpg
 eg:/x.asp;.1.jpg 实际执行asp文件
 </code></pre>
 <p>（2）Apache</p>
+<pre><code>黑名单
+低版本：
+1.php.xxx也能别执行成php文件
+原理：
+Apache会从右往左识别知道识别到能执行的文件
+
+换行解析：
+2.4.0-2.4.29版本
+1.php\x0A可被解析为php文件
+在burpsuit中修改十六进制为0a
+</code></pre>
 <p>（3）Nginx</p>
+<p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51803069/article/details/109330765">https://blog.csdn.net/m0_51803069/article/details/109330765</a></p>
+<ul>
+<li>配置错误：</li>
+</ul>
+<p>原理：Nginx中PHP配置不当（php.ini）与nginx版本无关</p>
+<p><code>php.ini中cgi.fix_pathinfo=1</code></p>
+<p>Nginx只要一看URL中路径名以.php结尾，便不管该文件是否存在，直接交给php处理。</p>
+<p>新版本的php在<code>php-fpm.conf</code>文件引入了<code>security.limit_extensions=.php</code>限制了可执行文件的后缀，默认只允许执行.php文件</p>
+<ul>
+<li>漏洞利用</li>
+</ul>
+<p>先上传一个xxx.jpg的图片马，访问此路径<code>/xxx.jpg/test.php</code></p>
+<ul>
+<li>CVE-2013-4547（文件名逻辑漏洞）</li>
+</ul>
+<p>原理：</p>
+<p>利用了Nginx错误的解析了URL地址，导致可以绕过服务端限制，从而解析PHP文件</p>
+<p>Nginx 0.8.41 ~ 1.4.3 / 1.5.0 ~ 1.5.7</p>
+<p><code>php-fpm.conf</code>中的<code>security.limit_extensions</code>为空，也就是说任意后缀名都可以解析为PHP</p>
+<ul>
+<li>漏洞利用</li>
+</ul>
+<p>构造<code>/test.aaa \0.php</code>让nginx把test.aaa解析为php文件执行</p>
+<p><code>test.aaa[0x20](空格)[0x00](\0).php</code></p>
+<h3 id="3、编辑器漏洞"><a href="#3、编辑器漏洞" class="headerlink" title="3、编辑器漏洞"></a>3、编辑器漏洞</h3><p>（1）常用编辑器</p>
+<p><code>Fckeditor、Ueditor、kindeditor、CKEditor</code></p>
+<p>（2）扩展</p>
+<p>POC(Proof ofConcept)，中文意思是“观点证明”。这个短语会在漏洞报告中使用，漏洞报告中的POC则是一段说明或者一个攻击的样例，使得读者能够确认这个漏洞是真实存在的。</p>
+<p>EXP(Exploit)，中文意思是“漏洞利用”。意思是一段对漏洞如何利用的详细说明或者一个演示的漏洞攻击代码，可以使得读者完全了解漏洞的机理以及利用的方法。</p>
+<p>VUL(Vulnerability)，泛指漏洞。</p>
+<p>CVE漏洞编（公共漏洞和暴露）为广泛认同的信息安全漏洞或者已经暴露出来的弱点给出一个公共的名称。</p>
+<pre><code>CVE网站：
+http://www.scap.org.cn/
+https://cve.mitre.org/
+</code></pre>
+<h3 id="4、文件上传思路"><a href="#4、文件上传思路" class="headerlink" title="4、文件上传思路"></a>4、文件上传思路</h3><p>（1）上传文件和执行文件是两个东西</p>
+<p>（2）漏洞分类：</p>
+<p>解析漏洞、cms漏洞、其他漏洞（编辑器漏洞、cve漏洞、安全修复）</p>
+<p>（3）思路：</p>
+<ul>
+<li>拿到网站可以先看文件上传功能是否利用</li>
+<li>查看中间件，是否存在解析漏洞/CMS/编辑器漏洞/CVE</li>
+<li>若存在上述漏洞：字典扫描：扫描会员中心，文件上传的位置</li>
+<li>若无则进行验证，解析（黑名单，白名单？）</li>
+</ul>
 
                 
             </div>
@@ -1012,7 +1068,7 @@ eg:/x.asp;.1.jpg 实际执行asp文件
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">26k</span>
+                        class="white-color">26.6k</span>
             
             
             
