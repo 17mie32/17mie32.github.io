@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="文件上传">
-    <meta name="description" content="CTF-show(web151-web170)">
+    <meta name="keywords" content="E=MC^2">
+    <meta name="description" content="title: CTF-show-文件上传top: falsecover: falsetoc: truemathjax: falsedate: 2022-04-02 11:24:33author: 17mie32summary: CTF-sh">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTF-show-文件上传 | E=MC^2</title>
+    <title>E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CTF-show-文件上传</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -417,25 +417,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-                                <span class="chip bg-color">文件上传</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/CTF-show/" class="post-category">
-                                CTF-show
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -458,14 +445,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    96
+                    529
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -485,7 +472,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p>（1）法一：抓包改后缀</p>
+                <p>title: CTF-show-文件上传<br>top: false<br>cover: false<br>toc: true<br>mathjax: false<br>date: 2022-04-02 11:24:33<br>author: 17mie32<br>summary: CTF-show(web151-web170)<br>keywords: 文件上传<br>tags: 文件上传<br>categories: CTF-show</p>
+<h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p>（1）法一：抓包改后缀</p>
 <p>题目提示是前台校验，发现能上传图片，于是准备好的一句话木马改为png后缀上传再抓包</p>
 <p><code>&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p>
 <p>将文件后缀修改为php再放包，可以看到文件上传成功</p>
@@ -497,6 +485,40 @@
 <img src="https://gitee.com/mie1732/emc/raw/master/img/202204021659582.png" alt="蚁剑" style="zoom: 50%;" />
 
 <p>（2）法二：禁JS</p>
+<p>搜索<code>about:config</code>修改<code>javascript.enabled</code>为false即可</p>
+<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021849881.png" alt="火狐"></p>
+<p>但是禁用之后无法点击”上传图片”</p>
+<h3 id="2、web152"><a href="#2、web152" class="headerlink" title="2、web152"></a>2、web152</h3><p>提示后端校验，于是上上传准备好的一句话木马（png）上传抓包，修改后缀即可</p>
+<h3 id="3、web153"><a href="#3、web153" class="headerlink" title="3、web153"></a>3、web153</h3><p><code>.user.ini</code>配置文件</p>
+<p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lleo1/article/details/117263108">https://blog.csdn.net/lleo1/article/details/117263108</a></p>
+<p>首先抓包改后缀无法实行，查看数据包，是Nginx于是考虑<code>.user.ini.</code>（<code>.htaccess</code>是Apache的）</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204021924523.png" alt="Nginx" style="zoom:80%;" />
+
+<p>先上传<code>.user.ini.png</code></p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204022017815.png" alt="文件" style="zoom: 80%;" />
+
+<p>第一行为GIF的文件头</p>
+<p><code>auto_prepend_file</code>：在加载第一个PHP代码之前先行加载该配置所指示的PHP文件</p>
+<p><code>auto_append_file</code>：在每个PHP页面执行完成后所要执行的代码</p>
+<p>抓包后删除png后缀</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204021937650.png" alt="删除png" style="zoom: 80%;" />
+
+<p>再上传1.png的图片马</p>
+<p><code>copy 12.png /b + 1.php /a 1.png</code></p>
+<p>上传后访问<code>/upload/index</code>若有回显则说明执行了php木马上传成功</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204022009114.png" alt="木马上传成功" style="zoom: 33%;" />
+
+<p>用蚁剑连接<code>/upload/index</code>即可得到flag</p>
+<ul>
+<li><code>.user.ini</code>配置文件详情：</li>
+</ul>
+<p>From：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c2ed6b05c964">https://www.jianshu.com/p/c2ed6b05c964</a></p>
+<p>原理：</p>
+<p>php.ini是php的核心配置文件，在php启动时被读取。<code>.user.ini</code>实际上是一个可由用户自定义的php.ini（除<code>PHP_INI_SYSTEM</code>外的模式都可以设置）</p>
+<p><code>.user.ini</code>为一个动态加载的ini文件，修改后，只需要等待<code>user_ini.cache_ttl</code>所设置的时间（默认为300秒）即可被重新加载</p>
+<p>漏洞利用：</p>
+<p>若网站不允许上传php文件，可以先上传<code>.user.ini</code>再上传一个图片马，再进行getshell，前提是<code>.user.ini</code>的文件下需要有正常的PHP文件</p>
+<p>范围比<code>.htaccess</code>更广，<code>nginx/apache/IIS</code>只要是以fastcgi运行的php都可以用此方法</p>
 
                 
             </div>
@@ -560,11 +582,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-                                    <span class="chip bg-color">文件上传</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -617,15 +635,15 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="CTF-show-文件上传">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">CTF-show-文件上传</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CTF-show(web151-web170)
+                            
                         
                     </div>
                     <div class="publish-info">
@@ -634,25 +652,13 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/CTF-show/" class="post-category">
-                                    CTF-show
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            17mie32
                             
                         </span>
                     </div>
                 </div>
 
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
-                        <span class="chip bg-color">文件上传</span>
-                    </a>
-                    
-                </div>
                 
             </div>
         </div>
@@ -902,7 +908,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">26.7k</span>
+                        class="white-color">27.2k</span>
             
             
             
